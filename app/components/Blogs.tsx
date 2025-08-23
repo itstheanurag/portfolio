@@ -26,7 +26,7 @@ export default function MediumBlogs() {
           .filter((post: any) => {
             if (
               post.title ===
-              "I Got Laid Off After 2 Years and 10 Months at a Tech Job — Here’s My Story"
+              "I Got Laid Off After 2 Years and 10 Months at a Tech Job — Here's My Story"
             )
               return false;
 
@@ -78,101 +78,135 @@ export default function MediumBlogs() {
   }, []);
 
   const shimmer = (
-    <div className="space-y-8">
+    <div className="space-y-16">
       {Array.from({ length: 3 }).map((_, idx) => (
         <div
           key={idx}
-          className="animate-pulse flex flex-col border-b border-gray-700 pb-6 gap-4"
+          className="group border-b border-neutral-800 pb-12"
         >
-          <div className="h-6 bg-gray-700 rounded w-3/4"></div>
-          <div className="flex gap-4">
-            <div className="w-48 h-32 bg-gray-700 rounded-md flex-shrink-0"></div>
-            <div className="flex-1 space-y-2">
-              <div className="h-4 bg-gray-700 rounded w-full"></div>
-              <div className="h-4 bg-gray-700 rounded w-5/6"></div>
-              <div className="h-4 bg-gray-700 rounded w-4/6"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-5">
+              <div className="aspect-video bg-neutral-900 rounded-sm animate-pulse"></div>
+            </div>
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+              <div className="space-y-4">
+                <div className="h-8 bg-neutral-800 rounded animate-pulse"></div>
+                <div className="space-y-3">
+                  <div className="h-5 bg-neutral-800 rounded animate-pulse"></div>
+                  <div className="h-5 bg-neutral-800 rounded w-4/5 animate-pulse"></div>
+                  <div className="h-5 bg-neutral-800 rounded w-3/5 animate-pulse"></div>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="h-6 w-16 bg-neutral-800 rounded-full animate-pulse"></div>
+                <div className="h-6 w-20 bg-neutral-800 rounded-full animate-pulse"></div>
+              </div>
             </div>
           </div>
-          <div className="h-4 bg-gray-700 rounded w-1/3"></div>
         </div>
       ))}
     </div>
   );
 
   return (
-    <div className="max-w-4xl mx-auto  px-4 space-y-12">
-      {/* Section Heading */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">My Blog</h2>
-        <p className="text-gray-400 mt-2 sm:text-base">
-          I do like to share things on the internet and sometimes by some
-          miracle they turn out interesting.
-        </p>
-      </div>
+    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+      <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 text-left tracking-tight">
+        My Blog
+      </h2>
+      <p className="text-lg text-neutral-400 mb-16 leading-relaxed max-w-2xl">
+        I do like to share things on the internet and sometimes by some
+        miracle they turn out interesting.
+      </p>
 
-      {/* Shimmer while loading */}
       {loading ? (
         shimmer
       ) : (
         <>
-          {posts.map((post, i) => (
-            <a
-              key={i}
-              href={post.link}
-              target="_blank"
-              className="block border-b border-gray-700 pb-6 transition-colors rounded-lg"
-            >
-              {/* Title + Author */}
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-2">
-                <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                  {post.title}
-                </h3>
-                <span className="text-neutral-400 ml-auto bg-neutral-900 rounded-lg px-2 py-1 text-sm sm:text-xs font:bold">
-                  {post.creator}
-                </span>
-              </div>
+          <div className="space-y-16">
+            {posts?.map((post, idx) => (
+              <div
+                key={idx}
+                className="group border-b border-neutral-800 pb-12 last:border-b-0"
+              >
+                <a
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    {/* Post Image */}
+                    <div className="lg:col-span-5">
+                      <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
+                        <img
+                          src={post.thumbnail}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Post Details */}
+                    <div className="lg:col-span-7 flex flex-col justify-center">
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 mb-4 tracking-tight group-hover:text-white transition-colors">
+                            {post.title}
+                          </h3>
+                          <p className="text-lg text-neutral-400 leading-relaxed">
+                            {post.snippet}
+                          </p>
+                        </div>
 
-              {/* Content + Image */}
-              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-                <img
-                  src={post.thumbnail}
-                  alt={post.title}
-                  className="w-full md:w-48 h-32 md:h-36 object-cover rounded-md flex-shrink-0"
-                />
-                <p className="text-gray-400 text-sm sm:text-base line-clamp-5">
-                  {post.snippet}
-                </p>
+                        <div className="flex flex-wrap gap-3 items-center">
+                          {post.category.map((cat, i) => (
+                            <span
+                              key={i}
+                              className="text-sm text-neutral-500 border border-neutral-700 px-3 py-1 rounded-full hover:border-neutral-600 hover:text-neutral-400 transition-colors"
+                            >
+                              {cat}
+                            </span>
+                          ))}
+                          <span className="text-sm text-neutral-300 bg-neutral-800 px-3 py-1 rounded-full font-medium">
+                            by {post.creator}
+                          </span>
+                          <span className="text-sm text-neutral-500 ml-auto">
+                            {new Date(post.pubDate).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric'
+                            })}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
-
-              {/* Categories + Published Date */}
-              <div className="mt-4 flex flex-wrap gap-2 items-center text-xs sm:text-sm text-gray-500">
-                {post.category.map((cat, idx) => (
-                  <span
-                    key={idx}
-                    className="text-neutral-400 font-bold bg-neutral-900 px-2 py-1 rounded text-xs sm:text-sm"
-                  >
-                    {cat}
-                  </span>
-                ))}
-                <span className="text-neutral-400 ml-auto bg-neutral-900 rounded-lg px-2 py-1 text-xs sm:text-sm">
-                  {new Date(post.pubDate).toLocaleDateString()}
-                </span>
-              </div>
-            </a>
-          ))}
+            ))}
+          </div>
 
           {/* More on Medium */}
-          <div className="text-center mt-8">
+          <div className="pt-12 mt-16 border-t border-neutral-800">
             <a
               href="https://medium.com/@codecript"
               target="_blank"
-              className="text-neutral-400 font-semibold hover:underline"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link"
             >
-              More on Medium →
+              <span className="text-lg font-medium tracking-wide">More on Medium</span>
+              <svg 
+                className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </a>
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 }
