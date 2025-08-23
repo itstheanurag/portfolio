@@ -2,26 +2,40 @@ import Parser from "rss-parser";
 
 const parser = new Parser();
 
+// // Simple in-memory cache
+// let cachedPosts: any[] = [];
+// let cacheTime = 0;
+// const CACHE_DURATION = 1000 * 60 * 10; // 10 minutes
+
 export async function GET() {
   try {
-    const feed = await parser.parseURL("https://medium.com/feed/@codecript");
+    const res = await fetch("https://medium.com/feed/@codecript", {
+      next: { revalidate: 600 },
+    });
+    const text = await res.text();
 
+    const feed = await parser.parseString(text);
     const posts = feed.items.map((item) => ({
       title: item.title || "",
       link: item.link || "#",
       pubDate: item.pubDate || "",
       originalContent: item["content:encoded"] || "",
-      contentSnippet: item.contentSnippet || item["content:encodedSnippet"],
-      creator: item.creator,
-      category: item.categories,
+      contentSnippet:
+        item.contentSnippet || item["content:encodedSnippet"] || "",
+      creator: item.creator || "Unknown",
+      category: item.categories || [],
     }));
 
-    console.log(posts.length)
-    return new Response(JSON.stringify(posts), { status: 200 });
+    return new Response(JSON.stringify({ posts }), {
+      status: 200,
+    });
   } catch (err) {
+    console.error(err);
     return new Response(
       JSON.stringify({ error: "Failed to fetch Medium posts" }),
-      { status: 500 }
+      {
+        status: 500,
+      }
     );
   }
 }

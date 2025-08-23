@@ -21,7 +21,6 @@ export default function MediumBlogs({ count }: { count?: number }) {
       try {
         const res = await fetch("/api/medium");
         const data = await res.json();
-
         const formatted = data
           .filter((post: any) => {
             if (
