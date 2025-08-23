@@ -12,7 +12,15 @@ import {
   ServerCrash,
 } from "lucide-react";
 
-export const HOME_PAGE_SKILL_I_DO = [
+type InterestType = {
+  title: string;
+  icon: React.ElementType;
+  code: string[];
+};
+
+export type InterestTypeArray = InterestType[];
+
+export const HOME_PAGE_SKILL_I_DO: InterestTypeArray = [
   {
     title: "Node.js Server Setup",
     icon: Code2,
@@ -93,7 +101,7 @@ export const HOME_PAGE_SKILL_I_DO = [
   },
 ];
 
-export const ALL_THINGS_I_DO_PAGE = [
+export const ALL_THINGS_I_DO_PAGE: InterestTypeArray = [
   ...HOME_PAGE_SKILL_I_DO,
   {
     title: "Swagger Documentation",

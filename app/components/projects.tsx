@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface Project {
   name: string;
-  description: string; // Short description for the card
-  longDescription?: string; // Full description for the modal
+  description: string;
+  longDescription?: string;
   link?: string;
   techStack?: string[];
   image?: string;
@@ -53,10 +55,12 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               {project.image && (
                 <div className="lg:col-span-5">
                   <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.name}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                      width={500}
+                      height={300}
                     />
                   </div>
                 </div>
@@ -121,7 +125,7 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
 
       {/* Simple Clean Modal */}
       {selectedProject && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 "
           onClick={handleBackdropClick}
         >
@@ -131,8 +135,18 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-200 transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -146,7 +160,7 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               {selectedProject.image && (
                 <div className="mb-6">
                   <div className="aspect-video bg-neutral-800 rounded-sm overflow-hidden">
-                    <img
+                    <Image
                       src={selectedProject.image}
                       alt={selectedProject.name}
                       className="w-full h-full object-cover"
@@ -167,7 +181,9 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               {/* Core Features */}
               {selectedProject.coreFeatures && (
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-neutral-200 mb-3">Features</h4>
+                  <h4 className="text-lg font-medium text-neutral-200 mb-3">
+                    Features
+                  </h4>
                   <ul className="space-y-2">
                     {selectedProject.coreFeatures.map((feature, i) => (
                       <li key={i} className="flex items-start">
@@ -182,7 +198,9 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               {/* Tech Stack */}
               {selectedProject.techStack && (
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-neutral-200 mb-3">Technologies</h4>
+                  <h4 className="text-lg font-medium text-neutral-200 mb-3">
+                    Technologies
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.techStack.map((tech, i) => (
                       <span
@@ -199,17 +217,27 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               {/* Project Link */}
               {selectedProject.link && (
                 <div className="pt-4 border-t border-neutral-700">
-                  <a
+                  <Link
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     View Project
-                    <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <svg
+                      className="ml-1 w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>

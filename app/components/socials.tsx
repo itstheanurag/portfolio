@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
@@ -72,7 +73,7 @@ export default function SocialsSection() {
           {SOCIALS.map((social, idx) => {
             const Icon = social.icon;
             return (
-              <a
+              <Link
                 key={idx}
                 href={social.link}
                 target="_blank"
@@ -83,12 +84,11 @@ export default function SocialsSection() {
                 <span className="text-neutral-200 font-medium">
                   {social.name}
                 </span>
-              </a>
+              </Link>
             );
           })}
         </div>
       </section>
-
     </>
   );
 }

@@ -1,12 +1,8 @@
 "use client";
-import { HOME_PAGE_SKILL_I_DO } from "@/lib/data/thingsiDo";
+import { HOME_PAGE_SKILL_I_DO, InterestTypeArray } from "@/lib/data/thingsiDo";
 import { MouseEvent } from "react";
 
-const ThingsIDo = ({
-  elements,
-}: {
-  elements?: { title: string; icon: React.ElementType; code: string[] }[];
-}) => {
+const ThingsIDo = ({ elements }: { elements?: InterestTypeArray }) => {
   const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
     e.currentTarget.style.transform = "translateY(-2px)";
     e.currentTarget.style.borderColor = "rgb(115 115 115)"; // neutral-500
@@ -93,11 +89,10 @@ export default ThingsIDo;
 import Link from "next/link";
 
 interface Props {
-  hasMore?: boolean; 
+  hasMore?: boolean;
 }
 
 function MoreSkillsButton({ hasMore }: Props) {
-  console.log(hasMore)
   if (hasMore) return null;
 
   return (

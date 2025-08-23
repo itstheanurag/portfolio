@@ -6,7 +6,6 @@ import ProjectList from "./components/projects";
 import ThingsIDo from "./components/thingsIDo";
 import SkillsAndInterestMarquee from "./components/skilsInterests";
 import SocialsSection from "./components/socials";
-import { HOME_PAGE_SKILL_I_DO } from "@/lib/data/thingsiDo";
 export default function Home() {
   return (
     <div className="">

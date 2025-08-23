@@ -2,7 +2,7 @@
 
 import React from "react";
 import ThingsIDo from "../components/thingsIDo";
-import { ALL_THINGS_I_DO_PAGE, HOME_PAGE_SKILL_I_DO } from "@/lib/data/thingsiDo";
+import { ALL_THINGS_I_DO_PAGE } from "@/lib/data/thingsiDo";
 
 const Page = () => {
   return (
@@ -20,7 +20,7 @@ const Page = () => {
           and always learning.
         </p>
       </section>
-      <ThingsIDo elements={ALL_THINGS_I_DO_PAGE as unknown as any} />
+      <ThingsIDo elements={ALL_THINGS_I_DO_PAGE} />
     </>
   );
 };

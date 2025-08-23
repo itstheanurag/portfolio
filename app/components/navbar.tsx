@@ -16,7 +16,11 @@ const Navbar = () => {
   ];
 
   const handleContactClick = () => {
-    window.open('https://linkedin.com/in/itstheanurag', '_blank', 'noopener,noreferrer');
+    window.open(
+      "https://linkedin.com/in/itstheanurag",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -25,11 +29,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/">
+            <Link href="/">
               <span className={`text-2xl ${ANIMATING_HEADING_GRADIENTS}`}>
                 @itstheanurag
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -94,14 +98,14 @@ const Navbar = () => {
           <div className="md:hidden border-t border-neutral-800">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-transparent">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="block px-3 py-2 text-neutral-300 hover:text-neutral-100 transition-colors text-base font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
 
               {/* Mobile CTA */}

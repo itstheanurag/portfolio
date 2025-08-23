@@ -1,6 +1,7 @@
 'use client'
 import { ANIMATING_HEADING_GRADIENTS } from "@/lib/utils";
 import { Download } from "lucide-react";
+import Link from "next/link";
 
 const Main = () => {
   const handleDownload = () => {
@@ -44,14 +45,14 @@ const Main = () => {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           {/* Contact Me Button */}
-          <a
+          <Link
             href="https://linkedin.com/in/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 text-neutral-100 rounded-lg border border-neutral-700 bg-neutral-800/50 backdrop-blur-sm hover:bg-neutral-700/50 hover:scale-105 transition ease-in-out duration-300 max-w-[200px] sm:max-w-none w-auto inline-flex justify-center"
           >
             Contact Me
-          </a>
+          </Link>
           {/* Download Resume Button */}
           <button
             onClick={handleDownload}

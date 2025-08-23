@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -8,8 +9,9 @@ interface MediumPost {
   pubDate: string;
   creator: string;
   category: string[];
-  snippet: string;
   thumbnail: string;
+  originalContent: string;
+  contentSnippet: string;
 }
 
 export default function MediumBlogs({ count }: { count?: number }) {
@@ -22,7 +24,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
         const res = await fetch("/api/medium");
         const data = await res.json();
         const formatted = data
-          .filter((post: any) => {
+          .filter((post: MediumPost) => {
             if (
               post.title ===
               "I Got Laid Off After 2 Years and 10 Months at a Tech Job — Here's My Story"
@@ -34,7 +36,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
             );
             return !!imgMatch?.[1];
           })
-          .map((post: any) => {
+          .map((post: MediumPost) => {
             const imgMatch = post.originalContent?.match(
               /<img[^>]+src="([^">]+)"/
             );
@@ -58,7 +60,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                 pubDate: post.pubDate,
                 creator: post.creator || "Unknown",
                 category: categories,
-                snippet,
+                contentSnippet: snippet,
                 thumbnail: imageUrl,
               };
             }
@@ -126,7 +128,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                 key={idx}
                 className="group border-b border-neutral-700 pb-12 last:border-b-0"
               >
-                <a
+                <Link
                   href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -136,7 +138,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                     {/* Post Image */}
                     <div className="lg:col-span-5">
                       <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
-                        <img
+                        <Image
                           src={post.thumbnail}
                           alt={post.title}
                           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
@@ -152,7 +154,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                             {post.title}
                           </h3>
                           <p className="text-lg text-neutral-400 leading-relaxed">
-                            {post.snippet}
+                            {post.contentSnippet}
                           </p>
                         </div>
 
@@ -182,7 +184,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -213,7 +215,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                 </svg>
               </Link>
             ) : (
-              <a
+              <Link
                 href="https://medium.com/@codecript"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -235,7 +237,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </a>
+              </Link>
             )}
           </div>
         </>
