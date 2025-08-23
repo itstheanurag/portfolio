@@ -27,7 +27,6 @@ export default function MediumBlogs({ count }: { count?: number }) {
             const imgMatch = post.originalContent?.match(
               /<img[^>]+src="([^">]+)"/
             );
-            console.log("Filter match:", imgMatch);
             return !!imgMatch?.[1];
           })
           .map((post: MediumPost) => {

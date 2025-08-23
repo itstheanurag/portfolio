@@ -30,7 +30,6 @@ export async function GET() {
       status: 200,
     });
   } catch (err) {
-    console.error(err);
     return new Response(
       JSON.stringify({ error: "Failed to fetch Medium posts" }),
       {
