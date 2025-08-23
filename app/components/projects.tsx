@@ -29,6 +29,13 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
     return () => document.removeEventListener("keydown", handleEsc);
   }, []);
 
+  // Close modal when clicking backdrop
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setSelectedProject(null);
+    }
+  };
+
   return (
     <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
       <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-16 text-left tracking-tight">
@@ -112,50 +119,100 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
         ))}
       </div>
 
-      {/* Modal */}
+      {/* Simple Clean Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
-          <div className="bg-neutral-950 rounded-lg p-6 max-w-2xl w-full relative">
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 "
+          onClick={handleBackdropClick}
+        >
+          <div className="bg-transparent backdrop-blur-md border border-neutral-700 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
+            {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-200 text-xl"
+              className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-200 transition-colors"
             >
-              ✕
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
 
-            <h3 className="text-2xl font-semibold text-white mb-4">
-              {selectedProject.name}
-            </h3>
+            <div className="p-6">
+              {/* Title */}
+              <h3 className="text-2xl font-medium text-neutral-100 mb-4 tracking-tight pr-8">
+                {selectedProject.name}
+              </h3>
 
-            {/* Long Description */}
-            {selectedProject.longDescription && (
-              <p className="text-neutral-300 mb-4 leading-relaxed">
-                {selectedProject.longDescription}
-              </p>
-            )}
+              {/* Image */}
+              {selectedProject.image && (
+                <div className="mb-6">
+                  <div className="aspect-video bg-neutral-800 rounded-sm overflow-hidden">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              )}
 
-            {/* Core Features */}
-            {selectedProject.coreFeatures && (
-              <ul className="list-disc list-inside text-neutral-400 space-y-1 mb-4">
-                {selectedProject.coreFeatures.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
-            )}
+              {/* Long Description */}
+              {selectedProject.longDescription && (
+                <div className="mb-6">
+                  <p className="text-lg text-neutral-400 leading-relaxed">
+                    {selectedProject.longDescription}
+                  </p>
+                </div>
+              )}
 
-            {/* Tech Stack */}
-            {selectedProject.techStack && (
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-xs text-neutral-400 border border-neutral-700 px-2 py-1 rounded-full"
+              {/* Core Features */}
+              {selectedProject.coreFeatures && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-medium text-neutral-200 mb-3">Features</h4>
+                  <ul className="space-y-2">
+                    {selectedProject.coreFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-neutral-400">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Tech Stack */}
+              {selectedProject.techStack && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-medium text-neutral-200 mb-3">Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.techStack.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="text-sm text-neutral-400 border border-neutral-700 px-3 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Project Link */}
+              {selectedProject.link && (
+                <div className="pt-4 border-t border-neutral-700">
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            )}
+                    View Project
+                    <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

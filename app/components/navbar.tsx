@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { ANIMATING_HEADING_GRADIENTS } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,17 +15,20 @@ const Navbar = () => {
     { name: "Skills", href: "/interests" },
   ];
 
+  const handleContactClick = () => {
+    window.open('https://linkedin.com/in/itstheanurag', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md border-b border-neutral-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a
-              href="/"
-              className="text-xl font-medium text-neutral-100 tracking-tight hover:text-white transition-colors"
-            >
-              @itstheanurag
+            <a href="/">
+              <span className={`text-2xl ${ANIMATING_HEADING_GRADIENTS}`}>
+                @itstheanurag
+              </span>
             </a>
           </div>
 
@@ -45,9 +49,10 @@ const Navbar = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group"
+            <button
+              type="button"
+              onClick={handleContactClick}
+              className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group cursor-pointer"
             >
               <span className="text-sm font-medium tracking-wide">
                 Get in Touch
@@ -65,7 +70,7 @@ const Navbar = () => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </a>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -101,12 +106,13 @@ const Navbar = () => {
 
               {/* Mobile CTA */}
               <div className="px-3 py-2 mt-4 border-t border-neutral-700">
-                <a
-                  href="https://linkedin.com/in/itstheanurag"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group"
-                  onClick={() => setIsOpen(false)}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleContactClick();
+                  }}
+                  className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group w-full text-left"
                 >
                   <span className="text-base font-medium tracking-wide">
                     Get in Touch
@@ -124,7 +130,7 @@ const Navbar = () => {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>

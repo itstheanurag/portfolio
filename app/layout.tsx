@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
+import GlobalParticles from "./components/GlobalParticiles";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +20,6 @@ export const metadata: Metadata = {
     "Showcasing the work and projects of Gaurav Kumar a backend developer. Because the world really needed another developer who doesn't drink coffee. Brace yourself for pure backend wizardry. Writes Code, Lifts weights and watches anime.",
 };
 
-<div className="min-h-screen w-full bg-black relative">
-  {/* Cosmic Noise */}
-  <div className="absolute inset-0 z-0" />
-  {/* Your Content/Components */}
-</div>;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,8 +36,18 @@ export default function RootLayout({
             "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 40%), linear-gradient(120deg, #0f0e17 0%, #1a1b26 100%)",
         }}
       >
-        <Navbar />
-        {children}
+        {/* Global Particles Background */}
+        <GlobalParticles />
+        
+        {/* Navbar */}
+        <div className="relative z-20">
+          <Navbar />
+        </div>
+        
+        {/* Main Content */}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

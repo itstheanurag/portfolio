@@ -1,75 +1,6 @@
-"use client";
-
+'use client'
+import { ANIMATING_HEADING_GRADIENTS } from "@/lib/utils";
 import { Download } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
-
-const ANIMATING_HEADING_GRADIENTS = `bg-gradient-to-r from-pink-500 via-red-500 via-orange-500 via-yellow-300 via-green-600 via-blue-400 to-purple-500 animate-gradient`;
-
-// Define particle type
-interface Particle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
-  opacity: number;
-}
-
-// Simple Particles Component (No external library needed)
-const ParticlesBackground = () => {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    const particleCount = 100;
-    const newParticles: Particle[] = Array.from(
-      { length: particleCount },
-      (_, i) => ({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.6 + 0.2,
-      })
-    );
-    setParticles(newParticles);
-  }, []);
-
-  useEffect(() => {
-    const animateParticles = () => {
-      setParticles((prevParticles: Particle[]) =>
-        prevParticles.map((particle: Particle) => ({
-          ...particle,
-          x: (particle.x + particle.speedX + 100) % 100,
-          y: (particle.y + particle.speedY + 100) % 100,
-        }))
-      );
-    };
-
-    const interval = setInterval(animateParticles, 50);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle: Particle) => (
-        <div
-          key={particle.id}
-          className="absolute bg-white rounded-full transition-all duration-100"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            opacity: particle.opacity,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
 
 const Main = () => {
   const handleDownload = () => {
@@ -83,9 +14,6 @@ const Main = () => {
 
   return (
     <div className="min-h-screen w-full relative">
-      {/* Particles Background */}
-      <ParticlesBackground />
-
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-4 text-center space-y-6">
         {/* Badge */}
@@ -98,7 +26,7 @@ const Main = () => {
 
         {/* Animated Gradient Heading */}
         <h1
-          className={`text-4xl sm:text-4xl md:text-6xl font-light tracking-tight text-transparent bg-clip-text ${ANIMATING_HEADING_GRADIENTS}`}
+          className={`text-4xl sm:text-4xl md:text-6xl font-light tracking-tight ${ANIMATING_HEADING_GRADIENTS}`}
         >
           Backend Developer
         </h1>
