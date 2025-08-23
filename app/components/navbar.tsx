@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Projects", href: "/projects" },
     { name: "Blog", href: "/blogs" },
-    { name: "Contact", href: "/contact" },
+    { name: "Skills", href: "/interests" },
   ];
 
   return (
@@ -102,7 +102,9 @@ const Navbar = () => {
               {/* Mobile CTA */}
               <div className="px-3 py-2 mt-4 border-t border-neutral-700">
                 <a
-                  href="#contact"
+                  href="https://linkedin.com/in/itstheanurag"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group"
                   onClick={() => setIsOpen(false)}
                 >

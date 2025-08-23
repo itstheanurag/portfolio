@@ -9,6 +9,7 @@ import {
   Columns2,
   Container,
   ShieldHalf,
+  ServerCrash,
 } from "lucide-react";
 
 export const HOME_PAGE_SKILL_I_DO = [
@@ -24,25 +25,6 @@ export const HOME_PAGE_SKILL_I_DO = [
       `const app = express();`,
       `app.use(express.json(), helmet(), cors());`,
       `app.listen(3000, () => console.log('Server running'));`,
-    ],
-  },
-  {
-    title: "NestJS API",
-    icon: Server,
-    code: [
-      `// NestJS Controller example`,
-      `@Controller('users')`,
-      `export class UsersController {`,
-      `  constructor(private usersService: UsersService) {}`,
-      `  @Get()`,
-      `  findAll() {`,
-      `    return this.usersService.findAll();`,
-      `  }`,
-      `  @Get(':id')`,
-      `  findOne(@Param('id') id: string) {`,
-      `    return this.usersService.findById(id);`,
-      `  }`,
-      `}`,
     ],
   },
   {
@@ -109,19 +91,6 @@ export const HOME_PAGE_SKILL_I_DO = [
       `);`,
     ],
   },
-  {
-    title: "API Testing",
-    icon: Terminal,
-    code: [
-      `// Test endpoint with curl`,
-      `curl -X POST https://api.example.com/webhook \\`,
-      `  -H "Content-Type: application/json" \\`,
-      `  -d '{"type":"order.created","data":{"id":"123"}}'`,
-      ``,
-      `// Express handler`,
-      `app.post('/webhook', (req, res) => res.status(200).send('OK'));`,
-    ],
-  },
 ];
 
 export const ALL_THINGS_I_DO_PAGE = [
@@ -182,7 +151,7 @@ export const ALL_THINGS_I_DO_PAGE = [
   },
   {
     title: "Error Handling & Logging",
-    icon: "⚠️",
+    icon: ServerCrash,
     code: [
       `// Global error handler with structured logging`,
       `const errorHandler = (err, req, res, next) => {`,
@@ -238,6 +207,38 @@ export const ALL_THINGS_I_DO_PAGE = [
       `});`,
       ``,
       `app.use('/api/', limiter);`,
+    ],
+  },
+  {
+    title: "API Testing",
+    icon: Terminal,
+    code: [
+      `// Test endpoint with curl`,
+      `curl -X POST https://api.example.com/webhook \\`,
+      `  -H "Content-Type: application/json" \\`,
+      `  -d '{"type":"order.created","data":{"id":"123"}}'`,
+      ``,
+      `// Express handler`,
+      `app.post('/webhook', (req, res) => res.status(200).send('OK'));`,
+    ],
+  },
+  {
+    title: "NestJS API",
+    icon: Server,
+    code: [
+      `// NestJS Controller example`,
+      `@Controller('users')`,
+      `export class UsersController {`,
+      `  constructor(private usersService: UsersService) {}`,
+      `  @Get()`,
+      `  findAll() {`,
+      `    return this.usersService.findAll();`,
+      `  }`,
+      `  @Get(':id')`,
+      `  findOne(@Param('id') id: string) {`,
+      `    return this.usersService.findById(id);`,
+      `  }`,
+      `}`,
     ],
   },
 ];

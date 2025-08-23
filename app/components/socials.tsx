@@ -88,6 +88,7 @@ export default function SocialsSection() {
           })}
         </div>
       </section>
+
     </>
   );
 }
