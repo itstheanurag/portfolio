@@ -28,7 +28,7 @@ const ThingsIDo = () => {
           return (
             <div
               key={idx}
-              className="group border-b border-neutral-600 pb-12 last:border-b-0"
+              className="group border-b border-neutral-700 pb-12 last:border-b-0"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                 {/* Icon and Title Section */}

@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface MediumPost {
@@ -12,7 +12,7 @@ interface MediumPost {
   thumbnail: string;
 }
 
-export default function MediumBlogs() {
+export default function MediumBlogs({ count }: { count?: number }) {
   const [posts, setPosts] = useState<MediumPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -41,7 +41,7 @@ export default function MediumBlogs() {
             );
             const imageUrl = imgMatch![1];
 
-            if (imageUrl){
+            if (imageUrl) {
               const snippet = post.contentSnippet
                 ? post.contentSnippet.replace(/<[^>]+>/g, "").slice(0, 300) +
                   "..."
@@ -63,8 +63,7 @@ export default function MediumBlogs() {
                 thumbnail: imageUrl,
               };
             }
-          })
-          .slice(0, 4);
+          });
 
         setPosts(formatted as MediumPost[]);
       } catch (err) {
@@ -80,10 +79,7 @@ export default function MediumBlogs() {
   const shimmer = (
     <div className="space-y-16">
       {Array.from({ length: 3 }).map((_, idx) => (
-        <div
-          key={idx}
-          className="group border-b border-neutral-800 pb-12"
-        >
+        <div key={idx} className="group border-b border-neutral-800 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-5">
               <div className="aspect-video bg-neutral-900 rounded-sm animate-pulse"></div>
@@ -108,25 +104,28 @@ export default function MediumBlogs() {
     </div>
   );
 
+  const visiblePosts = count ? posts.slice(0, count) : posts;
   return (
     <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
       <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 text-left tracking-tight">
-        My Blog
+        Medium Blog
       </h2>
-      <p className="text-lg text-neutral-400 mb-16 leading-relaxed max-w-2xl">
-        I do like to share things on the internet and sometimes by some
-        miracle they turn out interesting.
-      </p>
+      {count && (
+        <p className="text-lg text-neutral-400 mb-16 leading-relaxed ">
+          I do like to share things on the internet and sometimes by some
+          miracle they turn out interesting.
+        </p>
+      )}
 
       {loading ? (
         shimmer
       ) : (
         <>
           <div className="space-y-16">
-            {posts?.map((post, idx) => (
+            {visiblePosts?.map((post, idx) => (
               <div
                 key={idx}
-                className="group border-b border-neutral-800 pb-12 last:border-b-0"
+                className="group border-b border-neutral-700 pb-12 last:border-b-0"
               >
                 <a
                   href={post.link}
@@ -134,7 +133,7 @@ export default function MediumBlogs() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                     {/* Post Image */}
                     <div className="lg:col-span-5">
                       <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
@@ -145,7 +144,7 @@ export default function MediumBlogs() {
                         />
                       </div>
                     </div>
-                    
+
                     {/* Post Details */}
                     <div className="lg:col-span-7 flex flex-col justify-center">
                       <div className="space-y-6">
@@ -171,11 +170,14 @@ export default function MediumBlogs() {
                             by {post.creator}
                           </span>
                           <span className="text-sm text-neutral-500 ml-auto">
-                            {new Date(post.pubDate).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
+                            {new Date(post.pubDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              }
+                            )}
                           </span>
                         </div>
                       </div>
@@ -187,23 +189,55 @@ export default function MediumBlogs() {
           </div>
 
           {/* More on Medium */}
+
           <div className="pt-12 mt-16 border-t border-neutral-800">
-            <a
-              href="https://medium.com/@codecript"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link"
-            >
-              <span className="text-lg font-medium tracking-wide">More on Medium</span>
-              <svg 
-                className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
+            {count ? (
+              <Link
+                href="/blogs"
+                className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+                <span className="text-lg font-medium tracking-wide">
+                  View All Blogs
+                </span>
+                <svg
+                  className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            ) : (
+              <a
+                href="https://medium.com/@codecript"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link mb-12"
+              >
+                <span className="text-lg font-medium tracking-wide">
+                  More on Medium
+                </span>
+                <svg
+                  className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            )}
           </div>
         </>
       )}

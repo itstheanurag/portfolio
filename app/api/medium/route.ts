@@ -16,6 +16,7 @@ export async function GET() {
       category: item.categories,
     }));
 
+    console.log(posts.length)
     return new Response(JSON.stringify(posts), { status: 200 });
   } catch (err) {
     return new Response(

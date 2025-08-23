@@ -1,9 +1,21 @@
 "use client";
 import Marquee from "react-fast-marquee";
 import { FaReact, FaNodeJs, FaDocker, FaJava, FaJs } from "react-icons/fa";
-import { 
-  SiNestjs, SiPostgresql, SiFirebase, SiTypescript, SiMongodb, SiExpress, 
-  SiPostman, SiSequelize, SiPrisma, SiGraphql, SiRedux, SiTailwindcss, SiHono, SiGo
+import {
+  SiNestjs,
+  SiPostgresql,
+  SiFirebase,
+  SiTypescript,
+  SiMongodb,
+  SiExpress,
+  SiPostman,
+  SiSequelize,
+  SiPrisma,
+  SiGraphql,
+  SiRedux,
+  SiTailwindcss,
+  SiHono,
+  SiGo,
 } from "react-icons/si";
 
 const TOOLS_STACK = [
@@ -35,7 +47,10 @@ const LANGUAGES = [
 ];
 
 export default function SkillsAndInterestMarquee() {
-  const renderItems = (items: typeof TOOLS_STACK | typeof LANGUAGES, repeat = 3) =>
+  const renderItems = (
+    items: typeof TOOLS_STACK | typeof LANGUAGES,
+    repeat = 3
+  ) =>
     Array.from({ length: repeat }).flatMap((_, rIdx) =>
       items.map((tech, idx) => {
         const Icon = tech.icon;
@@ -51,20 +66,31 @@ export default function SkillsAndInterestMarquee() {
     );
 
   return (
-    <section className="m-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 tracking-tight">
-        Skills and Interests
-      </h2>
+    <>
+      <section className="m-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 tracking-tight">
+          Skills and Interests
+        </h2>
 
-      {/* Tools Marquee */}
-      <Marquee gradient={false} speed={50}>
-        {renderItems(TOOLS_STACK, 3)}
-      </Marquee>
+        <p className="text-lg text-neutral-400 mb-16 leading-relaxed ">
+          I love exploring new technologies, building scalable solutions, and
+          solving real-world problems with code. My interests span full-stack
+          development, backend architectures, and creating products that make an
+          impact.
+        </p>
 
-      {/* Languages Marquee */}
-      <Marquee gradient={false} speed={50} direction="right">
-        {renderItems(LANGUAGES, 5)}
-      </Marquee>
-    </section>
+        {/* Tools Marquee */}
+        <Marquee gradient={false} speed={50}>
+          {renderItems(TOOLS_STACK, 3)}
+        </Marquee>
+
+        {/* Languages Marquee */}
+        <Marquee gradient={false} speed={50} direction="right">
+          {renderItems(LANGUAGES, 5)}
+        </Marquee>
+      </section>
+
+      <div className=" border-b border-neutral-800 pb-12 last:border-b-0 max-w-6xl mx-auto"></div>
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import { WORK_PROJECTS } from "@/lib/data/projects";
-import MediumBlogs from "./components/Blogs";
+import MediumBlogs from "./components/blogs";
 import GithubProfiles from "./components/github";
 import Main from "./components/main";
 import ProjectList from "./components/projects";
@@ -13,7 +13,7 @@ export default function Home() {
       <ProjectList title="Work Projects" projects={WORK_PROJECTS} />
       <ThingsIDo />
       <GithubProfiles />
-      <MediumBlogs />
+      <MediumBlogs count={3} />
       <SkillsAndInterestMarquee />
       <SocialsSection />
     </div>
