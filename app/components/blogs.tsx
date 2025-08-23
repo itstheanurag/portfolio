@@ -23,8 +23,8 @@ export default function MediumBlogs({ count }: { count?: number }) {
       try {
         const res = await fetch("/api/medium");
         const data = await res.json();
-        const formatted = data
-          .filter((post: MediumPost) => {
+        const formatted = data?.posts
+          ?.filter((post: MediumPost) => {
             if (
               post.title ===
               "I Got Laid Off After 2 Years and 10 Months at a Tech Job — Here's My Story"
@@ -141,6 +141,8 @@ export default function MediumBlogs({ count }: { count?: number }) {
                         <Image
                           src={post.thumbnail}
                           alt={post.title}
+                          width={400}
+                          height={300}
                           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
                         />
                       </div>

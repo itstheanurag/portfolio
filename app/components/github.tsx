@@ -11,9 +11,7 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   const [graphUrl, setGraphUrl] = useState<string>("");
 
   useEffect(() => {
-    setGraphUrl(
-      `https://ghchart.rshah.org/${username}?bg=0a0a0a&color=404040&line=525252`
-    );
+    setGraphUrl(`https://ghchart.rshah.org/${username}`);
   }, [username]);
 
   return (
@@ -26,6 +24,7 @@ function GitHubGraph({ username }: GitHubGraphProps) {
             className="w-full rounded-sm transition-all duration-500 grayscale hover:grayscale-0"
             width={500}
             height={200}
+            unoptimized
           />
         </div>
       )}
