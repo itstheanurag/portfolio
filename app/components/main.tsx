@@ -1,6 +1,18 @@
+"use client";
+
+import { Download } from "lucide-react";
+
 const ANIMATING_HEADING_GRADIENTS = `bg-gradient-to-r from-pink-500 via-red-500 via-orange-500 via-yellow-300 via-green-600 via-blue-400 to-purple-500 animate-gradient`;
 
 const Main = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "gaurav-resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="min-h-screen w-full">
       {/* Main Content */}
@@ -33,14 +45,17 @@ const Main = () => {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           {/* Contact Me Button */}
-          <button
-            className="px-6 py-2 text-neutral-100 rounded-lg border border-neutral-700 hover:opacity-90 hover:scale-105 transition ease-in-out duration-300 max-w-[200px] sm:max-w-none w-auto"
-          >
+          <button className="px-6 py-2 text-neutral-100 rounded-lg border border-neutral-700 hover:opacity-90 hover:scale-105 transition ease-in-out duration-300 max-w-[200px] sm:max-w-none w-auto">
             Contact Me
           </button>
 
           {/* Download Resume Button */}
-          <button className="px-6 py-2 text-neutral-100 rounded-lg hover:bg-neutral-800 transition ease-in-out duration-300 max-w-[200px] sm:max-w-none w-auto">
+
+          <button
+            onClick={handleDownload}
+            className="inline-flex items-center px-4 py-2 text-sm font-medium text-neutral-100 hover:bg-neutral-900 rounded-lg transition-colors"
+          >
+            <Download className="w-4 h-4 mr-2" />
             Download Resume
           </button>
         </div>

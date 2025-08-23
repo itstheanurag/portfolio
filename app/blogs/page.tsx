@@ -5,7 +5,7 @@ import MediumBlogs from "../components/blogs";
 export default function Page() {
   return (
     <>
-      <section className="px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto mt-20">
+      <section className="px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto mt-28">
         <h1 className="text-5xl sm:text-6xl font-light text-neutral-100 tracking-tight mb-6">
           My Thoughts in Writing
         </h1>

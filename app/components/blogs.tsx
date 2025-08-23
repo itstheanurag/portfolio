@@ -190,7 +190,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
 
           {/* More on Medium */}
 
-          <div className="pt-12 mt-16 border-t border-neutral-800">
+          <div className="pt-12 border-t border-neutral-800">
             {count ? (
               <Link
                 href="/blogs"

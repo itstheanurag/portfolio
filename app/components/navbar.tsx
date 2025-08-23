@@ -87,7 +87,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden border-t border-neutral-800">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-transparent">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -100,7 +100,7 @@ const Navbar = () => {
               ))}
 
               {/* Mobile CTA */}
-              <div className="px-3 py-2 mt-4 border-t border-neutral-800">
+              <div className="px-3 py-2 mt-4 border-t border-neutral-700">
                 <a
                   href="#contact"
                   className="inline-flex items-center text-neutral-100 hover:text-white transition-colors group"
