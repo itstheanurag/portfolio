@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes gradient-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 400% 400%; /* More area for smooth transition */
+  animation: gradient-slide 8s ease infinite;
+}
+
+.light .animate-gradient {
+  background-image: linear-gradient(
+    to right,
+    #ef4444,
+    #8b5cf6,
+    #3b82f6
+  ); /* red-purple-blue */
+}
+
+.dark .animate-gradient {
+  background-image: linear-gradient(
+    to right,
+    #22d3ee,
+    #6366f1,
+    #ec4899
+  ); /* cyan-indigo-pink */
+}
