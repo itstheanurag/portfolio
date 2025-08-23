@@ -34,7 +34,7 @@ const LANGUAGES = [
   { name: "Java", icon: FaJava },
 ];
 
-export default function TechStackMarquee() {
+export default function SkillsAndInterestMarquee() {
   const renderItems = (items: typeof TOOLS_STACK | typeof LANGUAGES, repeat = 3) =>
     Array.from({ length: repeat }).flatMap((_, rIdx) =>
       items.map((tech, idx) => {

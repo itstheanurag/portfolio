@@ -4,7 +4,7 @@ import GithubProfiles from "./components/github";
 import Main from "./components/main";
 import ProjectList from "./components/projects";
 import ThingsIDo from "./components/thingsIDo";
-import TechStackMarquee from "./components/tech-stack";
+import SkillsAndInterestMarquee from "./components/skilsInterests";
 import SocialsSection from "./components/socials";
 export default function Home() {
   return (
@@ -14,8 +14,8 @@ export default function Home() {
       <ThingsIDo />
       <GithubProfiles />
       <MediumBlogs />
-      <TechStackMarquee />
-      <SocialsSection/>
+      <SkillsAndInterestMarquee />
+      <SocialsSection />
     </div>
   );
 }
