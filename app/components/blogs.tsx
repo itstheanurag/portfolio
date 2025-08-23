@@ -1,8 +1,7 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import BlogImage from "./BlobImage";
 interface MediumPost {
   title: string;
   link: string;
@@ -25,21 +24,17 @@ export default function MediumBlogs({ count }: { count?: number }) {
         const data = await res.json();
         const formatted = data?.posts
           ?.filter((post: MediumPost) => {
-            if (
-              post.title ===
-              "I Got Laid Off After 2 Years and 10 Months at a Tech Job — Here's My Story"
-            )
-              return false;
-
             const imgMatch = post.originalContent?.match(
               /<img[^>]+src="([^">]+)"/
             );
+            console.log("Filter match:", imgMatch);
             return !!imgMatch?.[1];
           })
           .map((post: MediumPost) => {
             const imgMatch = post.originalContent?.match(
               /<img[^>]+src="([^">]+)"/
             );
+
             const imageUrl = imgMatch![1];
 
             if (imageUrl) {
@@ -138,13 +133,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                     {/* Post Image */}
                     <div className="lg:col-span-5">
                       <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
-                        <Image
-                          src={post.thumbnail}
-                          alt={post.title}
-                          width={400}
-                          height={300}
-                          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                        />
+                        <BlogImage src={post.thumbnail} alt="Image Not Found" />
                       </div>
                     </div>
 
