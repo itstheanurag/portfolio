@@ -64,7 +64,7 @@ export default function MediumBlogs() {
               };
             }
           })
-          .slice(0, 5);
+          .slice(0, 4);
 
         setPosts(formatted as MediumPost[]);
       } catch (err) {
@@ -134,7 +134,7 @@ export default function MediumBlogs() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12">
                     {/* Post Image */}
                     <div className="lg:col-span-5">
                       <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
