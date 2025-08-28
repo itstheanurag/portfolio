@@ -9,8 +9,9 @@ const parser = new Parser();
 
 export async function GET() {
   try {
+    // cache for two hours
     const res = await fetch("https://medium.com/feed/@codecript", {
-      next: { revalidate: 600 },
+      next: { revalidate: 7200 },
     });
     const text = await res.text();
 
