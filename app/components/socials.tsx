@@ -8,6 +8,8 @@ import {
   FaMedium,
 } from "react-icons/fa";
 import { SiLeetcode, SiGeeksforgeeks, SiHackerrank } from "react-icons/si";
+import Paragraph from "./typography/paragraph";
+import Heading from "./typography/heading";
 
 const SOCIALS = [
   {
@@ -57,17 +59,15 @@ const SOCIALS = [
 export default function SocialsSection() {
   return (
     <>
-      <section className="mt-16 mb-8 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto space-y-6">
-        <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 tracking-tight">
-          Socials & Coding Profiles
-        </h2>
+      <section className="my-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto space-y-6">
+        <Heading>Socials & Coding Profiles</Heading>
 
-        <p className="text-lg text-neutral-400 mb-16 leading-relaxed ">
+        <Paragraph className="pb-6">
           You can find me sharing insights and connecting with professionals on
           LinkedIn, building and showcasing projects on GitHub, and sharpening
           my problem-solving skills on platforms like LeetCode and HackerRank.
           Each space reflects a different part of my journey as a developer.
-        </p>
+        </Paragraph>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-8">
           {SOCIALS.map((social, idx) => {

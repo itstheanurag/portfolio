@@ -16,14 +16,12 @@ const ThingsIDo = ({ elements }: { elements?: InterestTypeArray }) => {
   const elementsToShow = elements?.length ? elements : HOME_PAGE_SKILL_I_DO;
 
   return (
-    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 text-left tracking-tight">
-        Things I Do
-      </h2>
-      <p className="text-lg text-neutral-400 mb-16 leading-relaxed max-w-2xl">
+    <section className="mt-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+      <Heading>Things I Do</Heading>
+      <Paragraph className="pb-4">
         A collection of technologies and practices that make up my development
         workflow.
-      </p>
+      </Paragraph>
 
       <div className="space-y-16">
         {elementsToShow?.map((skill, idx) => {
@@ -87,6 +85,9 @@ const ThingsIDo = ({ elements }: { elements?: InterestTypeArray }) => {
 export default ThingsIDo;
 
 import Link from "next/link";
+import Subheading from "./typography/subeading";
+import Paragraph from "./typography/paragraph";
+import Heading from "./typography/heading";
 
 interface Props {
   hasMore?: boolean;

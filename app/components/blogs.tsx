@@ -6,7 +6,6 @@ import Subheading from "./typography/subeading";
 import Paragraph from "./typography/paragraph";
 import Link from "next/link";
 import useSWR from "swr";
-
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function MediumBlogs({ count }: { count?: number }) {
@@ -14,7 +13,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
     revalidateOnFocus: false,
     refreshInterval: 5 * 60 * 1000,
   });
-  
+
   if (isLoading) return <Shimmer />;
   if (error) return <p>Failed to load posts</p>;
 
@@ -44,7 +43,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
   const visiblePosts = count ? formattedPosts.slice(0, count) : formattedPosts;
   return (
     <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <Subheading className="pb-8">Medium Blog</Subheading>
+      <Subheading className="pb-6">Medium Blog</Subheading>
       {count && (
         <Paragraph>
           I do like to share things on the internet and sometimes by some
@@ -57,9 +56,10 @@ export default function MediumBlogs({ count }: { count?: number }) {
           {visiblePosts?.map((post: MediumPost, idx: number) => (
             <div
               key={idx}
-              className="group border-b border-neutral-700 pb-12 last:border-b-0"
+              className="group border-b border-neutral-700 pb-12 last:border-b-0 
+                 px-4 sm:px-0" // <-- add horizontal padding on small screens
             >
-              <Link
+              <a
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -80,9 +80,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                         <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 mb-4 tracking-tight group-hover:text-white transition-colors">
                           {post.title}
                         </h3>
-                        <p className="text-lg text-neutral-400 leading-relaxed">
-                          {post.contentSnippet}
-                        </p>
+                        <Paragraph>{post.contentSnippet}</Paragraph>
                       </div>
 
                       <div className="flex flex-wrap gap-3 items-center">
@@ -108,7 +106,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             </div>
           ))}
         </div>

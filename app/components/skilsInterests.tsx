@@ -17,6 +17,8 @@ import {
   SiHono,
   SiGo,
 } from "react-icons/si";
+import Heading from "./typography/heading";
+import Paragraph from "./typography/paragraph";
 
 const TOOLS_STACK = [
   { name: "React", icon: FaReact },
@@ -68,16 +70,14 @@ export default function SkillsAndInterestMarquee() {
   return (
     <>
       <section className="m-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 tracking-tight">
-          Skills and Interests
-        </h2>
+        <Heading>Skills and Interests</Heading>
 
-        <p className="text-lg text-neutral-400 mb-16 leading-relaxed ">
+        <Paragraph className="pb-6">
           I love exploring new technologies, building scalable solutions, and
           solving real-world problems with code. My interests span full-stack
           development, backend architectures, and creating products that make an
           impact.
-        </p>
+        </Paragraph>
 
         {/* Tools Marquee */}
         <Marquee gradient={false} speed={50}>

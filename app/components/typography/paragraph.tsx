@@ -10,7 +10,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
   return (
     <h2
       className={cn(
-        "text-lg text-neutral-400 leading-relaxed max-w-2xl line-clamp-3",
+        "text-lg text-neutral-400 leading-relaxed line-clamp-3",
         className
       )}
     >

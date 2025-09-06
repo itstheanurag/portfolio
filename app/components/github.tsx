@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Heading from "./typography/heading";
+import Paragraph from "./typography/paragraph";
 
 interface GitHubGraphProps {
   username: string;
@@ -36,13 +38,11 @@ export default function GithubProfiles() {
   return (
     <>
       <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-4 text-left tracking-tight">
-          GitHub Activity
-        </h2>
-        <p className="text-lg text-neutral-400 mb-16 leading-relaxed max-w-2xl">
+        <Heading>GitHub Activity</Heading>
+        <Paragraph className="pb-6">
           A visual representation of my coding activity across personal and work
           repositories.
-        </p>
+        </Paragraph>
 
         <div className="space-y-16">
           {/* Personal */}

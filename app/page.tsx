@@ -6,12 +6,13 @@ import ProjectList from "./components/projects";
 import ThingsIDo from "./components/thingsIDo";
 import SkillsAndInterestMarquee from "./components/skilsInterests";
 import SocialsSection from "./components/socials";
+
 export default function Home() {
   return (
-    <div className="">
+    <div className="px-4 sm:px-6 lg:px-12">
       <Main />
       <ProjectList title="Work Projects" projects={WORK_PROJECTS} />
-      <ThingsIDo/>
+      <ThingsIDo />
       <GithubProfiles />
       <MediumBlogs count={3} />
       <SkillsAndInterestMarquee />
