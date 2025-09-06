@@ -3,6 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Heading from "./typography/heading";
+import Subheading from "./typography/subeading";
+import Paragraph from "./typography/paragraph";
 
 interface Project {
   name: string;
@@ -40,9 +43,7 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
 
   return (
     <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <h2 className="text-4xl sm:text-5xl text-neutral-100 font-light mb-16 text-left tracking-tight">
-        {title}
-      </h2>
+      <Heading>{title}</Heading>
 
       <div className="space-y-16">
         {projects?.map((project, idx) => (
@@ -74,12 +75,8 @@ export default function ProjectList({ title, projects }: ProjectListProps) {
               >
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 mb-4 tracking-tight">
-                      {project.name}
-                    </h3>
-                    <p className="text-lg text-neutral-400 leading-relaxed max-w-2xl line-clamp-3">
-                      {project.description}
-                    </p>
+                    <Subheading className="pb-4">{project.name}</Subheading>
+                    <Paragraph>{project.description}</Paragraph>
                   </div>
 
                   {/* Core Features Preview */}
