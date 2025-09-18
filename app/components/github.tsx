@@ -19,11 +19,11 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   return (
     <div className="w-full">
       {graphUrl && (
-        <div className="border border-neutral-700 rounded-sm p-6 transition-all duration-300 hover:border-neutral-600">
+        <div className="rounded-sm p-6 bg-neutral-100 shadow-md hover:shadow-lg transition-all">
           <Image
             src={graphUrl}
             alt={`${username}'s GitHub Activity Graph`}
-            className="w-full rounded-sm transition-all duration-500 grayscale hover:grayscale-0"
+            className="w-full rounded-sm transition-all duration-500"
             width={500}
             height={200}
             unoptimized

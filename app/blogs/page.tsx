@@ -1,5 +1,3 @@
-"use client";
-
 import MediumBlogs from "../components/blogs";
 import Heading from "../components/typography/heading";
 import Paragraph from "../components/typography/paragraph";
@@ -19,7 +17,7 @@ export default function Page() {
 
         {/* Render all blogs without count limit */}
       </section>
-      <MediumBlogs/>
+      <MediumBlogs/> 
     </>
   );
 }
