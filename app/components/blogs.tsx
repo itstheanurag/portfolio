@@ -45,7 +45,7 @@ export default function MediumBlogs({ count }: { count?: number }) {
     <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
       <Subheading className="pb-6">Medium Blog</Subheading>
       {count && (
-        <Paragraph>
+        <Paragraph className="pb-4">
           I do like to share things on the internet and sometimes by some
           miracle they turn out interesting.
         </Paragraph>
