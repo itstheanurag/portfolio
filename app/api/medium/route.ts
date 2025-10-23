@@ -32,7 +32,7 @@ export async function GET() {
     });
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: "Failed to fetch Medium posts" }),
+      JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }),
       {
         status: 500,
       }

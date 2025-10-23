@@ -1,8 +1,7 @@
-"use client";
-
 import { WORK_PROJECTS } from "@/lib/data/projects";
-import ProjectList from "../components/projects";
+import ProjectList from "../components/projects/work-projects";
 import Heading from "../components/typography/heading";
+import LearningProjects from "../components/projects/learning-project";
 
 const Page = () => {
   return (
@@ -15,9 +14,13 @@ const Page = () => {
           my work-related projects due to confidentiality, these highlights
           reflect my skills, creativity, and problem-solving approach.
         </p>
-
-        {/* Later you can add project cards or a gallery here */}
       </section>
+
+      <hr className="border-t border-neutral-600 max-w-5xl mx-auto" />
+
+      <LearningProjects />
+
+      <hr className="my-20 border-t border-neutral-600 max-w-5xl mx-auto" />
 
       <ProjectList title="Work Projects" projects={WORK_PROJECTS} />
     </>

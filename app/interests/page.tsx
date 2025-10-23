@@ -5,6 +5,7 @@ import ThingsIDo from "../components/thingsIDo";
 import { ALL_THINGS_I_DO_PAGE } from "@/lib/data/thingsiDo";
 import Heading from "../components/typography/heading";
 import Paragraph from "../components/typography/paragraph";
+import SkillsAndInterests from "../components/skilsInterests";
 
 const Page = () => {
   return (
@@ -22,6 +23,7 @@ const Page = () => {
         </Paragraph>
       </section>
       <ThingsIDo elements={ALL_THINGS_I_DO_PAGE} />
+      <SkillsAndInterests />
     </>
   );
 };
