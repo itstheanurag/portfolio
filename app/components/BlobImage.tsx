@@ -17,7 +17,7 @@ export default function BlogImage({ src, alt }: { src: string; alt: string }) {
           alt={alt}
           width={400}
           height={300}
-          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 "
           onLoad={() => setLoading(false)}
           onError={() => {
             setLoading(false);

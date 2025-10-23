@@ -1,5 +1,5 @@
 "use client";
-import Marquee from "react-fast-marquee";
+
 import { FaReact, FaNodeJs, FaDocker, FaJava, FaJs } from "react-icons/fa";
 import {
   SiNestjs,
@@ -21,7 +21,6 @@ import Heading from "./typography/heading";
 import Paragraph from "./typography/paragraph";
 
 const TOOLS_STACK = [
-  { name: "React", icon: FaReact },
   { name: "Node.js", icon: FaNodeJs },
   { name: "NestJS", icon: SiNestjs },
   { name: "Express", icon: SiExpress },
@@ -37,40 +36,38 @@ const TOOLS_STACK = [
   { name: "Redux", icon: SiRedux },
   { name: "TailwindCSS", icon: SiTailwindcss },
   { name: "Docker", icon: FaDocker },
+  { name: "React", icon: FaReact },
 ];
 
 const LANGUAGES = [
   { name: "JavaScript", icon: FaJs },
   { name: "TypeScript", icon: SiTypescript },
-  { name: "HTML", icon: FaJs },
-  { name: "CSS", icon: FaJs },
   { name: "Go", icon: SiGo },
   { name: "Java", icon: FaJava },
 ];
 
-export default function SkillsAndInterestMarquee() {
-  const renderItems = (
-    items: typeof TOOLS_STACK | typeof LANGUAGES,
-    repeat = 3
-  ) =>
-    Array.from({ length: repeat }).flatMap((_, rIdx) =>
-      items.map((tech, idx) => {
+export default function SkillsAndInterests() {
+  const renderGrid = (items: typeof TOOLS_STACK) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
+      {items.map((tech) => {
         const Icon = tech.icon;
         return (
-          <div key={`${tech.name}-${rIdx}-${idx}`} className="flex">
-            <div className="flex items-center gap-2 px-4 py-2 m-2 border border-neutral-700 rounded-lg">
-              <Icon className="text-cyan-400" />
-              <span className="text-neutral-200 font-medium">{tech.name}</span>
-            </div>
+          <div
+            key={tech.name}
+            className="flex items-center justify-start gap-2 rounded-lg border border-neutral-600 px-4 py-3 hover:bg-base-100 hover:shadow-md transition"
+          >
+            <Icon className="text-primary w-5 h-5" />
+            <span className="text-base-content font-medium">{tech.name}</span>
           </div>
         );
-      })
-    );
+      })}
+    </div>
+  );
 
   return (
     <>
       <section className="m-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-        <Heading>Skills and Interests</Heading>
+        <Heading>Skills</Heading>
 
         <Paragraph className="pb-6">
           I love exploring new technologies, building scalable solutions, and
@@ -79,18 +76,18 @@ export default function SkillsAndInterestMarquee() {
           impact.
         </Paragraph>
 
-        {/* Tools Marquee */}
-        <Marquee gradient={false} speed={50}>
-          {renderItems(TOOLS_STACK, 3)}
-        </Marquee>
+        <h3 className="text-xl font-semibold text-base-content mt-10 mb-4">
+          Tools & Frameworks
+        </h3>
+        {renderGrid(TOOLS_STACK)}
 
-        {/* Languages Marquee */}
-        <Marquee gradient={false} speed={50} direction="right">
-          {renderItems(LANGUAGES, 5)}
-        </Marquee>
+        <h3 className="text-xl font-semibold text-base-content mt-10 mb-4">
+          Programming Languages
+        </h3>
+        {renderGrid(LANGUAGES)}
       </section>
 
-      <div className=" border-b border-neutral-800 pb-12 last:border-b-0 max-w-6xl mx-auto"></div>
+      <div className="border-b border-neutral-800 pb-12 last:border-b-0 max-w-6xl mx-auto"></div>
     </>
   );
 }

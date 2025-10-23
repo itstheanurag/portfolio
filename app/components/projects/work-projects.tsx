@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Heading from "./typography/heading";
-import Subheading from "./typography/subeading";
-import Paragraph from "./typography/paragraph";
+import Heading from "../typography/heading";
+import Subheading from "../typography/subeading";
+import Paragraph from "../typography/paragraph";
 
 interface Project {
   name: string;

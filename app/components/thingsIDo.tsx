@@ -85,7 +85,6 @@ const ThingsIDo = ({ elements }: { elements?: InterestTypeArray }) => {
 export default ThingsIDo;
 
 import Link from "next/link";
-import Subheading from "./typography/subeading";
 import Paragraph from "./typography/paragraph";
 import Heading from "./typography/heading";
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ShimmerProps {
-  count?: number; // Number of shimmer cards to render
+  count?: number; 
 }
 
 const Shimmer: React.FC<ShimmerProps> = ({ count = 3 }) => {

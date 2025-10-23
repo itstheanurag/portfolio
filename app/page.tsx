@@ -2,7 +2,7 @@ import { WORK_PROJECTS } from "@/lib/data/projects";
 import MediumBlogs from "./components/blogs";
 import GithubProfiles from "./components/github";
 import Main from "./components/main";
-import ProjectList from "./components/projects";
+import ProjectList from "./components/projects/work-projects";
 import ThingsIDo from "./components/thingsIDo";
 import SkillsAndInterestMarquee from "./components/skilsInterests";
 import SocialsSection from "./components/socials";

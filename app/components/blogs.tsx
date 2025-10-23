@@ -6,6 +6,7 @@ import Subheading from "./typography/subeading";
 import Paragraph from "./typography/paragraph";
 import Link from "next/link";
 import useSWR from "swr";
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function MediumBlogs({ count }: { count?: number }) {
