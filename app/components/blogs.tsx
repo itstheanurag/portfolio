@@ -15,7 +15,13 @@ export default function MediumBlogs({ count }: { count?: number }) {
     refreshInterval: 5 * 60 * 1000,
   });
 
-  if (isLoading) return <Shimmer />;
+  if (isLoading)
+    return (
+      <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+        <Shimmer />
+      </div>
+    );
+
   if (error) return <p>Failed to load posts</p>;
 
   const formattedPosts = data.posts
