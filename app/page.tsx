@@ -1,11 +1,42 @@
 import { WORK_PROJECTS } from "@/lib/data/projects";
-import MediumBlogs from "./components/blogs";
-import GithubProfiles from "./components/github";
+import dynamic from "next/dynamic";
 import Main from "./components/main";
-import ProjectList from "./components/projects/work-projects";
-import ThingsIDo from "./components/thingsIDo";
-import SkillsAndInterestMarquee from "./components/skilsInterests";
-import SocialsSection from "./components/socials";
+import Shimmer from "./components/blog-shimmer";
+import ProjectShimmer from "./components/shimmers/project-shimmer";
+import ThingsIDoShimmer from "./components/shimmers/things-i-do-shimmer";
+import GitHubShimmer from "./components/shimmers/github-shimmer";
+import SkillsAndInterestsShimmer from "./components/shimmers/skills-interests-shimmer";
+import SocialsShimmer from "./components/shimmers/socials-shimmer";
+
+const ProjectList = dynamic(
+  () => import("./components/projects/work-projects"),
+  {
+    loading: () => <ProjectShimmer />,
+  }
+);
+
+const ThingsIDo = dynamic(() => import("./components/thingsIDo"), {
+  loading: () => <ThingsIDoShimmer />,
+});
+
+const GithubProfiles = dynamic(() => import("./components/github"), {
+  loading: () => <GitHubShimmer />,
+});
+
+const MediumBlogs = dynamic(() => import("./components/blogs"), {
+  loading: () => <Shimmer />,
+});
+
+const SkillsAndInterestMarquee = dynamic(
+  () => import("./components/skilsInterests"),
+  {
+    loading: () => <SkillsAndInterestsShimmer />,
+  }
+);
+
+const SocialsSection = dynamic(() => import("./components/socials"), {
+  loading: () => <SocialsShimmer />,
+});
 
 export default function Home() {
   return (
