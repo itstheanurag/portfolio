@@ -24,7 +24,11 @@ const GithubProfiles = dynamic(() => import("./components/github"), {
 });
 
 const MediumBlogs = dynamic(() => import("./components/blogs"), {
-  loading: () => <Shimmer />,
+  loading: () => (
+    <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+      <Shimmer />
+    </div>
+  ),
 });
 
 const SkillsAndInterestMarquee = dynamic(
