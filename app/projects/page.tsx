@@ -1,7 +1,7 @@
 import { WORK_PROJECTS } from "@/lib/data/projects";
-import ProjectList from "../components/projects/work-projects";
-import Heading from "../components/typography/heading";
-import LearningProjects from "../components/projects/learning-project";
+import ProjectList from "@/components/projects/work-projects";
+import Heading from "@/components/typography/heading";
+import LearningProjects from "@/components/projects/learning-project";
 
 const Page = () => {
   return (

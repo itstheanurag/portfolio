@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import ThingsIDo from "../components/thingsIDo";
+import ThingsIDo from "@/components/thingsIDo";
 import { ALL_THINGS_I_DO_PAGE } from "@/lib/data/thingsiDo";
-import Heading from "../components/typography/heading";
-import Paragraph from "../components/typography/paragraph";
-import SkillsAndInterests from "../components/skilsInterests";
+import Heading from "@/components/typography/heading";
+import Paragraph from "@/components/typography/paragraph";
+import SkillsAndInterests from "@/components/skilsInterests";
 
 const Page = () => {
   return (
