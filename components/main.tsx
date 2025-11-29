@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { ANIMATING_HEADING_GRADIENTS } from "@/lib/utils";
 import { Download } from "lucide-react";
 import Link from "next/link";
@@ -14,49 +14,57 @@ const Main = () => {
   };
 
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="min-h-screen w-full relative overflow-hidden bg-neutral-950 flex flex-col items-center justify-center">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.15] pointer-events-none" />
+
+      {/* Radial Gradient for Vignette */}
+      <div className="absolute inset-0 bg-radial-gradient from-transparent to-neutral-950 pointer-events-none" />
+
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-4 text-center space-y-6">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full px-4 text-center space-y-8 max-w-4xl mx-auto">
         {/* Badge */}
-        <div className="flex items-center gap-2 px-4 py-1 border border-neutral-700 rounded-full bg-neutral-800/80 backdrop-blur-sm w-fit text-xs sm:text-sm">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span className="text-neutral-100 font-medium">
+        <div className="flex items-center gap-2 px-4 py-1.5 border border-neutral-800 rounded-full bg-neutral-900/50 backdrop-blur-md w-fit text-xs sm:text-sm shadow-sm hover:border-neutral-700 transition-colors duration-300">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-neutral-300 font-medium">
             Available for backend learning opportunities
           </span>
         </div>
 
         {/* Animated Gradient Heading */}
-        <h1
-          className={`text-4xl sm:text-4xl md:text-6xl font-light tracking-tight ${ANIMATING_HEADING_GRADIENTS}`}
-        >
-          Backend Developer
-        </h1>
-
-        {/* Paragraph */}
-        <p className="text-base sm:text-lg text-neutral-400 max-w-lg sm:max-w-2xl mx-auto leading-relaxed">
-          Building reliable and high-performance backend systems with
-          <span className="font-medium text-neutral-100"> Node.js</span>,
-          <span className="font-medium text-neutral-100"> NestJS</span>,
-          <span className="font-medium text-neutral-100"> Express</span>, and
-          <span className="font-medium text-neutral-100"> Hono</span> to power
-          modern web applications
-        </p>
+        <div className="space-y-2">
+          <h1
+            className={`text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter ${ANIMATING_HEADING_GRADIENTS} bg-clip-text text-transparent`}
+          >
+            Backend Developer
+          </h1>
+          <p className="text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed font-light">
+            Building reliable and high-performance backend systems with
+            <span className="font-medium text-neutral-200"> Node.js</span>,
+            <span className="font-medium text-neutral-200"> NestJS</span>,
+            <span className="font-medium text-neutral-200"> Express</span>, and
+            <span className="font-medium text-neutral-200"> Hono</span>.
+          </p>
+        </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
           {/* Contact Me Button */}
           <Link
             href="https://linkedin.com/in/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 text-neutral-100 rounded-lg border border-neutral-700 bg-neutral-800/50 backdrop-blur-sm hover:bg-neutral-700/50 hover:scale-105 transition ease-in-out duration-300 max-w-[200px] sm:max-w-none w-auto inline-flex justify-center"
+            className="px-8 py-3 text-neutral-100 rounded-full border border-neutral-700 bg-neutral-800/80 backdrop-blur-sm hover:bg-neutral-700 hover:scale-105 transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
           >
             Contact Me
           </Link>
           {/* Download Resume Button */}
           <button
             onClick={handleDownload}
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-neutral-100 bg-neutral-800/50 backdrop-blur-sm hover:bg-neutral-700/50 rounded-lg transition-colors"
+            className="inline-flex items-center px-8 py-3 text-sm font-medium text-neutral-300 hover:text-white bg-transparent hover:bg-neutral-800/50 rounded-full transition-all duration-300 border border-transparent hover:border-neutral-800"
           >
             <Download className="w-4 h-4 mr-2" />
             Download Resume
