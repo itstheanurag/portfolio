@@ -3,13 +3,13 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.97 0 0); /* neutral-100 */
+  --foreground: oklch(0.2 0 0); /* neutral-850 text level */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: oklch(0.2 0 0); /* custom neutral-850 */
+  --foreground: oklch(0.97 0 0); /* neutral-100 text */
 }
 
 @theme inline {
@@ -23,22 +23,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  transition: color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode background - Clean and minimal */
 body {
-  background-color: oklch(0.985 0 0);
+  background-color: oklch(0.97 0 0); /* neutral-100 */
 }
 
-/* Dark mode background - The one the user likes */
 .dark body {
-  background: radial-gradient(
-      circle at 20% 20%,
-      oklch(1 0 0 / 0.08) 0%,
-      transparent 40%
-    ),
-    radial-gradient(circle at 80% 30%, oklch(1 0 0 / 0.05) 0%, transparent 40%),
-    linear-gradient(120deg, oklch(0.13 0.02 260) 0%, oklch(0.16 0.03 260) 100%);
+  background-color: var(--background);
   background-attachment: fixed;
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import Navbar from "@/components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +20,7 @@ export const metadata: Metadata = {
     "Showcasing the work and projects of Gaurav Kumar a backend developer.",
   icons: {
     icon: "/icon.png",
+    shortcut: "/icon.png",
     apple: "/icon.png",
   },
 };
@@ -41,13 +41,11 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
+          {" "}
           <div className="relative z-20">
             <Navbar />
           </div>
-
           <div className="relative z-10">{children}</div>
-
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
