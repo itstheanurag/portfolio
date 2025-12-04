@@ -11,7 +11,6 @@ import {
   SiDocker,
   SiMongodb,
   SiPostgresql,
-  SiGraphql,
   SiRedis,
   SiGit,
   SiRust,

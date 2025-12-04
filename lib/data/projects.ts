@@ -12,8 +12,6 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiFramer,
-  SiNodedotjs,
-  SiJavascript,
 } from "react-icons/si";
 
 export interface TechItem {
@@ -130,7 +128,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
   {
     name: "Prompt Nation",
     description:
-      "A minimal, high-performance portfolio website built with Next.js and Tailwind CSS.",
+      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and Tailwind CSS, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
     link: "https://prompt-nation.vercel.app",
     github: "https://github.com/itstheanurag/prompt-nation",
     techStack: [

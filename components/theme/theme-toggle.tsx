@@ -1,8 +1,8 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { BiMoon, BiSun } from "react-icons/bi";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -23,9 +23,9 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
-        <Sun className="h-5 w-5 text-neutral-100" />
+        <BiSun className="h-5 w-5 text-neutral-100" />
       ) : (
-        <Moon className="h-5 w-5 text-neutral-900" />
+        <BiMoon className="h-5 w-5 text-neutral-900" />
       )}
     </button>
   );

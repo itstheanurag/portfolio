@@ -15,15 +15,16 @@ import {
 import { BiDownArrowCircle } from "react-icons/bi";
 import { CgMail } from "react-icons/cg";
 
+// Words to morph
+const words = [
+  "Content Creator",
+  "Techie & Yapper",
+  "Backend Developer",
+  "Daily Gym Goer",
+  "Anime is my Jam",
+];
+
 export default function ProfileSection() {
-  // Words to morph
-  const words = [
-    "Content Creator",
-    "Techie & Yapper",
-    "Backend Developer",
-    "Daily Gym Goer",
-    "Anime is my Jam",
-  ];
   const [index, setIndex] = useState(0);
 
   // Change word every 2 seconds
@@ -57,7 +58,6 @@ export default function ProfileSection() {
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full">
               Hi, I&apos;m Gaurav{" "}
-              <span className="text-neutral-400">@itsthenurag</span>{" "}
               <span className="inline-flex relative min-w-[12ch] h-[1em] align-middle text-neutral-400">
                 <AnimatePresence mode="wait">
                   <motion.span

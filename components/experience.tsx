@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface ExperienceItem {
   company: string;
   role: string;
@@ -53,9 +55,11 @@ export default function ExperienceSection() {
             {/* Company Logo */}
             <div className="flex-shrink-0 mt-1">
               {exp.logo ? (
-                <img
+                <Image
                   src={exp.logo}
                   alt={exp.company}
+                  width={40}
+                  height={40}
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
                 />
               ) : (

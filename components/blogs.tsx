@@ -4,8 +4,8 @@ import useSWR from "swr";
 import Link from "next/link";
 import { MediumPost } from "@/lib/data/blogs";
 import Shimmer from "./shimmers/blog-shimmer";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { BsArrowUpRight } from "react-icons/bs";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -116,7 +116,7 @@ export default function MediumBlogs() {
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
         >
           <span>Read more on Medium</span>
-          <ArrowUpRight className="w-4 h-4" />
+          <BsArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
     </section>
