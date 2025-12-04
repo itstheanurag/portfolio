@@ -1,57 +1,46 @@
-import { WORK_PROJECTS } from "@/lib/data/projects";
+"use client";
+
 import dynamic from "next/dynamic";
-import Main from "@/components/main";
-import Shimmer from "@/components/blog-shimmer";
+import ProfileSection from "@/components/hero";
+import BlogShimmer from "@/components/shimmers/blog-shimmer";
 import ProjectShimmer from "@/components/shimmers/project-shimmer";
-import ThingsIDoShimmer from "@/components/shimmers/things-i-do-shimmer";
-import GitHubShimmer from "@/components/shimmers/github-shimmer";
 import SkillsAndInterestsShimmer from "@/components/shimmers/skills-interests-shimmer";
-import SocialsShimmer from "@/components/shimmers/socials-shimmer";
+import GithubShimmer from "@/components/shimmers/github-shimmer";
 
-const ProjectList = dynamic(
-  () => import("@/components/projects/work-projects"),
-  {
-    loading: () => <ProjectShimmer />,
-  }
-);
+const ExperienceSection = dynamic(() => import("@/components/experience"), {
+  loading: () => <div className="space-y-16 max-w-4xl mx-auto" />,
+});
 
-const ThingsIDo = dynamic(() => import("@/components/thingsIDo"), {
-  loading: () => <ThingsIDoShimmer />,
+const StackSection = dynamic(() => import("@/components/tech-stack"), {
+  loading: () => <SkillsAndInterestsShimmer />,
+});
+
+const ProjectsSection = dynamic(() => import("@/components/projects"), {
+  loading: () => <ProjectShimmer />,
 });
 
 const GithubProfiles = dynamic(() => import("@/components/github"), {
-  loading: () => <GitHubShimmer />,
+  loading: () => <GithubShimmer />,
 });
 
 const MediumBlogs = dynamic(() => import("@/components/blogs"), {
-  loading: () => (
-    <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <Shimmer />
-    </div>
-  ),
+  loading: () => <BlogShimmer />,
 });
 
-const SkillsAndInterestMarquee = dynamic(
-  () => import("@/components/skilsInterests"),
-  {
-    loading: () => <SkillsAndInterestsShimmer />,
-  }
-);
-
 const SocialsSection = dynamic(() => import("@/components/socials"), {
-  loading: () => <SocialsShimmer />,
+  loading: () => <div className="space-y-16 max-w-4xl mx-auto" />,
 });
 
 export default function Home() {
   return (
-    <div className="px-4 sm:px-6 lg:px-12">
-      <Main />
-      <ProjectList title="Work Projects" projects={WORK_PROJECTS} />
-      <ThingsIDo />
-      <GithubProfiles />
-      <MediumBlogs count={3} />
-      <SkillsAndInterestMarquee />
+    <main className="min-h-screen bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+      <ProfileSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <StackSection />
+      <GithubProfiles username="itstheanurag" />
+      <MediumBlogs />
       <SocialsSection />
-    </div>
+    </main>
   );
 }
