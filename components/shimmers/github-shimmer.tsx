@@ -4,7 +4,7 @@ import Heading from "../typography/heading";
 
 const GitHubShimmer = () => {
   return (
-    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+    <section className="space-y-16 max-w-4xl mx-auto">
       <Heading>GitHub Activity</Heading>
       <Paragraph className="pb-6">
         A visual representation of my coding activity across personal and work

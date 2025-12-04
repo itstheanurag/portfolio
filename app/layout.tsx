@@ -1,56 +1,54 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
-import GlobalParticles from "@/components/GlobalParticiles";
-import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { JetBrains_Mono, Fira_Code } from "next/font/google";
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const firaCode = Fira_Code({
+  variable: "--font-fira",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "itstheanurag ( Gaurav Kumar )",
+  title: "itstheanurag (Gaurav Kumar)",
   description:
-    "Showcasing the work and projects of Gaurav Kumar a backend developer. Because the world really needed another developer who doesn't drink coffee. Brace yourself for pure backend wizardry. Writes Code, Lifts weights and watches anime.",
+    "Showcasing the work and projects of Gaurav Kumar, a backend developer.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  
-        min-h-screen relative`}
-        style={{
-          background:
-            "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 40%), linear-gradient(120deg, #0f0e17 0%, #1a1b26 100%)",
-        }}
+        className={`${jetbrainsMono.variable} ${firaCode.variable} antialiased min-h-screen relative`}
       >
-        {/* Global Particles Background */}
-        <GlobalParticles />
-        
-        {/* Navbar */}
-        <div className="relative z-20">
-          <Navbar />
-        </div>
-        
-        {/* Main Content */}
-        <div className="relative z-10">
-          {children}
-        </div>
-
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          <div className="relative z-20">
+            <Navbar />
+          </div>
+          <div className="relative z-10">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ const SkillsAndInterestsShimmer = () => {
   );
 
   return (
-    <section className="m-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+    <section className="space-y-16 max-w-4xl mx-auto">
       <Heading>Skills</Heading>
 
       <Paragraph className="pb-6">

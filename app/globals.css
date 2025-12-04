@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.97 0 0); /* neutral-100 */
+  --foreground: oklch(0.2 0 0); /* neutral-850 text level */
+}
+
+.dark {
+  --background: oklch(0.2 0 0); /* custom neutral-850 */
+  --foreground: oklch(0.97 0 0); /* neutral-100 text */
 }
 
 @theme inline {
@@ -12,50 +19,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-@keyframes gradient-slide {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+body {
+  background-color: oklch(0.97 0 0); /* neutral-100 */
 }
 
-.animate-gradient {
-  background-size: 400% 400%; /* More area for smooth transition */
-  animation: gradient-slide 8s ease infinite;
-}
-
-.light .animate-gradient {
-  background-image: linear-gradient(
-    to right,
-    #ef4444,
-    #8b5cf6,
-    #3b82f6
-  ); /* red-purple-blue */
-}
-
-.dark .animate-gradient {
-  background-image: linear-gradient(
-    to right,
-    #22d3ee,
-    #6366f1,
-    #ec4899
-  ); /* cyan-indigo-pink */
+.dark body {
+  background-color: var(--background);
+  background-attachment: fixed;
 }

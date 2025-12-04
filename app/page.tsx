@@ -1,57 +1,30 @@
-import { WORK_PROJECTS } from "@/lib/data/projects";
+"use client";
+
 import dynamic from "next/dynamic";
-import Main from "@/components/main";
-import Shimmer from "@/components/blog-shimmer";
-import ProjectShimmer from "@/components/shimmers/project-shimmer";
-import ThingsIDoShimmer from "@/components/shimmers/things-i-do-shimmer";
-import GitHubShimmer from "@/components/shimmers/github-shimmer";
-import SkillsAndInterestsShimmer from "@/components/shimmers/skills-interests-shimmer";
-import SocialsShimmer from "@/components/shimmers/socials-shimmer";
-
-const ProjectList = dynamic(
-  () => import("@/components/projects/work-projects"),
-  {
-    loading: () => <ProjectShimmer />,
-  }
-);
-
-const ThingsIDo = dynamic(() => import("@/components/thingsIDo"), {
-  loading: () => <ThingsIDoShimmer />,
-});
-
-const GithubProfiles = dynamic(() => import("@/components/github"), {
-  loading: () => <GitHubShimmer />,
-});
+import ProfileSection from "@/components/hero";
+import BlogShimmer from "@/components/shimmers/blog-shimmer";
+import Footer from "@/components/footer";
+import SocialsSection from "@/components/socials";
+import ExperienceSection from "@/components/experience";
+import GithubProfiles from "@/components/github";
+import ProjectsSection from "@/components/projects";
+import StackSection from "@/components/tech-stack";
 
 const MediumBlogs = dynamic(() => import("@/components/blogs"), {
-  loading: () => (
-    <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <Shimmer />
-    </div>
-  ),
-});
-
-const SkillsAndInterestMarquee = dynamic(
-  () => import("@/components/skilsInterests"),
-  {
-    loading: () => <SkillsAndInterestsShimmer />,
-  }
-);
-
-const SocialsSection = dynamic(() => import("@/components/socials"), {
-  loading: () => <SocialsShimmer />,
+  loading: () => <BlogShimmer />,
 });
 
 export default function Home() {
   return (
-    <div className="px-4 sm:px-6 lg:px-12">
-      <Main />
-      <ProjectList title="Work Projects" projects={WORK_PROJECTS} />
-      <ThingsIDo />
-      <GithubProfiles />
-      <MediumBlogs count={3} />
-      <SkillsAndInterestMarquee />
+    <main className="min-h-screen transition-colors duration-300">
+      <ProfileSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <StackSection />
+      <GithubProfiles username="itstheanurag" />
+      <MediumBlogs />
       <SocialsSection />
-    </div>
+      <Footer />
+    </main>
   );
 }

@@ -10,7 +10,7 @@ const Subheading: React.FC<SubheadingProps> = ({ children, className }) => {
   return (
     <h2
       className={cn(
-        "text-xl sm:text-3xl font-light text-neutral-100 tracking-tight",
+        "text-xl sm:text-3xl font-light text-neutral-900 dark:text-neutral-100 tracking-tight",
         className
       )}
     >

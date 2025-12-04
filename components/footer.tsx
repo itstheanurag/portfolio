@@ -1,51 +1,51 @@
-import { Github, Linkedin, Instagram } from "lucide-react";
 import Link from "next/link";
+import { SiGithub, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="w-full border-t border-neutral-800 bg-transparent backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col md:flex-row justify-between items-center text-neutral-400 text-sm">
-        
-        {/* Left - Social Icons */}
-        <div className="flex space-x-4 mb-4 md:mb-0">
+    <footer className="w-full py-12 mt-24 border-t border-neutral-200 dark:border-neutral-800">
+      <div className="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
+        {/* Socials */}
+        <div className="flex items-center gap-6">
           <Link
             href="https://github.com/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-neutral-200 transition-colors"
-            aria-label="GitHub"
+            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
-            <Github className="h-5 w-5" />
+            <SiGithub className="w-5 h-5" />
           </Link>
           <Link
             href="https://linkedin.com/in/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-neutral-200 transition-colors"
-            aria-label="LinkedIn"
+            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
-            <Linkedin className="h-5 w-5" />
+            <SiLinkedin className="w-5 h-5" />
           </Link>
           <Link
             href="https://instagram.com/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-neutral-200 transition-colors"
-            aria-label="Instagram"
+            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
-            <Instagram className="h-5 w-5" />
+            <SiInstagram className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://www.youtube.com/@code_cript"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+          >
+            <SiYoutube className="w-5 h-5" />
           </Link>
         </div>
 
-        {/* Right - Text */}
-        <div className="text-center md:text-right">
-          <p className="text-neutral-500">
-            Created by <span className="text-neutral-300">Gaurav Kumar</span> &copy; {new Date().getFullYear()}
-          </p>
-        </div>
+        {/* Copyright */}
+        <p className="text-sm text-neutral-400 font-light">
+          © {new Date().getFullYear()} Gaurav Kumar
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -8,14 +8,14 @@ interface ParagraphProps {
 
 const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
   return (
-    <h2
+    <p
       className={cn(
-        "text-lg text-neutral-400 leading-relaxed line-clamp-3",
+        "text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3",
         className
       )}
     >
       {children}
-    </h2>
+    </p>
   );
 };
 

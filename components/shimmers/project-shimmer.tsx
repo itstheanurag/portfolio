@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectShimmer = () => {
   return (
-    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
+    <section className="space-y-16 max-w-4xl mx-auto">
       <div className="h-10 bg-neutral-800 rounded w-1/4 mb-12 animate-pulse"></div>
 
       <div className="space-y-16">
