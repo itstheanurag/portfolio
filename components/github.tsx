@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Heading from "./typography/heading";
-import Paragraph from "./typography/paragraph";
 
 interface GitHubGraphProps {
   username: string;
@@ -9,111 +7,71 @@ interface GitHubGraphProps {
 
 function GitHubGraph({ username, accentColor = "blue" }: GitHubGraphProps) {
   const graphUrl = `https://ghchart.rshah.org/${username}`;
-  
+
   // Color variants for different accents
   const colorVariants = {
     blue: {
-      border: "group-hover:border-blue-500/50",
-      glow: "from-blue-500/10 via-purple-500/5 to-blue-500/10",
-      shine: "from-blue-500/20 via-transparent to-purple-500/20",
       filter: "hue-rotate-80deg saturate-50%", // Makes whites more blue-ish
     },
     green: {
-      border: "group-hover:border-green-500/50",
-      glow: "from-green-500/10 via-teal-500/5 to-green-500/10",
-      shine: "from-green-500/20 via-transparent to-teal-500/20",
       filter: "hue-rotate-80deg saturate-50%", // Makes whites more green-ish
     },
   };
 
-  const colors = colorVariants[accentColor as keyof typeof colorVariants] || colorVariants.blue;
+  const colors =
+    colorVariants[accentColor as keyof typeof colorVariants] ||
+    colorVariants.blue;
 
   return (
-    <div className="w-full">
-      <div className={`relative overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 p-8 rounded-xl transition-all duration-300 ${colors.border}`}>
-        {/* Colored gradient background */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${colors.glow} pointer-events-none`} />
-        
-        {/* Dark overlay to reduce white box intensity */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/60 via-transparent to-neutral-900/60 pointer-events-none" />
-        
-        {/* Animated shine effect on hover */}
-        <div className={`absolute inset-0 bg-gradient-to-r ${colors.shine} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-        
-        {/* Corner accents */}
-        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${colors.glow} blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-        <div className={`absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr ${colors.glow} blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-        
-        <div className="relative">
-          <Image
-            src={graphUrl}
-            alt={`${username}'s GitHub Activity Graph`}
-            className="w-full mix-blend-screen opacity-90"
-            style={{ filter: colors.filter }}
-            width={500}
-            height={200}
-            unoptimized
-          />
-        </div>
+    <div className="w-full overflow-hidden">
+      <div className="relative">
+        <Image
+          src={graphUrl}
+          alt={`${username}'s GitHub Activity Graph`}
+          className="w-full mix-blend-multiply dark:mix-blend-screen"
+          style={{ filter: colors.filter }}
+          width={500}
+          height={200}
+          unoptimized
+        />
       </div>
     </div>
   );
 }
 
-export default function GithubProfiles() {
+export default function GithubProfiles({ username }: { username: string }) {
   return (
-    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <Heading>GitHub Activity</Heading>
-      <Paragraph className="pb-6">
-        A visual representation of my coding activity across personal and work
-        repositories.
-      </Paragraph>
-
-      <div className="space-y-16">
-        {/* Personal */}
-        <div className="group pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div className="lg:col-span-3 flex flex-col justify-center">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-                  <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 tracking-tight">
-                    Personal
-                  </h3>
-                </div>
-                <p className="text-neutral-400 leading-relaxed">
-                  Open source contributions and personal projects.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-9 flex flex-col justify-center">
-              <GitHubGraph username="itstheanurag" accentColor="blue" />
-            </div>
-          </div>
+    <section className="max-w-4xl mx-auto px-6">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-3">
+          <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+            Featured GitHub Activity
+          </h2>
+          <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-[10px] font-medium text-green-700 dark:text-green-400">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Live
+          </span>
         </div>
+        <div className="text-sm text-neutral-500 dark:text-neutral-400">
+          2024 Contributions
+        </div>
+      </div>
 
-        {/* Work */}
-        <div className="group border-b border-neutral-800 pb-12 last:border-b-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div className="lg:col-span-3 flex flex-col justify-center">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-1 h-8 bg-gradient-to-b from-green-500 to-teal-500 rounded-full" />
-                  <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 tracking-tight">
-                    Work
-                  </h3>
-                </div>
-                <p className="text-neutral-400 leading-relaxed">
-                  Professional development and team collaborations.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-9 flex flex-col justify-center">
-              <GitHubGraph username="itsthegaurav" accentColor="green" />
-            </div>
+      <div className="p-4 sm:p-6">
+        <GitHubGraph username={username} accentColor="green" />
+        <div className="flex justify-end items-center gap-2 mt-4 text-xs text-neutral-500 dark:text-neutral-400">
+          <span>Less</span>
+          <div className="flex gap-1">
+            <div className="w-2.5 h-2.5 rounded-sm bg-neutral-200 dark:bg-neutral-800"></div>
+            <div className="w-2.5 h-2.5 rounded-sm bg-green-200 dark:bg-green-900/40"></div>
+            <div className="w-2.5 h-2.5 rounded-sm bg-green-400 dark:bg-green-700/60"></div>
+            <div className="w-2.5 h-2.5 rounded-sm bg-green-600 dark:bg-green-500"></div>
+            <div className="w-2.5 h-2.5 rounded-sm bg-green-800 dark:bg-green-300"></div>
           </div>
+          <span>More</span>
         </div>
       </div>
     </section>

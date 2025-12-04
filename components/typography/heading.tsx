@@ -10,7 +10,7 @@ const Heading: React.FC<HeadingProps> = ({ children, className }) => {
   return (
     <h1
       className={cn(
-        "text-2xl sm:text-4xl font-light text-neutral-100 tracking-tight mb-6",
+        "text-2xl sm:text-4xl font-light text-neutral-900 dark:text-neutral-100 tracking-tight mb-6",
         className
       )}
     >

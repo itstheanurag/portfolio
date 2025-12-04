@@ -1,175 +1,124 @@
 "use client";
-import { MediumPost } from "@/lib/data/blogs";
-import BlogImage from "./BlobImage";
-import Shimmer from "./blog-shimmer";
-import Subheading from "./typography/subeading";
-import Paragraph from "./typography/paragraph";
-import Link from "next/link";
+
 import useSWR from "swr";
+import Link from "next/link";
+import { MediumPost } from "@/lib/data/blogs";
+import Shimmer from "./shimmers/blog-shimmer";
+import { ArrowUpRight } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export default function MediumBlogs({ count }: { count?: number }) {
+export default function MediumBlogs() {
   const { data, error, isLoading } = useSWR("/api/medium", fetcher, {
     revalidateOnFocus: false,
     refreshInterval: 5 * 60 * 1000,
   });
 
-  if (isLoading)
-    return (
-      <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-        <Shimmer />
-      </div>
-    );
+  if (isLoading) return <Shimmer />;
+  if (error)
+    return <p className="text-center text-neutral-500">Failed to load posts</p>;
 
-  if (error) return <p>Failed to load posts</p>;
+  /** Extract clean data */
+  const posts = data.posts.slice(0, 4).map((post: MediumPost) => {
+    const snippet = post.contentSnippet
+      ? post.contentSnippet.replace(/<[^>]+>/g, "").slice(0, 160) + "..."
+      : "";
 
-  const formattedPosts = data.posts
-    .filter((post: MediumPost) =>
-      /<img[^>]+src="([^">]+)"/.test(post.originalContent)
-    )
-    .map((post: MediumPost) => {
-      const imgMatch = post.originalContent.match(/<img[^>]+src="([^">]+)"/);
-      const imageUrl = imgMatch![1];
-      const snippet = post.contentSnippet
-        ? post.contentSnippet.replace(/<[^>]+>/g, "").slice(0, 300) + "..."
-        : "";
-      const categories = Array.isArray(post.category)
-        ? post.category
-        : post.category
-        ? [post.category]
-        : [];
-      return {
-        ...post,
-        thumbnail: imageUrl,
-        contentSnippet: snippet,
-        category: categories,
-      };
-    });
+    const categories = Array.isArray(post.category)
+      ? post.category
+      : post.category
+      ? [post.category]
+      : [];
 
-  const visiblePosts = count ? formattedPosts.slice(0, count) : formattedPosts;
+    return {
+      title: post.title,
+      link: post.link,
+      snippet,
+      creator: post.creator,
+      pubDate: post.pubDate,
+      category: categories,
+    };
+  });
+
   return (
-    <section className="mt-16 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
-      <Subheading className="pb-6">Medium Blog</Subheading>
-      {count && (
-        <Paragraph className="pb-4">
-          I do like to share things on the internet and sometimes by some
-          miracle they turn out interesting.
-        </Paragraph>
-      )}
+    <section id="blogs" className="max-w-4xl mx-auto px-6">
+      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
+        Latest Blogs
+      </h2>
 
-      <>
-        <div className="space-y-16">
-          {visiblePosts?.map((post: MediumPost, idx: number) => (
-            <div
+      <div className="grid gap-4">
+        {posts.map(
+          (
+            post: {
+              title: string;
+              link: string;
+              snippet: string;
+              creator: string;
+              pubDate: string;
+              category: string[];
+            },
+            idx: number
+          ) => (
+            <Link
               key={idx}
-              className="group border-b border-neutral-700 pb-12 last:border-b-0 
-                 px-4 sm:px-0" // <-- add horizontal padding on small screens
+              href={post.link}
+              target="_blank"
+              className="group block p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:bg-white dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-sm "
             >
-              <a
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                  {/* Post Image */}
-                  <div className="lg:col-span-5">
-                    <div className="aspect-video bg-neutral-900 rounded-sm overflow-hidden">
-                      <BlogImage src={post.thumbnail} alt="Image Not Found" />
-                    </div>
-                  </div>
-
-                  {/* Post Details */}
-                  <div className="lg:col-span-7 flex flex-col justify-center">
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-medium text-neutral-100 mb-4 tracking-tight group-hover:text-white transition-colors">
-                          {post.title}
-                        </h3>
-                        <Paragraph>{post.contentSnippet}</Paragraph>
-                      </div>
-
-                      <div className="flex flex-wrap gap-3 items-center">
-                        {post.category.map((cat, i) => (
-                          <span
-                            key={i}
-                            className="text-sm text-neutral-500 border border-neutral-700 px-3 py-1 rounded-full hover:border-neutral-600 hover:text-neutral-400 transition-colors"
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                        <span className="text-sm text-neutral-300 bg-neutral-800 px-3 py-1 rounded-full font-medium">
-                          by {post.creator}
-                        </span>
-                        <span className="text-sm text-neutral-500 ml-auto">
-                          {new Date(post.pubDate).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </span>
-                      </div>
-                    </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+                  <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:line-clamp-1">
+                    {post.title}
+                  </h3>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <Badge
+                      variant="neutral"
+                      className="rounded-md text-[10px] h-5 px-1.5 font-normal"
+                    >
+                      {post.creator}
+                    </Badge>
+                    <span className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
+                      {new Date(post.pubDate).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
                   </div>
                 </div>
-              </a>
-            </div>
-          ))}
-        </div>
 
-        {/* More on Medium */}
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3 sm:line-clamp-2 leading-relaxed">
+                  {post.snippet}
+                </p>
 
-        <div className="pt-12 border-t border-neutral-800">
-          {count ? (
-            <Link
-              href="/blogs"
-              className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link"
-            >
-              <span className="text-lg font-medium tracking-wide">
-                View All Blogs
-              </span>
-              <svg
-                className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+                <div className="flex flex-wrap items-center gap-2 mt-2">
+                  {post.category.slice(0, 4).map((cat: string, i: number) => (
+                    <Badge
+                      variant="neutral"
+                      className="rounded-md text-neutral-600 dark:text-neutral-400"
+                      key={i}
+                    >
+                      {cat}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
             </Link>
-          ) : (
-            <Link
-              href="https://medium.com/@codecript"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-neutral-300 hover:text-neutral-100 transition-colors group/link mb-12"
-            >
-              <span className="text-lg font-medium tracking-wide">
-                More on Medium
-              </span>
-              <svg
-                className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-          )}
-        </div>
-      </>
+          )
+        )}
+      </div>
+
+      <div className="mt-8 text-center">
+        <Link
+          href="https://medium.com/@codecript"
+          target="_blank"
+          className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+        >
+          <span>Read more on Medium</span>
+          <ArrowUpRight className="w-4 h-4" />
+        </Link>
+      </div>
     </section>
   );
 }
