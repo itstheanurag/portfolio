@@ -68,7 +68,7 @@ export default function MediumBlogs() {
             >
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-                  <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 sm:line-clamp-1">
+                  <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors line-clamp-2 sm:line-clamp-1">
                     {post.title}
                   </h3>
                   <div className="flex items-center gap-2 shrink-0">

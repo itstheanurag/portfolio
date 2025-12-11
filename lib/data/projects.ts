@@ -12,6 +12,9 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiFramer,
+  SiShadcnui,
+  SiBetterstack,
+  SiDrizzle,
 } from "react-icons/si";
 
 export interface TechItem {
@@ -126,6 +129,20 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    name: "Bits&Pieces",
+    description:
+      "A collection of nextjs components built with tailwindcss and framer motion for rapid prototyping and development.",
+    link: "https://itstheanurag.github.io/bitsandpieces/",
+    github: "https://github.com/itstheanurag/bitsandpieces",
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Framer Motion", icon: SiFramer },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Shadcn UI", icon: SiShadcnui },
+    ],
+  },
+  {
     name: "Prompt Nation",
     description:
       "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and Tailwind CSS, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
@@ -136,6 +153,21 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "Framer Motion", icon: SiFramer },
       { name: "TypeScript", icon: SiTypescript },
+    ],
+  },
+  {
+    name: "Docusage",
+    description:
+      "A platform for dealing with any kind of documents, may it be forms, contracts, code, invoices and many more.",
+
+    techStack: [
+      { name: "Nextjs", icon: SiNextdotjs },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Framer Motion", icon: SiFramer },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Better Auth", icon: SiBetterstack },
+      { name: "Drizzle", icon: SiDrizzle },
+      { name: "Shadcn Ui", icon: SiShadcnui },
     ],
   },
 ];
