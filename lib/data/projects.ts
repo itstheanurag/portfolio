@@ -20,6 +20,7 @@ import {
 export interface TechItem {
   name: string;
   icon: IconType;
+  iconBgColor?: string;
 }
 
 export interface ProjectItem {
@@ -43,13 +44,13 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "Cadence is a research-focused health app developed with NTU to monitor heart health. It includes real-time patient-coach chat, sleep and step tracking, action scores, automated questionnaires, and analytics dashboards for researchers.",
     link: "https://play.google.com/store/apps/details?id=com.ntu.cadence&hl=en_IN",
     techStack: [
-      { name: "NestJS", icon: SiNestjs },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Sequelize", icon: SiSequelize },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Firebase", icon: SiFirebase },
-      { name: "BigQuery", icon: SiGooglebigquery },
-      { name: "GCP", icon: SiGooglecloud },
+      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
+      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
+      { name: "Sequelize", icon: SiSequelize, iconBgColor: "#52B0E7" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
+      { name: "BigQuery", icon: SiGooglebigquery, iconBgColor: "#4285F4" },
+      { name: "GCP", icon: SiGooglecloud, iconBgColor: "#4285F4" },
     ],
     coreFeatures: [
       "Real-time patient-coach chat",
@@ -69,14 +70,18 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "SDG is a healthcare platform enhancing patient engagement with real-time doctor-patient chat, medication reminders, subscription-based programs, secure payments via Square, EMR integration with ModMed, and scalable event-driven architecture using GCP Pub/Sub.",
     link: "https://play.google.com/store/apps/details?id=com.mahalo.Schweiger",
     techStack: [
-      { name: "NestJS", icon: SiNestjs },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Socket.IO", icon: SiSocketdotio },
-      { name: "GCP Pub/Sub", icon: SiGooglecloud },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Square API", icon: SiSquare },
-      { name: "ModMed Integration", icon: SiGooglecloud },
-      { name: "Firebase", icon: SiFirebase },
+      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
+      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
+      { name: "Socket.IO", icon: SiSocketdotio, iconBgColor: "#010101" },
+      { name: "GCP Pub/Sub", icon: SiGooglecloud, iconBgColor: "#4285F4" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+      { name: "Square API", icon: SiSquare, iconBgColor: "#2D8CFF" },
+      {
+        name: "ModMed Integration",
+        icon: SiGooglecloud,
+        iconBgColor: "#0F172A",
+      },
+      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
     ],
     coreFeatures: [
       "Subscription-based payments",
@@ -97,11 +102,11 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "MedLinks empowers patients with personalized health programs and tracking of metrics like weight, blood pressure, and glucose...",
     link: "https://play.google.com/store/apps/details?id=com.mahalo.medlinksclinician",
     techStack: [
-      { name: "NestJS", icon: SiNestjs },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Firebase", icon: SiFirebase },
-      { name: "GCP", icon: SiGooglecloud },
+      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
+      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
+      { name: "GCP", icon: SiGooglecloud, iconBgColor: "#4285F4" },
     ],
     coreFeatures: [
       "Custom health programs",
@@ -122,10 +127,10 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     link: "https://itstheanurag.vercel.app",
     github: "https://github.com/itstheanurag/portfolio",
     techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Framer Motion", icon: SiFramer },
-      { name: "TypeScript", icon: SiTypescript },
+      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
+      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
     ],
   },
   {
@@ -135,11 +140,11 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     link: "https://itstheanurag.github.io/bitsandpieces/",
     github: "https://github.com/itstheanurag/bitsandpieces",
     techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Framer Motion", icon: SiFramer },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Shadcn UI", icon: SiShadcnui },
+      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
+      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+      { name: "Shadcn UI", icon: SiShadcnui, iconBgColor: "#111827" },
     ],
   },
   {
@@ -149,25 +154,24 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     link: "https://prompt-nation.vercel.app",
     github: "https://github.com/itstheanurag/prompt-nation",
     techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Framer Motion", icon: SiFramer },
-      { name: "TypeScript", icon: SiTypescript },
+      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
+      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
     ],
   },
   {
     name: "Docusage",
     description:
       "A platform for dealing with any kind of documents, may it be forms, contracts, code, invoices and many more.",
-
     techStack: [
-      { name: "Nextjs", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Framer Motion", icon: SiFramer },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Better Auth", icon: SiBetterstack },
-      { name: "Drizzle", icon: SiDrizzle },
-      { name: "Shadcn Ui", icon: SiShadcnui },
+      { name: "Nextjs", icon: SiNextdotjs, iconBgColor: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
+      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+      { name: "Better Auth", icon: SiBetterstack, iconBgColor: "#5AC2F0" },
+      { name: "Drizzle", icon: SiDrizzle, iconBgColor: "#0FA958" },
+      { name: "Shadcn Ui", icon: SiShadcnui, iconBgColor: "#111827" },
     ],
   },
 ];

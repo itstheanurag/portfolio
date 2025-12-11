@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
-
 import { JetBrains_Mono, Fira_Code } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
@@ -49,6 +49,7 @@ export default function RootLayout({
           </div>
           <div className="relative z-10">{children}</div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

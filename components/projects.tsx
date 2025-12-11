@@ -5,72 +5,98 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { WORK_PROJECTS, PERSONAL_PROJECTS } from "@/lib/data/projects";
-import type { ProjectItem } from "@/lib/data/projects";
+import type { ProjectItem, TechItem } from "@/lib/data/projects";
 import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
+import { TECH_ICON_COLORS } from "@/lib/tech-color";
+
+
+function TechBadge({ tech }: { tech: TechItem }) {
+ const c = TECH_ICON_COLORS[tech.name];
+
+  return (
+    <Badge className="flex items-center gap-1 text-xs p-1.5 border border-neutral-300 dark:border-neutral-700 rounded-md">
+      <tech.icon
+        className={`
+          size-4 
+          ${c?.light ?? ""}
+          ${c?.dark ?? ""}
+        `}
+      />
+      {tech.name}
+    </Badge>
+  );
+}
+
+
+
+function ProjectLogo({ name, image }: { name: string; image?: string }) {
+  if (image) {
+    return (
+      <Image
+        src={image}
+        alt={name}
+        width={48}
+        height={48}
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
+      />
+    );
+  }
+
+  return (
+    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
+      <span className="text-xs font-bold text-neutral-500">{name[0]}</span>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------
+   Component: ProjectCard
+------------------------------------------------------- */
 
 function ProjectCard({ project }: { project: ProjectItem }) {
-  // NEW: Feature toggle
   const [expanded, setExpanded] = useState(false);
 
-  const visibleFeatures = expanded
+  const visible = expanded
     ? project.coreFeatures
     : project.coreFeatures?.slice(0, 4);
 
-  const hasMoreFeatures =
+  const hasMore =
     project.coreFeatures && project.coreFeatures.length > 4;
 
   return (
     <div className="flex gap-4 sm:gap-6 group">
-      {/* Project Logo */}
       <div className="flex-shrink-0 mt-1">
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.name}
-            width={48}
-            height={48}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
-          />
-        ) : (
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
-            <span className="text-xs font-bold text-neutral-500">
-              {project.name[0]}
-            </span>
-          </div>
-        )}
+        <ProjectLogo name={project.name} image={project.image} />
       </div>
 
-      {/* Content */}
       <div className="flex-grow space-y-2">
-        {/* Title + Links or NDA */}
+        {/* Title + Links */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
           <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
             {project.name}
           </h3>
 
           <div className="flex items-center gap-3">
-            {/* NEW RULE: Show NDA if NO github */}
             {!project.github ? (
-              <span className="text-[10px] px-2 py-0.5 font-medium rounded-md border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300">
-                code not shareable (nda)
+              <span className="text-xs px-2 py-0.5 font-medium rounded-sm border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300">
+                Nda On Code
               </span>
             ) : (
               <Link
                 href={project.github}
                 target="_blank"
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
               >
                 <SiGithub className="w-4 h-4" />
               </Link>
             )}
 
-            {/* Live link always shown if present */}
             {(project.live || project.link) && (
               <Link
                 href={project.live || project.link!}
                 target="_blank"
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
               >
                 <FiExternalLink className="w-4 h-4" />
               </Link>
@@ -85,37 +111,29 @@ function ProjectCard({ project }: { project: ProjectItem }) {
             : project.description?.[0]}
         </p>
 
-        {/* Core Features */}
-        {visibleFeatures && (
+        {/* Features */}
+        {visible && (
           <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 space-y-1 pt-2">
-            {visibleFeatures.map((feat, i) => (
+            {visible.map((feat, i) => (
               <li key={i}>{feat}</li>
             ))}
           </ul>
         )}
 
-        {/* Show More / Less Button */}
-        {hasMoreFeatures && (
+        {hasMore && (
           <button
-            className="text-xs font-medium text-blue-600 dark:text-blue-400 mt-1"
-            onClick={() => setExpanded((prev) => !prev)}
+            className="text-xs font-medium text-neutral-600 dark:text-neutral-400 mt-1"
+            onClick={() => setExpanded((x) => !x)}
           >
             {expanded ? "Show less" : "Show more"}
           </button>
         )}
 
-        {/* FIXED: Tech Stack badges now wrap properly */}
+        {/* Tech badges */}
         {project.techStack && (
           <div className="flex flex-wrap gap-2 pt-2">
             {project.techStack.map((tech, i) => (
-              <Badge
-                key={i}
-                variant="neutral"
-                className="flex items-center gap-1 text-[10px] px-2 py-0.5 font-medium border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-md w-fit"
-              >
-                <tech.icon className="w-3 h-3" />
-                {tech.name}
-              </Badge>
+              <TechBadge key={i} tech={tech} />
             ))}
           </div>
         )}
@@ -124,29 +142,35 @@ function ProjectCard({ project }: { project: ProjectItem }) {
   );
 }
 
+/* -------------------------------------------------------
+   Component: ProjectsSection (default export)
+------------------------------------------------------- */
+
 export default function ProjectsSection() {
   return (
     <section id="projects" className="max-w-4xl mx-auto px-6 py-12 space-y-16">
-      {/* Work Projects */}
+      {/* Work */}
       <div>
         <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
           Work Projects
         </h2>
+
         <div className="space-y-12">
-          {WORK_PROJECTS.map((project, idx) => (
-            <ProjectCard key={idx} project={project} />
+          {WORK_PROJECTS.map((p, i) => (
+            <ProjectCard key={i} project={p} />
           ))}
         </div>
       </div>
 
-      {/* Personal Projects */}
+      {/* Personal */}
       <div>
         <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
           Personal Projects
         </h2>
+
         <div className="space-y-12">
-          {PERSONAL_PROJECTS.map((project, idx) => (
-            <ProjectCard key={idx} project={project} />
+          {PERSONAL_PROJECTS.map((p, i) => (
+            <ProjectCard key={i} project={p} />
           ))}
         </div>
       </div>
