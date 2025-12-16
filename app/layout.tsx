@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
+import Dock from "@/components/dock";
 import { JetBrains_Mono, Fira_Code } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
             <Navbar />
           </div>
           <div className="relative z-10">{children}</div>
+          <Dock />
         </ThemeProvider>
         <Analytics />
       </body>

@@ -41,7 +41,7 @@ function GitHubGraph({ username, accentColor = "blue" }: GitHubGraphProps) {
 
 export default function GithubProfiles({ username }: { username: string }) {
   return (
-    <section className="max-w-4xl mx-auto px-6">
+    <section id="github" className="max-w-4xl mx-auto px-6">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
@@ -56,7 +56,7 @@ export default function GithubProfiles({ username }: { username: string }) {
           </span>
         </div>
         <div className="text-sm text-neutral-500 dark:text-neutral-400">
-          2024 Contributions
+          2025 Contributions
         </div>
       </div>
 
