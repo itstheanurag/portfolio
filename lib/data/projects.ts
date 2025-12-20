@@ -159,19 +159,5 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
       { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
     ],
-  },
-  {
-    name: "Docusage",
-    description:
-      "A platform for dealing with any kind of documents, may it be forms, contracts, code, invoices and many more.",
-    techStack: [
-      { name: "Nextjs", icon: SiNextdotjs, iconBgColor: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
-      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-      { name: "Better Auth", icon: SiBetterstack, iconBgColor: "#5AC2F0" },
-      { name: "Drizzle", icon: SiDrizzle, iconBgColor: "#0FA958" },
-      { name: "Shadcn Ui", icon: SiShadcnui, iconBgColor: "#111827" },
-    ],
-  },
+  }
 ];
