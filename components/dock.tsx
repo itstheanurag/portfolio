@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
 import {
   FaUser,
   FaBriefcase,
@@ -30,9 +31,13 @@ const DOCK_ITEMS: DockItem[] = [
 
 export default function Dock() {
   const [activeSection, setActiveSection] = useState<string>("hero");
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Track active section based on scroll position
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
 
@@ -51,7 +56,9 @@ export default function Dock() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  if (pathname === "/works") return null;
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -66,10 +73,11 @@ export default function Dock() {
     <motion.div
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 100, opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-none"
     >
-      <div className="flex items-center gap-1 px-2 py-2 bg-neutral-100/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/50 dark:border-neutral-800/50 rounded-2xl shadow-lg shadow-neutral-900/5 dark:shadow-black/20">
+      <div className="flex items-center gap-1 px-2 py-2 bg-neutral-100/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/50 dark:border-neutral-800/50 rounded-2xl shadow-lg shadow-neutral-900/5 dark:shadow-black/20 pointer-events-auto">
         {DOCK_ITEMS.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
