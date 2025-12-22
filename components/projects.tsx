@@ -54,7 +54,7 @@ function ProjectLogo({ name, image }: { name: string; image?: string }) {
    Component: ProjectCard
 ------------------------------------------------------- */
 
-function ProjectCard({ project }: { project: ProjectItem }) {
+export function ProjectCard({ project }: { project: ProjectItem }) {
   const [expanded, setExpanded] = useState(false);
 
   const visible = expanded

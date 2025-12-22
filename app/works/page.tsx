@@ -1,7 +1,7 @@
 import { getGithubActivity } from "@/lib/github";
-import WorksSection from "@/components/works-section";
 import GithubContributions from "@/components/github-contributions";
 import Footer from "@/components/footer";
+import CurrentlyWorkingOn from "@/components/currently-working-on";
 
 export const metadata = {
   title: "Works | itstheanurag",
@@ -23,7 +23,15 @@ export default async function WorksPage() {
           </p>
         </header>
 
-        <WorksSection />
+        <section>
+          <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
+            Currently Working On
+          </h2>
+          
+          <div className="space-y-16">
+            <CurrentlyWorkingOn />
+          </div>
+        </section>
         
         <GithubContributions contributions={contributions} />
       </div>

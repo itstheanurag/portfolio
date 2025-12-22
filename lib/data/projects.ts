@@ -132,26 +132,12 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
       { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
     ],
-  },
-  {
-    name: "Bits&Pieces",
-    description:
-      "A collection of nextjs components built with tailwindcss and framer motion for rapid prototyping and development.",
-    link: "https://itstheanurag.github.io/bitsandpieces/",
-    github: "https://github.com/itstheanurag/bitsandpieces",
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
-      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-      { name: "Shadcn UI", icon: SiShadcnui, iconBgColor: "#111827" },
-    ],
+    image: "/icon.png",
   },
   {
     name: "Prompt Nation",
     description:
       "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and Tailwind CSS, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
-    link: "https://prompt-nation.vercel.app",
     github: "https://github.com/itstheanurag/prompt-nation",
     techStack: [
       { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
@@ -159,5 +145,18 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
       { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
     ],
-  }
+  },
+  {
+    name: "Konvo",
+    description:
+      "A small fun project, make fake Chat conversation images and fake post images for the the meme purposes",
+    link: "https://konvo-seven.vercel.app",
+    github: "https://github.com/itstheanurag/konvo",
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
+      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
+    ],
+    image: "/konvo.png",
+  },
 ];

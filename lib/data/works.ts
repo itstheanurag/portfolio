@@ -52,6 +52,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
       "Adding more complex layout patterns",
       "Started working on dark mode variants",
     ],
+    image: "/bitsandpieces.png",
   },
   {
     name: "Docusage",
