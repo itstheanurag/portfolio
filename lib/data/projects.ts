@@ -50,8 +50,8 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "Socket.IO",
       "GCP Pub/Sub",
       "TypeScript",
-      "Square API",
-      "ModMed Integration",
+      "SquareAPI",
+      "ModMedIntegration",
       "Firebase",
     ],
     coreFeatures: [
@@ -88,18 +88,18 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
   {
     name: "Portfolio",
     description:
-      "A minimal, high-performance portfolio website built with Next.js and Tailwind CSS.",
+      "A minimal, high-performance portfolio website built with Next.js and TailwindCss.",
     link: "https://itstheanurag.vercel.app",
     github: "https://github.com/itstheanurag/portfolio",
-    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
     image: "/icon.png",
   },
   {
     name: "Prompt Nation",
     description:
-      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and Tailwind CSS, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
+      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
     github: "https://github.com/itstheanurag/prompt-nation",
-    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
   },
   {
     name: "Konvo",
@@ -107,7 +107,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       "A small fun project, make fake Chat conversation images and fake post images for the the meme purposes",
     link: "https://konvo-seven.vercel.app",
     github: "https://github.com/itstheanurag/konvo",
-    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+    techStack: ["Nextjs", "TailwindCss", "TypeScript"],
     image: "/konvo.png",
   },
 ];

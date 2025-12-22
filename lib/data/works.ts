@@ -1,14 +1,4 @@
 import { WorkItem } from "../types/works";
-import {
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiFramer,
-  SiReact,
-  SiShadcnui,
-} from "react-icons/si";
-
 export const CURRENTLY_WORKING_ON: WorkItem[] = [
   {
     name: "Hanma",
@@ -16,7 +6,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
       "A CLI tool for generating full-stack boilerplates and snippets with a focus on speed and developer experience.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Node.js", "TypeScript"],
+    techStack: ["Nodejs", "TypeScript"],
     github: "https://github.com/itstheanurag/hanma",
     longDescription:
       "Hanma is designed to streamline the project initialization process by providing modular snippets and templates. It supports various frameworks and databases, allowing developers to scaffold complex applications in minutes.",
@@ -33,7 +23,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
       "A collection of high-quality Next.js components built with Tailwind CSS and Framer Motion.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "React"],
+    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "React"],
     github: "https://github.com/itstheanurag/bitsandpieces",
     link: "https://itstheanurag.github.io/bitsandpieces/",
     longDescription:
@@ -52,7 +42,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
       "Multi-purpose platform for forms, contracts, invoices and code management.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Next.js", "TypeScript", "Shadcn UI"],
+    techStack: ["Nextjs", "TypeScript", "ShadcnUI"],
     github: "https://github.com/itstheanurag/docusage",
     longDescription:
       "An all-in-one document management system that handles everything from simple forms to complex code snippets and invoices with ease.",
