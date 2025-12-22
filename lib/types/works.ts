@@ -1,17 +1,11 @@
 import { IconType } from "react-icons";
 
-export interface TechItem {
-  name: string;
-  icon: IconType;
-  iconBgColor?: string;
-}
-
 export interface WorkItem {
   name: string;
   description: string;
   category: "Client Work" | "Personal Project" | "Open Source" | "Exploration";
   status: "In Progress" | "On Maintenance" | "Planned";
-  techStack: TechItem[];
+  techStack: string[];
   github?: string;
   link?: string;
   image?: string;

@@ -10,11 +10,14 @@ export default function CurrentlyWorkingOn() {
         <ProjectCard 
           key={i} 
           project={{
-            ...work,
+            name: work.name,
             description: work.description,
+            image: work.image,
+            techStack: work.techStack,
             coreFeatures: work.progressItems,
-            live: work.link
-          } as any} 
+            live: work.link,
+            github: work.github
+          }} 
         />
       ))}
     </div>

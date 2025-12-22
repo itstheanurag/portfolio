@@ -1,34 +1,9 @@
-import { IconType } from "react-icons";
-import {
-  SiNestjs,
-  SiPostgresql,
-  SiSequelize,
-  SiTypescript,
-  SiFirebase,
-  SiGooglecloud,
-  SiGooglebigquery,
-  SiSocketdotio,
-  SiSquare,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiFramer,
-  SiShadcnui,
-  SiBetterstack,
-  SiDrizzle,
-} from "react-icons/si";
-
-export interface TechItem {
-  name: string;
-  icon: IconType;
-  iconBgColor?: string;
-}
-
 export interface ProjectItem {
   name: string;
   description?: string | string[];
   longDescription?: string;
   image?: string;
-  techStack?: TechItem[];
+  techStack?: string[];
   coreFeatures?: string[];
   github?: string;
   live?: string;
@@ -44,13 +19,13 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "Cadence is a research-focused health app developed with NTU to monitor heart health. It includes real-time patient-coach chat, sleep and step tracking, action scores, automated questionnaires, and analytics dashboards for researchers.",
     link: "https://play.google.com/store/apps/details?id=com.ntu.cadence&hl=en_IN",
     techStack: [
-      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
-      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
-      { name: "Sequelize", icon: SiSequelize, iconBgColor: "#52B0E7" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
-      { name: "BigQuery", icon: SiGooglebigquery, iconBgColor: "#4285F4" },
-      { name: "GCP", icon: SiGooglecloud, iconBgColor: "#4285F4" },
+      "NestJS",
+      "PostgreSQL",
+      "Sequelize",
+      "TypeScript",
+      "Firebase",
+      "BigQuery",
+      "GCP",
     ],
     coreFeatures: [
       "Real-time patient-coach chat",
@@ -70,18 +45,14 @@ export const WORK_PROJECTS: ProjectItem[] = [
       "SDG is a healthcare platform enhancing patient engagement with real-time doctor-patient chat, medication reminders, subscription-based programs, secure payments via Square, EMR integration with ModMed, and scalable event-driven architecture using GCP Pub/Sub.",
     link: "https://play.google.com/store/apps/details?id=com.mahalo.Schweiger",
     techStack: [
-      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
-      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
-      { name: "Socket.IO", icon: SiSocketdotio, iconBgColor: "#010101" },
-      { name: "GCP Pub/Sub", icon: SiGooglecloud, iconBgColor: "#4285F4" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-      { name: "Square API", icon: SiSquare, iconBgColor: "#2D8CFF" },
-      {
-        name: "ModMed Integration",
-        icon: SiGooglecloud,
-        iconBgColor: "#0F172A",
-      },
-      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
+      "NestJS",
+      "PostgreSQL",
+      "Socket.IO",
+      "GCP Pub/Sub",
+      "TypeScript",
+      "Square API",
+      "ModMed Integration",
+      "Firebase",
     ],
     coreFeatures: [
       "Subscription-based payments",
@@ -101,13 +72,7 @@ export const WORK_PROJECTS: ProjectItem[] = [
     longDescription:
       "MedLinks empowers patients with personalized health programs and tracking of metrics like weight, blood pressure, and glucose...",
     link: "https://play.google.com/store/apps/details?id=com.mahalo.medlinksclinician",
-    techStack: [
-      { name: "NestJS", icon: SiNestjs, iconBgColor: "#E0234E" },
-      { name: "PostgreSQL", icon: SiPostgresql, iconBgColor: "#336791" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-      { name: "Firebase", icon: SiFirebase, iconBgColor: "#FFCA28" },
-      { name: "GCP", icon: SiGooglecloud, iconBgColor: "#4285F4" },
-    ],
+    techStack: ["NestJS", "PostgreSQL", "TypeScript", "Firebase", "GCP"],
     coreFeatures: [
       "Custom health programs",
       "Health metric tracking",
@@ -126,12 +91,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       "A minimal, high-performance portfolio website built with Next.js and Tailwind CSS.",
     link: "https://itstheanurag.vercel.app",
     github: "https://github.com/itstheanurag/portfolio",
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
-      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-    ],
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     image: "/icon.png",
   },
   {
@@ -139,12 +99,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     description:
       "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and Tailwind CSS, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
     github: "https://github.com/itstheanurag/prompt-nation",
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
-      { name: "Framer Motion", icon: SiFramer, iconBgColor: "#0055FF" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-    ],
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
   },
   {
     name: "Konvo",
@@ -152,11 +107,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
       "A small fun project, make fake Chat conversation images and fake post images for the the meme purposes",
     link: "https://konvo-seven.vercel.app",
     github: "https://github.com/itstheanurag/konvo",
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs, iconBgColor: "#000000" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, iconBgColor: "#38BDF8" },
-      { name: "TypeScript", icon: SiTypescript, iconBgColor: "#3178C6" },
-    ],
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
     image: "/konvo.png",
   },
 ];

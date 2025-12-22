@@ -4,23 +4,23 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { WORK_PROJECTS, PERSONAL_PROJECTS } from "@/lib/data/projects";
-import type { ProjectItem, TechItem } from "@/lib/data/projects";
+import { PERSONAL_PROJECTS, ProjectItem, WORK_PROJECTS } from "@/lib/data/projects";
 import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
-import { TECH_ICON_COLORS } from "@/lib/tech-color";
+import { getTech } from "@/lib/data/technologies";
 
 
-function TechBadge({ tech }: { tech: TechItem }) {
- const c = TECH_ICON_COLORS[tech.name];
+function TechBadge({ techName }: { techName: string }) {
+  const tech = getTech(techName);
+  const Icon = tech.icon;
 
   return (
-    <Badge className="flex items-center gap-1 text-xs p-1.5 border border-neutral-300 dark:border-neutral-700 rounded-md">
-      <tech.icon
+    <Badge className="flex items-center gap-1.5 text-[10px] sm:text-xs py-1 px-2 border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 font-medium rounded-sm">
+      <Icon
         className={`
-          size-4 
-          ${c?.light ?? ""}
-          ${c?.dark ?? ""}
+          size-3 sm:size-3.5 
+          ${tech.color.light} 
+          ${tech.color.dark}
         `}
       />
       {tech.name}
@@ -132,8 +132,8 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
         {/* Tech badges */}
         {project.techStack && (
           <div className="flex flex-wrap gap-2 pt-2">
-            {project.techStack.map((tech, i) => (
-              <TechBadge key={i} tech={tech} />
+            {project.techStack.map((techName, i) => (
+              <TechBadge key={i} techName={techName} />
             ))}
           </div>
         )}
