@@ -10,7 +10,7 @@ const parser = new Parser();
 export async function GET() {
   try {
     // cache for two hours
-    const res = await fetch("https://medium.com/feed/@codecript", {
+    const res = await fetch("https://medium.com/feed/@itstheanurag", {
       next: { revalidate: 7200 },
     });
     const text = await res.text();
@@ -32,7 +32,9 @@ export async function GET() {
     });
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }),
+      JSON.stringify({
+        error: err instanceof Error ? err.message : "Unknown error",
+      }),
       {
         status: 500,
       }
