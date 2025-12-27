@@ -6,9 +6,10 @@ import BlogShimmer from "@/components/shimmers/blog-shimmer";
 import Footer from "@/components/footer";
 import SocialsSection from "@/components/socials";
 import ExperienceSection from "@/components/experience";
-import GithubProfiles from "@/components/github";
+import GithubProfiles from "@/components/github/github";
 import ProjectsSection from "@/components/projects";
 import StackSection from "@/components/tech-stack";
+import WhatMakesMeStandOut from "@/components/about-me";
 
 const MediumBlogs = dynamic(() => import("@/components/blogs"), {
   loading: () => <BlogShimmer />,
@@ -18,10 +19,12 @@ export default function Home() {
   return (
     <main className="min-h-screen transition-colors duration-300">
       <ProfileSection />
+      <WhatMakesMeStandOut />
       <ExperienceSection />
       <ProjectsSection />
       <StackSection />
       <GithubProfiles username="itstheanurag" />
+
       <MediumBlogs />
       <SocialsSection />
       <Footer />

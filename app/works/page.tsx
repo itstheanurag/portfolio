@@ -1,5 +1,5 @@
 import { getGithubActivity } from "@/lib/github";
-import GithubContributions from "@/components/github-contributions";
+import OpenSourceContributions from "@/components/github/open-source";
 import Footer from "@/components/footer";
 import CurrentlyWorkingOn from "@/components/currently-working-on";
 
@@ -13,18 +13,20 @@ export default async function WorksPage() {
 
   return (
     <main className="min-h-screen pt-24 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-6 space-y-16">
+      <div className="max-w-4xl mx-auto px-6 space-y-12">
         <header className="space-y-4">
-          <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
+          <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
             Works.
           </h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            A real-time look into what I am currently working on. The Open Source projects, the personal projects, and learning projects. Unfortunately, i don't have any client projects right now. 
-          </p>
+  <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+    A real-time snapshot of what I am currently building and exploring.
+    This includes open-source contributions, personal experiments, and
+    learning projects that I treat like production work.
+  </p>
         </header>
 
         <section>
-          <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
+          <h2 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-8">
             Currently Working On
           </h2>
           
@@ -33,7 +35,7 @@ export default async function WorksPage() {
           </div>
         </section>
         
-        <GithubContributions contributions={contributions} />
+        <OpenSourceContributions contributions={contributions} />
       </div>
       <Footer />
     </main>

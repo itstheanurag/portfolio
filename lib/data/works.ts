@@ -8,6 +8,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
     status: "In Progress",
     techStack: ["Nodejs", "TypeScript"],
     github: "https://github.com/itstheanurag/hanma",
+    link: "https://hanma-a2n.pages.dev/",
     longDescription:
       "Hanma is designed to streamline the project initialization process by providing modular snippets and templates. It supports various frameworks and databases, allowing developers to scaffold complex applications in minutes.",
     progressItems: [
