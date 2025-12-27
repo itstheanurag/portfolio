@@ -1,15 +1,13 @@
-import React from "react";
-import Paragraph from "../typography/paragraph";
-import Heading from "../typography/heading";
-
 const GitHubShimmer = () => {
   return (
     <section className="space-y-16 max-w-4xl mx-auto">
-      <Heading>GitHub Activity</Heading>
-      <Paragraph className="pb-6">
+      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
+        GitHub Activity
+      </h2>
+      <p className="pb-6">
         A visual representation of my coding activity across personal and work
         repositories.
-      </Paragraph>
+      </p>
 
       <div className="space-y-16">
         {/* Shimmer for Personal Section */}

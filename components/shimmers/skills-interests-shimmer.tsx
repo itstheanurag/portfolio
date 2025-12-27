@@ -1,7 +1,3 @@
-import React from "react";
-import Paragraph from "../typography/paragraph";
-import Heading from "../typography/heading";
-
 const SkillsAndInterestsShimmer = () => {
   const renderGrid = (count: number) => (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
@@ -19,14 +15,14 @@ const SkillsAndInterestsShimmer = () => {
 
   return (
     <section className="space-y-16 max-w-4xl mx-auto">
-      <Heading>Skills</Heading>
+      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">Skills</h2>
 
-      <Paragraph className="pb-6">
+      <p className="pb-6">
         I love exploring new technologies, building scalable solutions, and
         solving real-world problems with code. My interests span full-stack
         development, backend architectures, and creating products that make an
         impact.
-      </Paragraph>
+      </p>
 
       <h3 className="text-xl font-semibold text-base-content mt-10 mb-4">
         Tools & Frameworks
