@@ -44,7 +44,7 @@ const EXPERIENCES: ExperienceItem[] = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="max-w-4xl mx-auto px-6 py-12">
+    <section id="experience" className="max-w-4xl mx-auto px-6 py-8">
       <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
         Experience
       </h2>

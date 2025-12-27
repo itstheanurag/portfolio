@@ -3,7 +3,7 @@ import { SiGithub, SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-12 mt-24 border-t border-neutral-200 dark:border-neutral-800">
+    <footer className="w-full py-12 border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
         {/* Socials */}
         <div className="flex items-center gap-6">

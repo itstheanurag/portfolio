@@ -8,6 +8,7 @@ import { PERSONAL_PROJECTS, ProjectItem, WORK_PROJECTS } from "@/lib/data/projec
 import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import { getTech } from "@/lib/data/technologies";
+import { BsArrowUpRight } from "react-icons/bs";
 
 
 function TechBadge({ techName }: { techName: string }) {
@@ -70,9 +71,9 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
         <ProjectLogo name={project.name} image={project.image} />
       </div>
 
-      <div className="flex-grow space-y-2">
+      <div className="flex-grow">
         {/* Title + Links */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
           <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
             {project.name}
           </h3>
@@ -148,7 +149,7 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="max-w-4xl mx-auto px-6 py-12 space-y-16">
+    <section id="projects" className="max-w-4xl mx-auto px-6 py-8 space-y-16">
       {/* Work */}
       <div>
         <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
@@ -173,6 +174,16 @@ export default function ProjectsSection() {
             <ProjectCard key={i} project={p} />
           ))}
         </div>
+      </div>
+
+      <div className="mt-8 text-center">
+        <Link
+          href="works"
+          className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+        >
+          <span>See what i am working on</span>
+          <BsArrowUpRight className="w-4 h-4" />
+        </Link>
       </div>
     </section>
   );

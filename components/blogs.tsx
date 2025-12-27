@@ -42,7 +42,7 @@ export default function MediumBlogs() {
   });
 
   return (
-    <section id="blogs" className="max-w-4xl mx-auto px-6">
+    <section id="blogs" className="max-w-4xl mx-auto px-6 py-8">
       <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
         Latest Blogs
       </h2>
@@ -64,7 +64,7 @@ export default function MediumBlogs() {
               key={idx}
               href={post.link}
               target="_blank"
-              className="group block p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:bg-white dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-sm "
+              className="group block p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:bg-white dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
             >
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">

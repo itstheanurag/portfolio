@@ -5,7 +5,7 @@ import { getTech, TECHNOLOGIES } from "@/lib/data/technologies";
 
 export default function StackSection() {
   return (
-    <section id="stack" className="max-w-4xl mx-auto px-6 py-12">
+    <section id="stack" className="max-w-4xl mx-auto px-6 py-8">
       <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
         Technologies & Tools
       </h2>

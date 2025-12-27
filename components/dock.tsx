@@ -26,13 +26,13 @@ const DOCK_ITEMS: DockItem[] = [
   { id: "stack", label: "Stack", icon: FaTools },
   { id: "github", label: "GitHub", icon: FaGithub },
   { id: "blogs", label: "Blogs", icon: FaPenNib },
-  { id: "socials", label: "Socials", icon: FaShareAlt },
+  // { id: "socials", label: "Socials", icon: FaShareAlt },
 ];
 
 export default function Dock() {
   const [activeSection, setActiveSection] = useState<string>("hero");
   const pathname = usePathname();
-  const router = useRouter();
+  // const router = useRouter();
 
   // Track active section based on scroll position
   useEffect(() => {

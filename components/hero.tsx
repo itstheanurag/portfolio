@@ -67,7 +67,7 @@ export default function ProfileSection() {
   }, []);
 
   return (
-    <section id="hero" className="max-w-4xl mx-auto px-6 pt-32 pb-12">
+    <section id="hero" className="max-w-4xl mx-auto px-6 pt-32 pb-8">
       <div className="flex flex-col space-y-10">
         {/* TOP: Image + Title on same line (md+) */}
         <div className="flex flex-col md:flex-row md:items-center md:space-x-8 space-y-6 md:space-y-0">
@@ -87,7 +87,7 @@ export default function ProfileSection() {
 
           {/* Heading + Morphing Span */}
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full">
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full flex items-center gap-4">
               Hi, I&apos;m Gaurav{" "}
               <span className="inline-flex relative min-w-[12ch] h-[1em] align-middle text-neutral-400">
                 <AnimatePresence mode="wait">
