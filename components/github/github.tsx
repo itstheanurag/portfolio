@@ -147,12 +147,28 @@ export default function GithubProfiles({ username }: { username: string }) {
         <div className="flex justify-end items-center gap-2 mt-4 text-[9px] text-neutral-500 dark:text-neutral-400 font-medium">
           <span className="uppercase tracking-wider opacity-70">Less</span>
           <div className="flex gap-1">
-            <div className="w-2 h-2 rounded-[1.5px] bg-neutral-200 dark:bg-neutral-800/80 transition-colors"></div>
-            <div className="w-2 h-2 rounded-[1.5px] bg-orange-200 dark:bg-orange-900/40 transition-colors"></div>
-            <div className="w-2 h-2 rounded-[1.5px] bg-orange-400 dark:bg-orange-700/60 transition-colors"></div>
-            <div className="w-2 h-2 rounded-[1.5px] bg-orange-600 dark:bg-orange-500 transition-colors"></div>
-            <div className="w-2 h-2 rounded-[1.5px] bg-orange-800 dark:bg-orange-300 transition-colors"></div>
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-empty)" }}
+            />
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-scale-1)" }}
+            />
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-scale-2)" }}
+            />
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-scale-3)" }}
+            />
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-scale-4)" }}
+            />
           </div>
+
           <span className="uppercase tracking-wider opacity-70">More</span>
         </div>
       </div>

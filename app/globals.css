@@ -5,11 +5,16 @@
 :root {
   --background: oklch(0.97 0 0); /* neutral-100 */
   --foreground: oklch(0.2 0 0); /* neutral-850 text level */
-  --heatmap-empty: oklch(0.3 0 0); /* Always use dark mode empty */
-  --heatmap-scale-1: oklch(0.4 0.1 60 / 0.4); /* orange-900/40 */
-  --heatmap-scale-2: oklch(0.5 0.15 60 / 0.6); /* orange-700/60 */
-  --heatmap-scale-3: oklch(0.7 0.2 60); /* orange-500 */
-  --heatmap-scale-4: oklch(0.85 0.15 60); /* orange-300 */
+
+  --heatmap-empty: oklch(0.9 0 0);        /* neutral-200-ish */
+
+  /* Pull lightness down, keep warmth */
+  --heatmap-scale-1: oklch(0.86 0.08 60); /* gentle warm */
+  --heatmap-scale-2: oklch(0.85 0.15 60); /* orange-300 */
+  --heatmap-scale-3: oklch(0.80 0.2 60); /* orange-500 */
+  --heatmap-scale-4: oklch(0.75 0.2 60);   /* orange-700 */
+
+
   --selection-bg: oklch(0.9 0 0); /* neutral-200ish */
   --selection-text: oklch(0.1 0 0); /* neutral-900ish */
 }
@@ -20,6 +25,7 @@
   /* Heatmap colors removed as they are now global */
   --selection-bg: oklch(0.4 0 0); /* neutral-700ish */
   --selection-text: oklch(0.97 0 0); /* neutral-100 */
+  --heatmap-empty: oklch(0.3 0 0); /* neutral-700-ish */
 }
 
 ::selection {
