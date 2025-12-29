@@ -139,7 +139,7 @@ export default function ProfileSection() {
 
           <div className="gap-3 flex flex-wrap items-center justify-center">
             <a
-              href="/resume.pdf"
+              href="/gaurav-resume.pdf"
               download="gaurav-resume.pdf"
               className="inline-flex items-center px-4 py-2 rounded-md bg-neutral-200 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 hover:bg-neutral-400 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
             >
