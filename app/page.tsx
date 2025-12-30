@@ -8,6 +8,7 @@ import SocialsSection from "@/components/socials";
 import ExperienceSection from "@/components/experience";
 import GithubProfiles from "@/components/github/github";
 import ProjectsSection from "@/components/projects";
+import PackagesSection from "@/components/packages";
 import StackSection from "@/components/tech-stack";
 import WhatMakesMeStandOut from "@/components/about-me";
 
@@ -22,9 +23,9 @@ export default function Home() {
       <WhatMakesMeStandOut />
       <ExperienceSection />
       <ProjectsSection />
+      <PackagesSection />
       <StackSection />
       <GithubProfiles username="itstheanurag" />
-
       <MediumBlogs />
       <SocialsSection />
       <Footer />

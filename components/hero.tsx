@@ -24,27 +24,28 @@ const socials = [
     label: "GitHub",
     href: "https://github.com/itstheanurag",
     icon: SiGithub,
-    hover: "hover:text-neutral-900 dark:hover:text-neutral-100",
+    color: "text-neutral-900 dark:text-neutral-100",
   },
   {
     label: "X",
     href: "https://x.com/itstheanurag",
     icon: SiX,
-    hover: "hover:text-black dark:hover:text-white",
+    color: "text-black dark:text-white",
   },
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/itstheanurag",
     icon: SiLinkedin,
-    hover: "hover:text-[#0A66C2]",
+    color: "text-[#0A66C2]",
   },
   {
     label: "Peerlist",
     href: "https://peerlist.io/itstheanurag",
     icon: SiPeerlist,
-    hover: "hover:text-[#00AA45]",
+    color: "text-[#00AA45]",
   },
 ];
+
 
 // Words to morph
 const words = [
@@ -157,17 +158,17 @@ export default function ProfileSection() {
           </div>
 
           {/* Socials */}
-          <div className="flex items-center gap-3">
-            {socials.map(({ label, href, icon: Icon, hover }) => (
+          <div className="flex items-center gap-px">
+            {socials.map(({ label, href, icon: Icon, color }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className={`p-2 rounded-md text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors ${hover}`}
+                className={`p-2 rounded-md transition-colors ${color} hover:text-neutral-600 dark:hover:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800`}
               >
-                <Icon className="size-6" />
+                <Icon className="size-7" />
               </a>
             ))}
           </div>
