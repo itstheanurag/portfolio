@@ -34,6 +34,7 @@ import {
   SiJavascript,
   SiVite,
   SiGithub,
+  SiNpm,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
@@ -107,6 +108,11 @@ export const TECHNOLOGIES: Record<string, Technology> = {
   TailwindCss: {
     name: "Tailwind CSS",
     icon: SiTailwindcss,
+    color: { light: "text-[#38BDF8]", dark: "dark:text-[#38BDF8]" },
+  },
+  Npm: {
+    name: "npm",
+    icon: SiNpm,
     color: { light: "text-[#38BDF8]", dark: "dark:text-[#38BDF8]" },
   },
 

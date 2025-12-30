@@ -4,12 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { PERSONAL_PROJECTS, ProjectItem, WORK_PROJECTS } from "@/lib/data/projects";
+import {
+  PERSONAL_PROJECTS,
+  ProjectItem,
+  WORK_PROJECTS,
+} from "@/lib/data/projects";
 import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import { getTech } from "@/lib/data/technologies";
 import { BsArrowUpRight } from "react-icons/bs";
-
+import { LinkPreview } from "./ui/link-preview";
 
 function TechBadge({ techName }: { techName: string }) {
   const tech = getTech(techName);
@@ -29,8 +33,6 @@ function TechBadge({ techName }: { techName: string }) {
   );
 }
 
-
-
 function ProjectLogo({ name, image }: { name: string; image?: string }) {
   if (image) {
     return (
@@ -39,7 +41,7 @@ function ProjectLogo({ name, image }: { name: string; image?: string }) {
         alt={name}
         width={48}
         height={48}
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-0.5"
       />
     );
   }
@@ -55,17 +57,22 @@ function ProjectLogo({ name, image }: { name: string; image?: string }) {
    Component: ProjectCard
 ------------------------------------------------------- */
 
-export function ProjectCard({ project }: { project: ProjectItem }) {
+export function ProjectCard({
+  project,
+  showPreview = false,
+}: {
+  project: ProjectItem;
+  showPreview?: boolean;
+}) {
   const [expanded, setExpanded] = useState(false);
 
   const visible = expanded
     ? project.coreFeatures
     : project.coreFeatures?.slice(0, 4);
 
-  const hasMore =
-    project.coreFeatures && project.coreFeatures.length > 4;
+  const hasMore = project.coreFeatures && project.coreFeatures.length > 4;
 
-  return (
+  const CardContent = (
     <div className="flex gap-4 sm:gap-6 group">
       <div className="flex-shrink-0 mt-1">
         <ProjectLogo name={project.name} image={project.image} />
@@ -93,14 +100,25 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
               </Link>
             )}
 
-            {(project.live || project.link) && (
-              <Link
-                href={project.live || project.link!}
-                target="_blank"
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
-              >
-                <FiExternalLink className="w-4 h-4" />
-              </Link>
+            {project.link && (
+              <>
+                {showPreview ? (
+                  <LinkPreview
+                    url={project.link}
+
+                  >
+                    <FiExternalLink className="w-4 h-4" />
+                  </LinkPreview>
+                ) : (
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    
+                  >
+                    <FiExternalLink className="w-4 h-4" />
+                  </Link>
+                )}
+              </>
             )}
           </div>
         </div>
@@ -141,6 +159,8 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
       </div>
     </div>
   );
+
+  return CardContent;
 }
 
 /* -------------------------------------------------------
@@ -171,7 +191,7 @@ export default function ProjectsSection() {
 
         <div className="space-y-12">
           {PERSONAL_PROJECTS.map((p, i) => (
-            <ProjectCard key={i} project={p} />
+            <ProjectCard key={i} project={p} showPreview={true} />
           ))}
         </div>
       </div>

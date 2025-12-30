@@ -6,8 +6,8 @@ export interface ProjectItem {
   techStack?: string[];
   coreFeatures?: string[];
   github?: string;
-  live?: string;
   link?: string;
+  previewImage?: string;
 }
 
 export const WORK_PROJECTS: ProjectItem[] = [
@@ -95,13 +95,6 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     image: "/icon.png",
   },
   {
-    name: "Prompt Nation",
-    description:
-      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
-    github: "https://github.com/itstheanurag/prompt-nation",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
-  },
-  {
     name: "Konvo",
     description:
       "A small fun project, make fake Chat conversation images and fake post images for the the meme purposes",
@@ -109,5 +102,12 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     github: "https://github.com/itstheanurag/konvo",
     techStack: ["Nextjs", "TailwindCss", "TypeScript"],
     image: "/konvo.png",
+  },
+  {
+    name: "Prompt Nation",
+    description:
+      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
+    github: "https://github.com/itstheanurag/prompt-nation",
+    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
   },
 ];

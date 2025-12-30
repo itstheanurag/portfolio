@@ -1,22 +1,23 @@
 import { WorkItem } from "../types/works";
 export const CURRENTLY_WORKING_ON: WorkItem[] = [
   {
-    name: "Hanma",
+    name: "Hanma UI",
     description:
-      "A CLI tool for generating full-stack boilerplates and snippets with a focus on speed and developer experience.",
+      "The web interface for the Hanma ecosystem. Allows users to browse snippets, view documentation, and manage their profile.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Nodejs", "TypeScript"],
+    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
     github: "https://github.com/itstheanurag/hanma",
     link: "https://hanma-a2n.pages.dev/",
     longDescription:
-      "Hanma is designed to streamline the project initialization process by providing modular snippets and templates. It supports various frameworks and databases, allowing developers to scaffold complex applications in minutes.",
+      "Hanma UI is the central hub for the Hanma platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Hanma CLI to deliver a seamless developer experience.",
     progressItems: [
       "Core CLI architecture designed and implemented",
       "Added support for Express and NestJS snippets",
       "Implementing registry system for dynamic updates",
       "Drafting documentation for public release",
     ],
+    image: "/hanma-logo.png",
   },
   {
     name: "Bits&Pieces",
