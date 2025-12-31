@@ -15,11 +15,18 @@ import {
   SiLinkedin,
   SiX,
   SiPeerlist,
+  SiYoutube,
 } from "react-icons/si";
 import { BiDownArrowCircle } from "react-icons/bi";
 import { CgMail } from "react-icons/cg";
 
 const socials = [
+  {
+    label: "Youtube",
+    href: "https://youtube.com/@itstheanurag",
+    icon: SiYoutube,
+    color: "text-red-600 dark:text-red-400",
+  },
   {
     label: "GitHub",
     href: "https://github.com/itstheanurag",
@@ -45,7 +52,6 @@ const socials = [
     color: "text-[#00AA45]",
   },
 ];
-
 
 // Words to morph
 const words = [

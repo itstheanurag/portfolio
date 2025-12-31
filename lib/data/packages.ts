@@ -15,6 +15,6 @@ export const NPM_PACKAGES: PackageItem[] = [
     installCommand: "npm install -g hanma",
     link: "https://www.npmjs.com/package/hanma",
     github: "https://github.com/itstheanurag/hanma",
-    version: "0.0.3",
+    version: "0.2.0",
   },
 ];
