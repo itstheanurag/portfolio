@@ -25,12 +25,20 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   const { data, error, isLoading } = useSWR(
     `https://github-contributions-api.jogruber.de/v4/${username}?y=${selectedYear}`,
     fetcher,
-    {
-      revalidateOnFocus: isCurrentYear,
-      revalidateOnReconnect: isCurrentYear,
-      revalidateIfStale: isCurrentYear,
-      dedupingInterval: isCurrentYear ? 2000 : 24 * 60 * 60 * 1000 * 30, // 30 days for past years
-    }
+    isCurrentYear
+      ? {
+          revalidateOnFocus: true,
+          revalidateOnReconnect: true,
+          revalidateIfStale: true,
+          dedupingInterval: 0,
+          keepPreviousData: false,
+        }
+      : {
+          revalidateOnFocus: false,
+          revalidateOnReconnect: false,
+          revalidateIfStale: false,
+          dedupingInterval: 24 * 60 * 60 * 1000 * 30,
+        }
   );
 
   // Close dropdown when clicking outside
@@ -115,8 +123,8 @@ function GitHubGraph({ username }: GitHubGraphProps) {
 
       <div className="w-full overflow-hidden heatmap-container max-w-4xl mx-auto">
         <CalendarHeatmap
-          startDate={new Date(`${selectedYear}-01-01`)}
-          endDate={new Date(`${selectedYear}-12-31`)}
+          startDate={new Date(selectedYear, 0, 0)}
+          endDate={new Date(selectedYear, 11, 31)}
           values={values}
           classForValue={(value: any) => {
             if (!value || value.count === 0) {
