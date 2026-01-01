@@ -4,12 +4,8 @@ import { Tooltip } from "react-tooltip";
 import useSWR from "swr";
 import "react-calendar-heatmap/dist/styles.css";
 import CalendarHeatmap from "react-calendar-heatmap";
-
-interface GitHubContribution {
-  date: string;
-  contributionCount: number;
-  contributionLevel: string;
-}
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 
 interface GitHubGraphProps {
   username: string;
@@ -18,10 +14,38 @@ interface GitHubGraphProps {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 function GitHubGraph({ username }: GitHubGraphProps) {
-  const { data, error, isLoading } = useSWR(
-    `https://github-contributions-api.deno.dev/${username}.json`,
-    fetcher
+  const [selectedYear, setSelectedYear] = useState<number>(
+    new Date().getFullYear()
   );
+  const [isYearOpen, setIsYearOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const currentYear = new Date().getFullYear();
+  const isCurrentYear = selectedYear === currentYear;
+
+  const { data, error, isLoading } = useSWR(
+    `https://github-contributions-api.jogruber.de/v4/${username}?y=${selectedYear}`,
+    fetcher,
+    {
+      revalidateOnFocus: isCurrentYear,
+      revalidateOnReconnect: isCurrentYear,
+      revalidateIfStale: isCurrentYear,
+      dedupingInterval: isCurrentYear ? 2000 : 24 * 60 * 60 * 1000 * 30, // 30 days for past years
+    }
+  );
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsYearOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   if (isLoading) {
     return (
@@ -37,22 +61,62 @@ function GitHubGraph({ username }: GitHubGraphProps) {
     );
   }
 
-  // Flatten the weeks array and format for react-calendar-heatmap
-  const values = data.contributions.flat().map((day: GitHubContribution) => ({
-    date: day.date,
-    count: day.contributionCount,
-  }));
+  const values = data.contributions;
+  const totalContributions = data.total?.[selectedYear] || 0;
 
-  const today = new Date();
-  const oneYearAgo = new Date();
-  oneYearAgo.setDate(today.getDate() - 365);
+  // Generate years from 2022 to current year
+  const years = Array.from(
+    { length: currentYear - 2021 },
+    (_, i) => currentYear - i
+  );
 
   return (
     <div className="w-full space-y-6">
+      <div className="flex items-center justify-between mb-4">
+        <div className="text-sm text-neutral-500 dark:text-neutral-400">
+          {totalContributions} contributions in {selectedYear}
+        </div>
+
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setIsYearOpen(!isYearOpen)}
+            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors"
+          >
+            {selectedYear}
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isYearOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          {isYearOpen && (
+            <div className="absolute right-0 top-full mt-2 w-24 p-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-xl z-50 flex flex-col gap-0.5 overflow-hidden ring-1 ring-black/5">
+              {years.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => {
+                    setSelectedYear(year);
+                    setIsYearOpen(false);
+                  }}
+                  className={`w-full text-center px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                    selectedYear === year
+                      ? "bg-orange-500 text-white font-medium"
+                      : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="w-full overflow-hidden heatmap-container max-w-4xl mx-auto">
         <CalendarHeatmap
-          startDate={oneYearAgo}
-          endDate={today}
+          startDate={new Date(`${selectedYear}-01-01`)}
+          endDate={new Date(`${selectedYear}-12-31`)}
           values={values}
           classForValue={(value: any) => {
             if (!value || value.count === 0) {
@@ -61,7 +125,8 @@ function GitHubGraph({ username }: GitHubGraphProps) {
             if (value.count < 4) return "color-scale-1";
             if (value.count < 8) return "color-scale-2";
             if (value.count < 12) return "color-scale-3";
-            return "color-scale-4";
+            if (value.count < 16) return "color-scale-4";
+            return "color-scale-5";
           }}
           tooltipDataAttrs={(value: any) => {
             if (!value || !value.date) {
@@ -115,6 +180,9 @@ function GitHubGraph({ username }: GitHubGraphProps) {
           .heatmap-container .react-calendar-heatmap .color-scale-4 {
             fill: var(--heatmap-scale-4);
           }
+          .heatmap-container .react-calendar-heatmap .color-scale-5 {
+            fill: var(--heatmap-scale-5);
+          }
         `}</style>
       </div>
     </div>
@@ -166,6 +234,10 @@ export default function GithubProfiles({ username }: { username: string }) {
             <div
               className="w-2 h-2 rounded-[1.5px]"
               style={{ backgroundColor: "var(--heatmap-scale-4)" }}
+            />
+            <div
+              className="w-2 h-2 rounded-[1.5px]"
+              style={{ backgroundColor: "var(--heatmap-scale-5)" }}
             />
           </div>
 

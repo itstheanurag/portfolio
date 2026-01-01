@@ -6,13 +6,13 @@
   --background: oklch(0.97 0 0); /* neutral-100 */
   --foreground: oklch(0.2 0 0); /* neutral-850 text level */
 
-  --heatmap-empty:  oklch(0.92 0 0);
+  --heatmap-empty: oklch(0.92 0 0);
 
-  --heatmap-scale-1: oklch(0.82 0.10 60);
-  --heatmap-scale-2: oklch(0.72 0.16 60);
-  --heatmap-scale-3: oklch(0.62 0.20 60);
-  --heatmap-scale-4: oklch(0.52 0.22 60);
-
+  --heatmap-scale-1: oklch(0.84 0.08 60);
+  --heatmap-scale-2: oklch(0.76 0.12 60);
+  --heatmap-scale-3: oklch(0.68 0.16 60);
+  --heatmap-scale-4: oklch(0.6 0.2 60);
+  --heatmap-scale-5: oklch(0.52 0.24 60);
 
   --selection-bg: oklch(0.9 0 0); /* neutral-200ish */
   --selection-text: oklch(0.1 0 0); /* neutral-900ish */
