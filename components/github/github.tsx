@@ -19,26 +19,17 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   );
   const [isYearOpen, setIsYearOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const currentYear = new Date().getFullYear();
-  const isCurrentYear = selectedYear === currentYear;
-
+  // Fetch all years data at once used to avoid loading state when switching years
   const { data, error, isLoading } = useSWR(
-    `https://github-contributions-api.jogruber.de/v4/${username}?y=${selectedYear}`,
+    `https://github-contributions-api.jogruber.de/v4/${username}`,
     fetcher,
-    isCurrentYear
-      ? {
-          revalidateOnFocus: true,
-          revalidateOnReconnect: true,
-          revalidateIfStale: true,
-          dedupingInterval: 0,
-          keepPreviousData: false,
-        }
-      : {
-          revalidateOnFocus: false,
-          revalidateOnReconnect: false,
-          revalidateIfStale: false,
-          dedupingInterval: 24 * 60 * 60 * 1000 * 30,
-        }
+    {
+      revalidateOnFocus: true,
+      revalidateOnReconnect: true,
+      revalidateIfStale: false,
+      dedupingInterval: 3600000, // 1 hour
+      keepPreviousData: true,
+    }
   );
 
   // Close dropdown when clicking outside
@@ -72,11 +63,10 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   const values = data.contributions;
   const totalContributions = data.total?.[selectedYear] || 0;
 
-  // Generate years from 2022 to current year
-  const years = Array.from(
-    { length: currentYear - 2021 },
-    (_, i) => currentYear - i
-  );
+  // Get years from data available
+  const years = Object.keys(data.total || {})
+    .map(Number)
+    .sort((a, b) => b - a);
 
   return (
     <div className="w-full space-y-6">
