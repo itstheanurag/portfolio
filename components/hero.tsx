@@ -94,8 +94,8 @@ export default function ProfileSection() {
 
           {/* Heading + Morphing Span */}
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full flex items-center gap-4">
-              Hi, I&apos;m Gaurav{" "}
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full flex items-center gap-4">
+              Hi, I&apos;m Gaurav,{""}
               <span className="inline-flex relative min-w-[12ch] h-[1em] align-middle text-neutral-400">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -141,10 +141,9 @@ export default function ProfileSection() {
         </div>
 
         {/* Actions */}
-        <div className="flex justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           {/* Primary actions */}
-
-          <div className="gap-3 flex flex-wrap items-center justify-center">
+          <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
             <a
               href="/gaurav-resume.pdf"
               download="gaurav-resume.pdf"
@@ -164,7 +163,7 @@ export default function ProfileSection() {
           </div>
 
           {/* Socials */}
-          <div className="flex items-center gap-px">
+          <div className="flex items-center justify-center gap-1">
             {socials.map(({ label, href, icon: Icon, color }) => (
               <a
                 key={label}

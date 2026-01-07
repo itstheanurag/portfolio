@@ -22,7 +22,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Right */}
-        <div className="md:flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <Link href="/works">
             <span className="text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
               Works

@@ -103,11 +103,11 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     techStack: ["Nextjs", "TailwindCss", "TypeScript"],
     image: "/konvo.png",
   },
-  {
-    name: "Prompt Nation",
-    description:
-      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
-    github: "https://github.com/itstheanurag/prompt-nation",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
-  },
+  // {
+  //   name: "Prompt Nation",
+  //   description:
+  //     "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
+  //   github: "https://github.com/itstheanurag/prompt-nation",
+  //   techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
+  // },
 ];

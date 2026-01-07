@@ -80,8 +80,8 @@ export function ProjectCard({
 
       <div className="flex-grow">
         {/* Title + Links */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-          <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
+        <div className="flex justify-between items-baseline">
+          <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
             {project.name}
           </h3>
 
@@ -103,18 +103,11 @@ export function ProjectCard({
             {project.link && (
               <>
                 {showPreview ? (
-                  <LinkPreview
-                    url={project.link}
-
-                  >
+                  <LinkPreview url={project.link}>
                     <FiExternalLink className="w-4 h-4" />
                   </LinkPreview>
                 ) : (
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    
-                  >
+                  <Link href={project.link} target="_blank">
                     <FiExternalLink className="w-4 h-4" />
                   </Link>
                 )}
@@ -186,7 +179,7 @@ export default function ProjectsSection() {
       {/* Personal */}
       <div>
         <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-          Personal Projects
+          Fun Projects
         </h2>
 
         <div className="space-y-12">

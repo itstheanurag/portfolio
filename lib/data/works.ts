@@ -20,6 +20,25 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
     image: "/hanma-logo.png",
   },
   {
+    name: "Scaffoldor",
+    description:
+      "The web registry along with a customized cli to share github and gitlab based public templates across peers without any messy commit history. with a preferred package manager so it always belongs to you.",
+    category: "Open Source",
+    status: "In Progress",
+    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
+    github: "https://github.com/itstheanurag/scaffoldor",
+    link: "https://scaffoldor.vercel.app/",
+    longDescription:
+      "Scaffoldor is the central hub for the Scaffoldor platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Scaffoldor CLI to deliver a seamless developer experience.",
+    progressItems: [
+      "A public schema so anyone can share templates",
+      "Core CLI architecture designed and implemented",
+      "Built for more than just node based system",
+      "Supporting gitlab and github",
+      "Supporting any package manager",
+    ],
+  },
+  {
     name: "Bits&Pieces",
     description:
       "A collection of high-quality Next.js components built with Tailwind CSS and Framer Motion.",
