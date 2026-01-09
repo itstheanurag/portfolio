@@ -4,12 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import {
-  PERSONAL_PROJECTS,
-  ProjectItem,
-  WORK_PROJECTS,
-} from "@/lib/data/projects";
-import { SiGithub } from "react-icons/si";
+import { ProjectItem, WORK_PROJECTS } from "@/lib/data/projects";
+import { ALL_WORKS } from "@/lib/data/works";
+import { SiGithub, SiNpm } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import { getTech } from "@/lib/data/technologies";
 import { BsArrowUpRight } from "react-icons/bs";
@@ -81,7 +78,7 @@ export function ProjectCard({
       <div className="flex-grow">
         {/* Title + Links */}
         <div className="flex justify-between items-baseline">
-          <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+          <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
             {project.name}
           </h3>
 
@@ -97,6 +94,17 @@ export function ProjectCard({
                 className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
               >
                 <SiGithub className="w-4 h-4" />
+              </Link>
+            )}
+
+            {project.npm && (
+              <Link
+                href={project.npm}
+                target="_blank"
+                className="text-red-500 hover:text-red-600 transition"
+                title="View on npm"
+              >
+                <SiNpm className="w-4 h-4" />
               </Link>
             )}
 
@@ -117,7 +125,7 @@ export function ProjectCard({
         </div>
 
         {/* Description */}
-        <p className="text-sm text-neutral-700 dark:text-neutral-300">
+        <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
           {typeof project.description === "string"
             ? project.description
             : project.description?.[0]}
@@ -176,15 +184,28 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      {/* Personal */}
+      {/* Works */}
       <div>
         <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-          Fun Projects
+          Works
         </h2>
 
         <div className="space-y-12">
-          {PERSONAL_PROJECTS.map((p, i) => (
-            <ProjectCard key={i} project={p} showPreview={true} />
+          {ALL_WORKS.slice(0, 2).map((work, i) => (
+            <ProjectCard
+              key={i}
+              project={{
+                name: work.name,
+                description: work.description,
+                image: work.image,
+                techStack: work.techStack,
+                coreFeatures: work.progressItems,
+                link: work.link,
+                github: work.github,
+                npm: work.npm,
+              }}
+              showPreview={true}
+            />
           ))}
         </div>
       </div>
@@ -194,7 +215,7 @@ export default function ProjectsSection() {
           href="works"
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
         >
-          <span>See what i am working on</span>
+          <span>See all works</span>
           <BsArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
