@@ -15,7 +15,7 @@ export const NPM_PACKAGES: PackageItem[] = [
     installCommand: "npm install -g hanma",
     link: "https://www.npmjs.com/package/hanma",
     github: "https://github.com/itstheanurag/hanma",
-    version: "0.3.2",
+    version: "0.3.3",
   },
   {
     name: "Scaffoldor Cli",
@@ -24,6 +24,6 @@ export const NPM_PACKAGES: PackageItem[] = [
     installCommand: "npm install -g scaffoldor",
     link: "https://www.npmjs.com/package/scaffoldor",
     github: "https://github.com/itstheanurag/scaffoldor",
-    version: "0.0.1",
+    version: "1.0.0",
   },
 ];

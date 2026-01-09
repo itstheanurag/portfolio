@@ -1,5 +1,6 @@
 import { WorkItem } from "../types/works";
-export const CURRENTLY_WORKING_ON: WorkItem[] = [
+import { PERSONAL_PROJECTS } from "./projects";
+export const ALL_WORKS: WorkItem[] = [
   {
     name: "Hanma UI",
     description:
@@ -9,6 +10,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
     techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
     github: "https://github.com/itstheanurag/hanma",
     link: "https://hanma-a2n.pages.dev/",
+    npm: "https://www.npmjs.com/package/hanma",
     longDescription:
       "Hanma UI is the central hub for the Hanma platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Hanma CLI to deliver a seamless developer experience.",
     progressItems: [
@@ -28,6 +30,7 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
     techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
     github: "https://github.com/itstheanurag/scaffoldor",
     link: "https://scaffoldor.vercel.app/",
+    npm: "https://www.npmjs.com/package/scaffoldor",
     longDescription:
       "Scaffoldor is the central hub for the Scaffoldor platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Scaffoldor CLI to deliver a seamless developer experience.",
     progressItems: [
@@ -74,4 +77,5 @@ export const CURRENTLY_WORKING_ON: WorkItem[] = [
       "Researching secure document sharing",
     ],
   },
+  ...PERSONAL_PROJECTS,
 ];

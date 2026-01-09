@@ -4,10 +4,11 @@ export interface WorkItem {
   name: string;
   description: string;
   category: "Client Work" | "Personal Project" | "Open Source" | "Exploration";
-  status: "In Progress" | "On Maintenance" | "Planned";
+  status: "In Progress" | "On Maintenance" | "Planned" | "Completed";
   techStack: string[];
   github?: string;
   link?: string;
+  npm?: string;
   image?: string;
   longDescription?: string;
   progressItems?: string[];

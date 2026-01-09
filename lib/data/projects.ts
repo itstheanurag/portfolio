@@ -1,3 +1,5 @@
+import { WorkItem } from "../types/works";
+
 export interface ProjectItem {
   name: string;
   description?: string | string[];
@@ -7,6 +9,7 @@ export interface ProjectItem {
   coreFeatures?: string[];
   github?: string;
   link?: string;
+  npm?: string;
   previewImage?: string;
 }
 
@@ -84,7 +87,7 @@ export const WORK_PROJECTS: ProjectItem[] = [
   },
 ];
 
-export const PERSONAL_PROJECTS: ProjectItem[] = [
+export const PERSONAL_PROJECTS: WorkItem[] = [
   {
     name: "Portfolio",
     description:
@@ -93,6 +96,8 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     github: "https://github.com/itstheanurag/portfolio",
     techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
     image: "/icon.png",
+    category: "Personal Project",
+    status: "On Maintenance",
   },
   {
     name: "Konvo",
@@ -102,12 +107,16 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     github: "https://github.com/itstheanurag/konvo",
     techStack: ["Nextjs", "TailwindCss", "TypeScript"],
     image: "/konvo.png",
+    category: "Personal Project",
+    status: "Completed",
   },
-  // {
-  //   name: "Prompt Nation",
-  //   description:
-  //     "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
-  //   github: "https://github.com/itstheanurag/prompt-nation",
-  //   techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
-  // },
+  {
+    name: "Prompt Nation",
+    description:
+      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
+    github: "https://github.com/itstheanurag/prompt-nation",
+    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
+    category: "Personal Project",
+    status: "Completed",
+  },
 ];
