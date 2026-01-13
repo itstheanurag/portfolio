@@ -19,7 +19,6 @@ function GitHubGraph({ username }: GitHubGraphProps) {
   );
   const [isYearOpen, setIsYearOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  // Fetch all years data at once used to avoid loading state when switching years
   const { data, error, isLoading } = useSWR(
     `https://github-contributions-api.jogruber.de/v4/${username}`,
     fetcher,
@@ -32,7 +31,6 @@ function GitHubGraph({ username }: GitHubGraphProps) {
     }
   );
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
