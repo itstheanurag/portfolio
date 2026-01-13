@@ -43,7 +43,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -53,4 +52,31 @@ body {
 .dark body {
   background-color: var(--background);
   background-attachment: fixed;
+}
+
+/* View Transitions API - Theme Toggle Animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  overflow: clip;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Force GPU acceleration for smoother animations */
+html {
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Optimize view transition group */
+::view-transition-group(root) {
+  animation-duration: 0s;
 }

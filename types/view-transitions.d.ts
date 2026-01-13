@@ -1,0 +1,13 @@
+// Type definitions for View Transitions API
+interface ViewTransition {
+  finished: Promise<void>;
+  ready: Promise<void>;
+  updateCallbackDone: Promise<void>;
+  skipTransition(): void;
+}
+
+interface Document {
+  startViewTransition(
+    updateCallback: () => void | Promise<void>
+  ): ViewTransition;
+}
