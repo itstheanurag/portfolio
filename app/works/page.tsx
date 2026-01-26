@@ -1,22 +1,19 @@
-import { getGithubActivity } from "@/lib/github";
-import OpenSourceContributions from "@/components/github/open-source";
-import Footer from "@/components/footer";
-import CurrentlyWorkingOn from "@/components/currently-working-on";
 
-export const metadata = {
+import CurrentlyWorkingOn from "@/components/currently-working-on";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Works | itstheanurag",
   description:
     "What I am currently working on and my open source contributions.",
 };
 
 export default async function WorksPage() {
-  const contributions = await getGithubActivity();
-
   return (
-    <main className="min-h-screen pt-24 transition-colors duration-300">
+    <main className="min-h-screen pt-12 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6 space-y-6">
         <header className="space-y-2">
-          <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
+          <h1 className="text-3xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
             Works.
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -35,10 +32,7 @@ export default async function WorksPage() {
             <CurrentlyWorkingOn />
           </div>
         </section>
-
-        <OpenSourceContributions contributions={contributions} />
       </div>
-      <Footer />
     </main>
   );
 }
