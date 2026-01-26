@@ -74,7 +74,7 @@ export default function ProfileSection() {
   }, []);
 
   return (
-    <section id="hero" className="max-w-4xl mx-auto px-6 pt-32 pb-8">
+    <section id="hero" className="max-w-4xl mx-auto px-6 pt-12 pb-8">
       <div className="flex flex-col space-y-10">
         {/* TOP: Image + Title on same line (md+) */}
         <div className="flex flex-col md:flex-row md:items-center md:space-x-8 space-y-6 md:space-y-0">
