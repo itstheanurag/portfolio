@@ -6,7 +6,7 @@ import { ThemeToggle } from "./theme/theme-toggle";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-neutral-100/70 dark:bg-neutral-900/60 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
+    <nav className="sticky top-0 w-full z-50 bg-neutral-100/70 dark:bg-neutral-900/60 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">

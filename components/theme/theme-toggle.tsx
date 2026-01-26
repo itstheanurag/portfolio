@@ -3,7 +3,6 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { BiMoon, BiSun } from "react-icons/bi";
-import { motion, AnimatePresence } from "motion/react";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -29,7 +28,7 @@ export function ThemeToggle() {
 
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
+      Math.max(y, window.innerHeight - y),
     );
 
     const transition = document.startViewTransition(() => {
@@ -51,7 +50,7 @@ export function ThemeToggle() {
             duration: duration,
             easing: "ease-in-out",
             pseudoElement: "::view-transition-new(root)",
-          }
+          },
         );
       });
     });

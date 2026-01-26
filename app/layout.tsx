@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
+// layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -38,17 +39,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${jetbrainsMono.variable} ${firaCode.variable} antialiased min-h-screen relative`}
+        className={`${jetbrainsMono.variable} ${firaCode.variable} antialiased min-h-screen`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
         >
-          <div className="relative z-20">
-            <Navbar />
-          </div>
-          <div className="relative z-10">{children}</div>
+          <Navbar />
+          <main>{children}</main>
+
           <Dock />
         </ThemeProvider>
         <Analytics />

@@ -35,6 +35,7 @@ import {
   SiVite,
   SiGithub,
   SiNpm,
+  SiWebrtc,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
@@ -256,6 +257,11 @@ export const TECHNOLOGIES: Record<string, Technology> = {
     name: "Hono",
     icon: SiHono,
     color: { light: "text-[#E36002]", dark: "dark:text-[#E36002]" },
+  },
+  WebRtc: {
+    name: "WebRTC",
+    icon: SiWebrtc,
+    color: { light: "text-[#007AFF]", dark: "dark:text-[#007AFF]" },
   },
 };
 

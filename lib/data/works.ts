@@ -42,6 +42,34 @@ export const ALL_WORKS: WorkItem[] = [
     ],
   },
   {
+    name: "Keyway",
+    description:
+      "Keyway is a secure, browser-based peer-to-peer file sharing tool that lets you send files directly between devices with end-to-end encryption. No uploads, no storage, and no data ever touching a server.",
+    category: "Open Source",
+    status: "In Progress",
+    techStack: [
+      "Nextjs",
+      "TailwindCss",
+      "WebRtc",
+      "TypeScript",
+      "Nodejs",
+      "Npm",
+      "Git",
+    ],
+    github: "https://github.com/itstheanurag/keyway",
+    link: "https://keyway.onrender.com/",
+    longDescription:
+      "Keyway is a privacy-first file sharing platform built around the idea that servers should never see your data. Files are encrypted client-side in the browser using strong cryptography before they ever leave your device. Using WebRTC, Keyway establishes a direct peer-to-peer connection between sender and receiver, allowing files to stream securely between devices without being uploaded, stored, or logged on a central server.\n\nThe server is used only for signaling and connection setup. Once the handshake is complete, all file transfers happen directly between browsers with end-to-end encryption. This approach eliminates storage limits, reduces latency, and ensures that no trace of your data is left behind.\n\nKeyway is designed to be simple, fast, and secure by default. Share a file, send a link, and transfer directly, without accounts, uploads, or trust in infrastructure you don’t control.",
+    progressItems: [
+      "Client-side encryption with browser-generated keys",
+      "Direct peer-to-peer file transfer using WebRTC",
+      "No server-side storage or file persistence",
+      "Open-source and auditable codebase",
+      "Simple link-based sharing with optional protections",
+    ],
+    image: "/keyway.png",
+  },
+  {
     name: "Bits&Pieces",
     description:
       "A collection of high-quality Next.js components built with Tailwind CSS and Framer Motion.",
