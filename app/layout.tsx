@@ -1,8 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
-import Dock from "@/components/dock";
+import Footer from "@/components/footer";
 import { JetBrains_Mono, Fira_Code } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -20,16 +21,9 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: "itstheanurag (Gaurav Kumar)",
-  description:
-    "Showcasing the work and projects of Gaurav Kumar, a backend developer.",
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
+  description: "Showcasing the work and projects of Gaurav Kumar.",
 };
 
-// layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -47,9 +41,8 @@ export default function RootLayout({
           enableSystem={false}
         >
           <Navbar />
-          <main>{children}</main>
-
-          <Dock />
+          <main className="pb-20">{children}</main>
+          <Footer />
         </ThemeProvider>
         <Analytics />
       </body>
