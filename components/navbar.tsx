@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./theme/theme-toggle";
 
+const navItems: { href: string; label: string }[] = [
+  { href: "/works", label: "Works" },
+  { href: "/contributions", label: "Contributions" },
+];
+
 export default function Navbar() {
   return (
     <nav className="sticky top-0 w-full z-50 bg-neutral-100/70 dark:bg-neutral-900/60 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
@@ -22,15 +27,16 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Right */}
-        <div className="flex items-center gap-3 text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
-          <Link href="/works">
-            <span className="">Works</span>
-          </Link>
-          <Link href="/contributions">
-            <span className="">
-              Contributions
-            </span>
-          </Link>
+        <div className="flex items-center text-sm font-medium text-neutral-500">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="p-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors duration-200"
+            >
+              {item.label}
+            </Link>
+          ))}
           <ThemeToggle />
         </div>
       </div>

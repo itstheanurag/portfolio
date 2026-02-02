@@ -9,7 +9,7 @@ import GithubProfiles from "@/components/github/github";
 import ProjectsSection from "@/components/projects";
 import PackagesSection from "@/components/packages";
 import StackSection from "@/components/tech-stack";
-import WhatMakesMeStandOut from "@/components/about-me";
+import HireMe from "@/components/hire-me";
 
 const MediumBlogs = dynamic(() => import("@/components/blogs"), {
   loading: () => <BlogShimmer />,
@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen transition-colors duration-300">
       <ProfileSection />
-      <WhatMakesMeStandOut />
+      <HireMe />
       <ExperienceSection />
       <ProjectsSection />
       <PackagesSection />
