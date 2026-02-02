@@ -4,7 +4,7 @@ interface ShimmerProps {
 
 const BlogShimmer: React.FC<ShimmerProps> = ({ count = 3 }) => {
   return (
-    <div className="space-y-16 max-w-4xl mx-auto">
+    <div className="space-y-16 max-w-4xl mx-auto w-full">
       {Array.from({ length: count }).map((_, idx) => (
         <div key={idx} className="group border-b border-neutral-800 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">

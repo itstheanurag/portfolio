@@ -77,7 +77,6 @@ export const ALL_WORKS: WorkItem[] = [
     status: "In Progress",
     techStack: ["Nextjs", "TailwindCss", "FramerMotion", "React"],
     github: "https://github.com/itstheanurag/bitsandpieces",
-    link: "https://itstheanurag.github.io/bitsandpieces/",
     longDescription:
       "A component library focusing on clean aesthetics and smooth micro-interactions. Each component is designed to be drop-in ready for modern web applications.",
     progressItems: [

@@ -79,3 +79,31 @@ html {
 ::view-transition-group(root) {
   animation-duration: 0s;
 }
+
+.bg-diagonal-left {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--diagonal-color) 0px,
+    var(--diagonal-color) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.bg-diagonal-right {
+  background-image: repeating-linear-gradient(
+    -135deg,
+    var(--diagonal-color) 0px,
+    var(--diagonal-color) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+:root {
+  --diagonal-color: oklch(0.2 0 0 / 0.08);
+}
+
+.dark {
+  --diagonal-color: oklch(0.97 0 0 / 0.06);
+}

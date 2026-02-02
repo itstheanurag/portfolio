@@ -34,6 +34,8 @@
     "@types/react": "^19",
     "@types/react-calendar-heatmap": "^1.9.0",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.9.19",
+    "dd": "^0.26.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "tailwindcss": "^4",

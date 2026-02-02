@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -40,9 +39,21 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          <Navbar />
-          <main className="pb-20">{children}</main>
-          <Footer />
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <div className="flex-1">
+              <div className="mx-auto max-w-5xl flex justify-center">
+                {/* Left side double border + pattern */}
+                <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-left shrink-0" />
+
+                <main className="flex-1 max-w-5xl">{children}</main>
+
+                {/* Right side double border + pattern */}
+                <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-right shrink-0" />
+              </div>
+            </div>
+            <Footer />
+          </div>
         </ThemeProvider>
         <Analytics />
       </body>

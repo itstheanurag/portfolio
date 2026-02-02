@@ -23,7 +23,7 @@ export default async function WorksPage() {
           </p>
         </header>
 
-        <section>
+        <section className="pb-16">
           <SectionHeader title="Things i made..." />
 
           <div className="space-y-16">
