@@ -99,24 +99,4 @@ export const PERSONAL_PROJECTS: WorkItem[] = [
     category: "Personal Project",
     status: "On Maintenance",
   },
-  {
-    name: "Konvo",
-    description:
-      "A small fun project, make fake Chat conversation images and fake post images for the the meme purposes",
-    link: "https://konvo-seven.vercel.app",
-    github: "https://github.com/itstheanurag/konvo",
-    techStack: ["Nextjs", "TailwindCss", "TypeScript"],
-    image: "/konvo.png",
-    category: "Personal Project",
-    status: "Completed",
-  },
-  {
-    name: "Prompt Nation",
-    description:
-      "A modern prompt directory and AI prompt fine-tuning hub. Built with Next.js and TailwindCss, it allows users to explore high-quality prompts, save favorites, and experiment with prompt fine-tuning using LLM-powered enhancements.",
-    github: "https://github.com/itstheanurag/prompt-nation",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
-    category: "Personal Project",
-    status: "Completed",
-  },
 ];

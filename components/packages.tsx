@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "./section-header";
 import { NPM_PACKAGES, PackageItem } from "@/lib/data/packages";
 import { SiGithub, SiNpm } from "react-icons/si";
 import { FiExternalLink, FiCopy, FiCheck } from "react-icons/fi";
@@ -105,9 +106,7 @@ export default function PackagesSection() {
   return (
     <section id="packages" className="max-w-4xl mx-auto px-6 py-8">
       {/* Title */}
-      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-        NPM Packages
-      </h2>
+      <SectionHeader title="NPM Packages" />
 
       <div className="space-y-12">
         {NPM_PACKAGES.map((pkg, i) => (

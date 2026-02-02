@@ -11,6 +11,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { getTech } from "@/lib/data/technologies";
 import { BsArrowUpRight } from "react-icons/bs";
 import { LinkPreview } from "./ui/link-preview";
+import { SectionHeader } from "./section-header";
 
 function TechBadge({ techName }: { techName: string }) {
   const tech = getTech(techName);
@@ -173,9 +174,7 @@ export default function ProjectsSection() {
     <section id="projects" className="max-w-4xl mx-auto px-6 py-8 space-y-16">
       {/* Work */}
       <div>
-        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-          Work Projects
-        </h2>
+        <SectionHeader title="Work Projects" />
 
         <div className="space-y-12">
           {WORK_PROJECTS.map((p, i) => (
@@ -186,9 +185,7 @@ export default function ProjectsSection() {
 
       {/* Works */}
       <div>
-        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-          Works
-        </h2>
+        <SectionHeader title="Works" />
 
         <div className="space-y-12">
           {ALL_WORKS.slice(0, 2).map((work, i) => (

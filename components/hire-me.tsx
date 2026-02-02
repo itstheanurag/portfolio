@@ -1,9 +1,9 @@
+import { SectionHeader } from "./section-header";
+
 export default function HireMe() {
   return (
     <section className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 pb-6">
-        Hire Me
-      </h2>
+      <SectionHeader title="Hire Me" />
 
       <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <p>

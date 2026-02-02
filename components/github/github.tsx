@@ -6,6 +6,7 @@ import "react-calendar-heatmap/dist/styles.css";
 import CalendarHeatmap from "react-calendar-heatmap";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import { SectionHeader } from "../section-header";
 
 interface GitHubGraphProps {
   username: string;
@@ -15,7 +16,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 function GitHubGraph({ username }: GitHubGraphProps) {
   const [selectedYear, setSelectedYear] = useState<number>(
-    new Date().getFullYear()
+    new Date().getFullYear(),
   );
   const [isYearOpen, setIsYearOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ function GitHubGraph({ username }: GitHubGraphProps) {
       revalidateIfStale: false,
       dedupingInterval: 3600000, // 1 hour
       keepPreviousData: true,
-    }
+    },
   );
 
   useEffect(() => {
@@ -189,18 +190,10 @@ export default function GithubProfiles({ username }: { username: string }) {
   return (
     <section id="github" className="max-w-4xl mx-auto px-6 py-12">
       <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-3">
-          <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-            Featured GitHub Activity
-          </h2>
-          <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800 text-[10px] font-medium text-orange-700 dark:text-orange-400 transition-colors">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-            </span>
-            Live
-          </span>
-        </div>
+        <SectionHeader
+          title="Featured GitHub Activity"
+          wrapperClassName="mb-0"
+        ></SectionHeader>
         <div className="text-xs text-neutral-500 dark:text-neutral-400">
           Activity
         </div>

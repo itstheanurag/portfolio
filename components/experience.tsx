@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { SectionHeader } from "./section-header";
 
 interface ExperienceItem {
   company: string;
@@ -45,9 +46,7 @@ const EXPERIENCES: ExperienceItem[] = [
 export default function ExperienceSection() {
   return (
     <section id="experience" className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-        Experience
-      </h2>
+      <SectionHeader title="Experience" />
 
       <div className="space-y-12">
         {EXPERIENCES.map((exp, idx) => (

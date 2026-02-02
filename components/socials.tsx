@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { SectionHeader } from "./section-header";
 import {
   FaGithub,
   FaLinkedin,
@@ -79,9 +80,7 @@ const SOCIALS = [
 export default function SocialsSection() {
   return (
     <section id="socials" className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 pb-8">
-        Socials & Coding Profiles
-      </h2>
+      <SectionHeader title="Socials & Coding Profiles" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {SOCIALS.map((social, idx) => {
@@ -101,7 +100,7 @@ export default function SocialsSection() {
                   className={cn(
                     "w-5 h-5 transition-colors",
                     social.color,
-                    social.hover
+                    social.hover,
                   )}
                 />
               </div>
@@ -109,7 +108,7 @@ export default function SocialsSection() {
               <span
                 className={cn(
                   "text-sm font-medium transition-colors",
-                  social.hover
+                  social.hover,
                 )}
               >
                 {social.name}

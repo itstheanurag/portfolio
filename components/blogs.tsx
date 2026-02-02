@@ -6,6 +6,7 @@ import { MediumPost } from "@/lib/data/blogs";
 import Shimmer from "./shimmers/blog-shimmer";
 import { Badge } from "./ui/badge";
 import { BsArrowUpRight } from "react-icons/bs";
+import { SectionHeader } from "./section-header";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -28,8 +29,8 @@ export default function MediumBlogs() {
     const categories = Array.isArray(post.category)
       ? post.category
       : post.category
-      ? [post.category]
-      : [];
+        ? [post.category]
+        : [];
 
     return {
       title: post.title,
@@ -43,9 +44,7 @@ export default function MediumBlogs() {
 
   return (
     <section id="blogs" className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-8">
-        Latest Blogs
-      </h2>
+      <SectionHeader title="Latest Blogs" />
 
       <div className="grid gap-4">
         {posts.map(
@@ -58,7 +57,7 @@ export default function MediumBlogs() {
               pubDate: string;
               category: string[];
             },
-            idx: number
+            idx: number,
           ) => (
             <Link
               key={idx}
@@ -105,7 +104,7 @@ export default function MediumBlogs() {
                 </div>
               </div>
             </Link>
-          )
+          ),
         )}
       </div>
 

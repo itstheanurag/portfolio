@@ -7,6 +7,7 @@ import { FiClock, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { SectionHeader } from "../section-header";
 
 interface GithubContributionsProps {
   contributions: GithubContribution[];
@@ -19,7 +20,7 @@ export default function OpenSourceContributions({
 }: GithubContributionsProps) {
   const [filter, setFilter] = useState<FilterStatus>("all");
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(
-    {}
+    {},
   );
 
   const filteredContributions = useMemo(() => {
@@ -66,9 +67,10 @@ export default function OpenSourceContributions({
   return (
     <section className="space-y-12 py-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 overflow-x-auto pb-2 sm:pb-0">
-        <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 flex-shrink-0">
-          Open Source Contributions
-        </h2>
+        <SectionHeader
+          title="Open Source Contributions"
+          wrapperClassName="mb-0 flex-shrink-0"
+        />
 
         <div className="flex items-center gap-2 bg-neutral-100 dark:bg-neutral-800/50 p-1 rounded-lg self-start sm:self-auto">
           {statuses.map((s) => (
@@ -79,7 +81,7 @@ export default function OpenSourceContributions({
                 "px-3 py-1 text-xs font-medium rounded-md capitalize transition-all",
                 filter === s
                   ? "bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 shadow-sm"
-                  : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+                  : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100",
               )}
             >
               {s}
@@ -136,7 +138,7 @@ export default function OpenSourceContributions({
                                   "mt-1 size-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors",
                                   contribution.type === "PullRequest"
                                     ? "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
-                                    : "bg-orange-100/50 dark:bg-orange-900/20 text-orange-500 dark:text-orange-300"
+                                    : "bg-orange-100/50 dark:bg-orange-900/20 text-orange-500 dark:text-orange-300",
                                 )}
                               >
                                 {contribution.type === "PullRequest" ? (
@@ -158,7 +160,7 @@ export default function OpenSourceContributions({
                                   <span className="flex-shrink-0 text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 mt-1">
                                     <FiClock size={12} />
                                     {new Date(
-                                      contribution.date
+                                      contribution.date,
                                     ).toLocaleDateString("en-US", {
                                       month: "short",
                                       day: "numeric",
@@ -172,7 +174,7 @@ export default function OpenSourceContributions({
                                       "text-xs uppercase font-bold tracking-wider",
                                       contribution.status === "merged"
                                         ? "text-neutral-900 dark:text-neutral-100"
-                                        : "text-neutral-500 dark:text-neutral-500"
+                                        : "text-neutral-500 dark:text-neutral-500",
                                     )}
                                   >
                                     {contribution.status}
@@ -187,7 +189,7 @@ export default function OpenSourceContributions({
                   )}
                 </AnimatePresence>
               </div>
-            )
+            ),
           )
         ) : (
           <div className="text-center py-12 border border-dashed border-neutral-200 dark:border-neutral-800 rounded-2xl">

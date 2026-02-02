@@ -1,6 +1,6 @@
-
 import CurrentlyWorkingOn from "@/components/currently-working-on";
 import { Metadata } from "next";
+import { SectionHeader } from "@/components/section-header";
 
 export const metadata: Metadata = {
   title: "Works | itstheanurag",
@@ -24,9 +24,7 @@ export default async function WorksPage() {
         </header>
 
         <section>
-          <h2 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-8">
-            Things i made...
-          </h2>
+          <SectionHeader title="Things i made..." />
 
           <div className="space-y-16">
             <CurrentlyWorkingOn />
