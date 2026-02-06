@@ -18,9 +18,74 @@ const firaCode = Fira_Code({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const siteUrl = "https://itsanurag.in";
+const siteName = "Gaurav Kumar - Software Developer";
+const siteDescription =
+  "Full-stack software developer specializing in React, Next.js, TypeScript, and Node.js. Explore my projects, open-source contributions, and technical expertise.";
+
 export const metadata: Metadata = {
-  title: "itstheanurag (Gaurav Kumar)",
-  description: "Showcasing the work and projects of Gaurav Kumar.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Gaurav Kumar",
+    "itstheanurag",
+    "Software Developer",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Web Developer",
+    "Portfolio",
+  ],
+  authors: [{ name: "Gaurav Kumar", url: siteUrl }],
+  creator: "Gaurav Kumar",
+  publisher: "Gaurav Kumar",
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: siteName,
+    title: siteName,
+    description: siteDescription,
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Gaurav Kumar - Software Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+    images: [`${siteUrl}/og-image.png`],
+    creator: "@itstheanurag",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -55,6 +120,36 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Gaurav Kumar",
+              alternateName: "itstheanurag",
+              url: "https://itsanurag.in",
+              image: "https://itsanurag.in/profile-pic.jpeg",
+              jobTitle: "Software Developer",
+              worksFor: {
+                "@type": "Organization",
+                name: "Self-employed",
+              },
+              sameAs: [
+                "https://github.com/itstheanurag",
+                "https://linkedin.com/in/itstheanurag",
+                "https://twitter.com/itstheanurag",
+              ],
+              knowsAbout: [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Node.js",
+                "Full Stack Development",
+              ],
+            }),
+          }}
+        />
         <Analytics />
       </body>
     </html>
