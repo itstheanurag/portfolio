@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const CHARS = "abcdefghijklmnopqrstuvwxyz";
 
 interface SectionHeaderProps {
   title: string;
@@ -24,7 +24,7 @@ export function SectionHeader({
 
   const scramble = useCallback(() => {
     let iteration = 0;
-    const duration = 1.2; // seconds
+    const duration = 1; // seconds
     const fps = 20;
     const totalIterations = duration * fps;
     const intervalTime = 1000 / fps;
