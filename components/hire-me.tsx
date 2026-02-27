@@ -7,23 +7,31 @@ export default function HireMe() {
 
       <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
         <p>
-          I build production-ready software with a focus on correctness,
-          maintainability, and long-term usability. My work doesn’t stop at “it
-          works”—it includes clean structure, clear boundaries, and code that
-          can survive future changes.
+          I’m a backend engineer with ~3 years of real-world experience building
+          production software in the healthcare domain. I primarily work with
+          NestJS, Node.js, Express, and Hono to design APIs, real-time systems,
+          and scalable backend services.
         </p>
 
         <p>
-          I take ownership of the features I work on. That means understanding
-          requirements, anticipating edge cases, collaborating with other
-          engineers, and making sure what ships can actually be supported in
-          production.
+          My experience ranges from supporting existing systems to leading the
+          development of core backend features. I’ve worked directly with
+          clients, translated business requirements into technical solutions,
+          and shipped features that run in production and are actively used by
+          real users.
         </p>
 
         <p>
-          I use modern tooling—including AI—where it provides leverage, but I
-          rely on fundamentals to make decisions. When something breaks, I can
-          trace it, reason about it, and fix it without guesswork.
+          I don’t claim to know everything. What I do promise is ownership and
+          problem-solving. When faced with unfamiliar systems or technologies, I
+          dig in, understand how things work, and figure out reliable solutions
+          instead of guessing.
+        </p>
+
+        <p>
+          I’m currently open to full-time backend roles and freelance
+          opportunities. I enjoy working on systems that value clean
+          architecture, maintainability, and long-term thinking.
         </p>
       </div>
     </section>
