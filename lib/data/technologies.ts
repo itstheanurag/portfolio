@@ -36,6 +36,7 @@ import {
   SiGithub,
   SiNpm,
   SiWebrtc,
+  SiCloudflare,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
@@ -227,6 +228,14 @@ export const TECHNOLOGIES: Record<string, Technology> = {
     name: "GCP",
     icon: SiGooglecloud,
     color: { light: "text-[#4285F4]", dark: "dark:text-[#4285F4]" },
+  },
+  Cloudflare: {
+    name: "Cloudflare",
+    icon: SiCloudflare,
+    color: {
+      light: "text-[#F38020]",
+      dark: "dark:text-[#F38020]",
+    },
   },
   "GCP Pub/Sub": {
     name: "GCP Pub/Sub",

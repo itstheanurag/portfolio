@@ -1,5 +1,3 @@
-import { IconType } from "react-icons";
-
 export interface WorkItem {
   name: string;
   description: string;
@@ -10,7 +8,6 @@ export interface WorkItem {
   link?: string;
   npm?: string;
   image?: string;
-  longDescription?: string;
   progressItems?: string[];
 }
 
