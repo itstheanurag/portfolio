@@ -80,7 +80,7 @@ export default function Dock() {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 260, damping: 26 }}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+      className="fixed bottom-16 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
     >
       <div className="flex items-center gap-1 px-2 py-2 rounded-2xl border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100/80 dark:bg-neutral-900/80 backdrop-blur-xl shadow-lg pointer-events-auto">
         {DOCK_ITEMS.map((item) => {

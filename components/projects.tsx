@@ -62,13 +62,7 @@ export function ProjectCard({
   project: ProjectItem;
   showPreview?: boolean;
 }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const visible = expanded
-    ? project.coreFeatures
-    : project.coreFeatures?.slice(0, 4);
-
-  const hasMore = project.coreFeatures && project.coreFeatures.length > 4;
+  const [showDetails, setShowDetails] = useState(false);
 
   const CardContent = (
     <div className="flex gap-4 sm:gap-6 group">
@@ -125,39 +119,55 @@ export function ProjectCard({
           </div>
         </div>
 
-        {/* Description */}
-        <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-          {typeof project.description === "string"
-            ? project.description
-            : project.description?.[0]}
-        </p>
+        <div className="mt-2">
+          <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
+            {project.description}
+          </p>
 
-        {/* Features */}
-        {visible && (
-          <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 space-y-1 pt-2">
-            {visible.map((feat, i) => (
-              <li key={i}>{feat}</li>
-            ))}
-          </ul>
-        )}
-
-        {hasMore && (
-          <button
-            className="text-xs font-medium text-neutral-600 dark:text-neutral-400 mt-1"
-            onClick={() => setExpanded((x) => !x)}
+          {/* Dropdown details */}
+          <div
+            className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+              showDetails ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            }`}
           >
-            {expanded ? "Show less" : "Show more"}
-          </button>
-        )}
+            <div className="overflow-hidden">
+              <div
+                className={`space-y-3 ${
+                  showDetails ? "pt-3" : "pt-0"
+                } transition-all duration-300 ease-out`}
+              >
+                {project.coreFeatures && (
+                  <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+                    {project.coreFeatures.map((feat, i) => (
+                      <li key={i}>{feat}</li>
+                    ))}
+                  </ul>
+                )}
 
-        {/* Tech badges */}
-        {project.techStack && (
-          <div className="flex flex-wrap gap-2 pt-2">
-            {project.techStack.map((techName, i) => (
-              <TechBadge key={i} techName={techName} />
-            ))}
+                {/* Tech badges */}
+                {project.techStack && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.techStack.map((techName, i) => (
+                      <TechBadge key={i} techName={techName} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
+
+        <button
+          className={`text-xs font-semibold mt-2 transition-colors ${
+            showDetails
+              ? "text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300"
+              : "text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+          }`}
+          onClick={() => setShowDetails((x) => !x)}
+          aria-expanded={showDetails}
+        >
+          {showDetails ? "Hide details" : "Show details"}
+        </button>
       </div>
     </div>
   );

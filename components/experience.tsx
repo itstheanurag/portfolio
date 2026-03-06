@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { SectionHeader } from "./section-header";
 
@@ -21,10 +22,17 @@ const EXPERIENCES: ExperienceItem[] = [
     location: "India (Remote)",
     logo: "/mahalo.webp",
     description: [
-      "Developed backend services using NestJS, TypeScript, and PostgreSQL.",
-      "Built and maintained APIs across CognitiveClouds and Mahalo (parent company).",
-      "Owned critical backend modules and collaborated with FE + QA teams for smooth releases.",
-      "Improved service performance through query optimization and caching strategies.",
+      "Led backend development for multiple client products using NestJS, TypeScript, and PostgreSQL.",
+      "Worked directly with clients to convert product requirements into technical specs and production-ready backend systems.",
+      "Built and maintained backend services for 5+ healthcare and wellness platforms used by hospitals, universities, and independent health businesses.",
+      "Designed core modules including appointment booking, video consultations via SDK integrations, transcription pipelines, LMS flows, and health tracking.",
+      "Implemented integrations for wearables, payment gateways, and third-party services to support sleep, food, and activity tracking.",
+      "Built scalable notification systems (SMS, email, push) and wrote advanced PostgreSQL aggregation queries for analytics and reporting.",
+      "Designed APIs for admin dashboards, clinician-participant workflows, and multi-tenant healthcare platforms.",
+      "Collaborated closely with frontend teams for reliable API integration and with QA teams for end-to-end feature validation.",
+      "Contributed to internal healthcare products built on multi-tenant architecture.",
+      "Built proof-of-concepts for automation bots and experimental features to improve internal workflows.",
+      "Maintained and extended live client systems by resolving production issues and improving reliability and performance.",
     ],
     skills: ["NestJS", "TypeScript", "PostgreSQL"],
   },
@@ -35,15 +43,20 @@ const EXPERIENCES: ExperienceItem[] = [
     location: "India (Remote)",
     logo: "/functionup.jpeg",
     description: [
-      "Mentored students in backend development fundamentals.",
-      "Taught Node.js, JavaScript, and DSA concepts.",
-      "Supported learners in building REST APIs and full-stack projects.",
+      "Learned and strengthened core coding fundamentals while working with mentors and peers.",
+      "Built practical backend projects as part of guided learning tracks.",
+      "Took TA session and helped explain Node.js, JavaScript, and DSA concepts.",
+      "Reviewed student projects and provided implementation feedback and improvements.",
     ],
     skills: ["JavaScript", "Node.js", "DSA"],
   },
 ];
 
 export default function ExperienceSection() {
+  const [expandedIndices, setExpandedIndices] = useState<
+    Record<number, boolean>
+  >({});
+
   return (
     <section id="experience" className="max-w-4xl mx-auto px-6 py-8">
       <SectionHeader title="Experience" />
@@ -91,11 +104,36 @@ export default function ExperienceSection() {
               </div>
 
               {exp.description && (
-                <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 pt-2 space-y-1">
-                  {exp.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
-                  ))}
-                </ul>
+                <>
+                  <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 pt-2 space-y-1">
+                    {(expandedIndices[idx]
+                      ? exp.description
+                      : exp.description.slice(0, 2)
+                    ).map((desc, i) => (
+                      <li
+                        key={i}
+                        className="transition-all duration-300 ease-out opacity-90 group-hover:opacity-100 group-hover:translate-x-1 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
+                        style={{ transitionDelay: `${i * 40}ms` }}
+                      >
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {exp.description.length > 2 && (
+                    <button
+                      className="mt-2 text-xs font-semibold transition-colors text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+                      onClick={() =>
+                        setExpandedIndices((prev) => ({
+                          ...prev,
+                          [idx]: !prev[idx],
+                        }))
+                      }
+                    >
+                      {expandedIndices[idx] ? "Show less" : "Show more"}
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>
