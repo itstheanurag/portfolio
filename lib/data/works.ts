@@ -2,9 +2,9 @@ import { WorkItem } from "../types/works";
 import { PERSONAL_PROJECTS } from "./projects";
 export const ALL_WORKS: WorkItem[] = [
   {
-    name: "Hanma UI",
+    name: "Hanma",
     description:
-      "Hanma UI is the central hub for the Hanma platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Hanma CLI to deliver a seamless developer experience.",
+      "Hanma is a backend tooling platform for the Node.js and Bun ecosystem, inspired by shadcn/ui but focused on server-side development. It provides a registry of production-ready backend snippets such as logging, monitoring, middleware, and CORS configurations that can be installed directly via the Hanma CLI. Developers can bootstrap projects from Hanma templates or integrate individual snippets into existing backend applications without rewriting common infrastructure.",
     category: "Open Source",
     status: "In Progress",
     techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
@@ -22,7 +22,7 @@ export const ALL_WORKS: WorkItem[] = [
   {
     name: "Scaffoldor",
     description:
-      "Scaffoldor is the central hub for the Scaffoldor platform. It provides a visual interface for exploring the registry, reading detailed documentation, and managing user accounts. It works in tandem with the Scaffoldor CLI to deliver a seamless developer experience.",
+      "Scaffoldor is a directory of open-source project templates collected from GitHub. Developers can browse registered templates and download them instantly through the Scaffoldor CLI, eliminating the need to start projects from scratch. It acts as a fast discovery and scaffolding tool for launching new applications using community-maintained starter repositories.",
     category: "Open Source",
     status: "In Progress",
     techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
