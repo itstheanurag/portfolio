@@ -19,7 +19,7 @@ export default function StackSection() {
               key={tech.name}
               variant="outline"
               className="flex items-center gap-2 sm:text-sm md:text-[14px] py-1 px-2 border border-neutral-20 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400
-              font-medium rounded-sm font-semibold"
+               rounded-sm font-medium lowercase"
             >
               <Icon
                 className={`size-4 ${tech.color.light} ${tech.color.dark}`}

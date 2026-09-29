@@ -19,6 +19,7 @@ import {
 } from "react-icons/si";
 import { BiDownArrowCircle } from "react-icons/bi";
 import { CgMail } from "react-icons/cg";
+import { FaInstagram } from "react-icons/fa6";
 
 const socials = [
   {
@@ -51,15 +52,27 @@ const socials = [
     icon: SiPeerlist,
     color: "text-[#00AA45]",
   },
+  {
+    label: "instagram",
+    href: "https://instagram.com/its.the.anurag",
+    icon: FaInstagram,
+    color: "text-[#E4405F]",
+  },
 ];
 
 // Words to morph
 const words = [
-  "Content Creator",
-  "Techie & Yapper",
   "Backend Developer",
-  "Daily Gym Goer",
-  "Anime is my Jam",
+  "Techie & Yapper",
+  "Anime & Algorithms",
+  "Golang is Great",
+  "System Design",
+  "Always on Arrays",
+  "Debugging at 2AM",
+  "Coffee & Commits",
+  "One More Refactor",
+  "Occasional Overthinker",
+  "69th Redesign",
 ];
 
 export default function ProfileSection() {
@@ -76,11 +89,11 @@ export default function ProfileSection() {
   return (
     <section id="hero" className="max-w-4xl mx-auto px-6 pt-12 pb-8">
       <div className="flex flex-col space-y-10">
-        {/* TOP: Image + Title on same line (md+) */}
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-8 space-y-6 md:space-y-0">
+        {/* TOP: Image + Title always side-by-side */}
+        <div className="flex flex-row items-start gap-4 sm:gap-6 md:gap-8">
           {/* Profile Image */}
           <div className="relative shrink-0">
-            <div className="size-40 md:w-40 md:h-40 rounded-lg overflow-hidden border-4 border-neutral-400 dark:border-neutral-800">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border-4 border-neutral-400 dark:border-neutral-800">
               <Image
                 src="/profile-pic.jpeg"
                 alt="Profile"
@@ -93,17 +106,32 @@ export default function ProfileSection() {
           </div>
 
           {/* Heading + Morphing Span */}
-          <div className="space-y-4">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 w-full flex items-center gap-4">
-              Hi, I&apos;m Gaurav,{""}
-              <span className="inline-flex relative min-w-[12ch] h-[1em] align-middle text-neutral-400">
+          <div className="flex-1 min-w-0 space-y-3">
+            <h1 className="text-xl sm:text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-200">
+              Hi, I&apos;m Gaurav,
+              <span className="block relative h-[1em] text-neutral-400 mt-1">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={words[index]}
-                    initial={{ opacity: 0, y: 6, filter: "blur(4px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -6, filter: "blur(4px)" }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    initial={{
+                      opacity: 0,
+                      y: 6,
+                      filter: "blur(4px)",
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      filter: "blur(0px)",
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -6,
+                      filter: "blur(4px)",
+                    }}
+                    transition={{
+                      duration: 0.45,
+                      ease: "easeOut",
+                    }}
                     className="absolute left-0 top-0 whitespace-nowrap"
                   >
                     {words[index]}.
@@ -111,28 +139,32 @@ export default function ProfileSection() {
                 </AnimatePresence>
               </span>
             </h1>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed">
+
+            <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
               I build scalable backend systems and APIs using{" "}
               <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiTypescript className="mr-1 w-3 h-3" color="#3178C6" />{" "}
+                <SiTypescript className="mr-1 w-3 h-3" color="#3178C6" />
                 TypeScript
               </Badge>
               ,{" "}
               <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiNestjs className="mr-1 w-3 h-3" color="#E0234E" /> NestJS
+                <SiNestjs className="mr-1 w-3 h-3" color="#E0234E" />
+                NestJS
               </Badge>
               ,{" "}
               <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiExpress className="mr-1 w-3 h-3" color="#000000" /> Express
+                <SiExpress className="mr-1 w-3 h-3" color="#000000" />
+                Express
               </Badge>
               ,{" "}
               <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiPostgresql className="mr-1 w-3 h-3" color="#336791" />{" "}
+                <SiPostgresql className="mr-1 w-3 h-3" color="#336791" />
                 Postgres
               </Badge>
               , and{" "}
               <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiBun className="mr-1 w-3 h-3" color="#F9D71C" /> Bun
+                <SiBun className="mr-1 w-3 h-3" color="#F9D71C" />
+                Bun
               </Badge>
               . Focused on clean architecture, performance, and reliable backend
               infrastructure.
@@ -173,7 +205,7 @@ export default function ProfileSection() {
                 aria-label={label}
                 className={`p-2 rounded-md transition-colors ${color} hover:text-neutral-600 dark:hover:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800`}
               >
-                <Icon className="size-7" />
+                <Icon className="size-6" />
               </a>
             ))}
           </div>
