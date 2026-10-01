@@ -24,7 +24,7 @@ export default function Footer() {
             <SiLinkedin className="w-4 h-4" />
           </Link>
           <Link
-            href="https://instagram.com/itstheanurag"
+            href="https://instagram.com/its.the.anurag"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
@@ -32,7 +32,7 @@ export default function Footer() {
             <SiInstagram className="w-4 h-4" />
           </Link>
           <Link
-            href="https://www.youtube.com/@code_cript"
+            href="https://www.youtube.com/@gauravkumar6124"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
