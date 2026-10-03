@@ -11,16 +11,16 @@ export const NPM_PACKAGES: PackageItem[] = [
   {
     name: "Hanma CLI",
     description:
-      "An NPM package CLI for downloading custom made snippets, templates and modules from the hanma registry. Specially designed for backend developers",
+      "An npm CLI tool for downloading modular backend snippets, templates, and utilities from the Hanma registry. Designed specifically for backend developers.",
     installCommand: "npm install -g hanma",
     link: "https://www.npmjs.com/package/hanma",
     github: "https://github.com/itstheanurag/hanma",
     version: "0.3.3",
   },
   {
-    name: "Scaffoldor Cli",
+    name: "Scaffoldor CLI",
     description:
-      "A npm package cli for finding and downloading producation grade public templates from github and gitlab directly to your system with any messy commit histories and preffered package manager",
+      "An npm CLI tool for discovering and cloning production-grade starter templates from GitHub and GitLab directly to your machine without commit history overhead.",
     installCommand: "npm install -g scaffoldor",
     link: "https://www.npmjs.com/package/scaffoldor",
     github: "https://github.com/itstheanurag/scaffoldor",

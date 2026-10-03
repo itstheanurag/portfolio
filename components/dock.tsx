@@ -31,10 +31,9 @@ export default function Dock() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  // ❌ Dock should exist ONLY on home
-  if (pathname !== "/") return null;
-
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const updateActiveSection = () => {
       const viewportCenter = window.innerHeight / 2;
 
@@ -60,7 +59,10 @@ export default function Dock() {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
-  }, []);
+  }, [pathname]);
+
+  // ❌ Dock should exist ONLY on home
+  if (pathname !== "/") return null;
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -91,6 +93,7 @@ export default function Dock() {
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
+              aria-label={`Scroll to ${item.label} section`}
               whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.96 }}
               className="relative"

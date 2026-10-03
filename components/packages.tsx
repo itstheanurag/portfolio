@@ -51,6 +51,8 @@ export function PackageCard({ pkg }: { pkg: PackageItem }) {
               <Link
                 href={pkg.github}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${pkg.name} repository on GitHub`}
                 className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
               >
                 <SiGithub className="w-4 h-4" />
@@ -60,6 +62,8 @@ export function PackageCard({ pkg }: { pkg: PackageItem }) {
             <Link
               href={pkg.link}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${pkg.name} package on npm`}
               className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
             >
               <FiExternalLink className="w-4 h-4" />
@@ -83,9 +87,10 @@ export function PackageCard({ pkg }: { pkg: PackageItem }) {
                 onClick={handleCopy}
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
                 title="Copy command"
+                aria-label={`Copy command ${pkg.installCommand} to clipboard`}
               >
                 {copied ? (
-                  <FiCheck className="w-3.5 h-3.5" />
+                  <FiCheck className="w-3.5 h-3.5 text-emerald-500" />
                 ) : (
                   <FiCopy className="w-3.5 h-3.5" />
                 )}

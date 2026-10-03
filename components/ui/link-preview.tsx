@@ -18,8 +18,6 @@ type LinkPreviewProps = {
   className?: string;
   width?: number;
   height?: number;
-  quality?: number;
-  layout?: string;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -31,12 +29,10 @@ export const LinkPreview = ({
   className,
   width = 200,
   height = 125,
-  quality = 50,
-  layout = "fixed",
   isStatic = false,
   imageSrc = "",
 }: LinkPreviewProps) => {
-  let src;
+  let src: string;
   if (!isStatic) {
     const params = encode({
       url,
@@ -67,10 +63,12 @@ export const LinkPreview = ({
 
   const translateX = useSpring(x, springConfig);
 
-  const handleMouseMove = (event: any) => {
-    const targetRect = event.target.getBoundingClientRect();
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    const targetRect = (
+      event.currentTarget as HTMLElement
+    ).getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
-    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
+    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
     x.set(offsetFromCenter);
   };
 
@@ -78,7 +76,12 @@ export const LinkPreview = ({
     <>
       {isMounted ? (
         <div className="hidden">
-          <img src={src} width={width} height={height} alt="hidden image" />
+          <img
+            src={src}
+            width={width}
+            height={height}
+            alt="Preview thumbnail"
+          />
         </div>
       ) : null}
 
@@ -130,13 +133,16 @@ export const LinkPreview = ({
                   href={url}
                   className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Preview link destination"
                 >
                   <img
                     src={isStatic ? imageSrc : src}
                     width={width}
                     height={height}
                     className="rounded-lg"
-                    alt="preview image"
+                    alt="Preview screenshot"
                   />
                 </a>
               </motion.div>

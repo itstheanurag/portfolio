@@ -19,29 +19,17 @@ const firaCode = Fira_Code({
 });
 
 const siteUrl = "https://itsanurag.in";
-const siteName = "Gaurav Kumar - Software Developer";
+const siteTitle = "Gaurav Kumar | Software Developer";
 const siteDescription =
-  "Full-stack software developer specializing in React, Next.js, TypeScript, and Node.js. Explore my projects, open-source contributions, and technical expertise.";
+  "Gaurav Kumar is a software developer building scalable backend systems, web applications, and developer tools using TypeScript, Node.js, Next.js, and Go.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
-    template: `%s | ${siteName}`,
+    default: siteTitle,
+    template: "%s | Gaurav Kumar",
   },
   description: siteDescription,
-  keywords: [
-    "Gaurav Kumar",
-    "itstheanurag",
-    "Software Developer",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "Web Developer",
-    "Portfolio",
-  ],
   authors: [{ name: "Gaurav Kumar", url: siteUrl }],
   creator: "Gaurav Kumar",
   publisher: "Gaurav Kumar",
@@ -52,8 +40,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: siteName,
-    title: siteName,
+    siteName: "Gaurav Kumar",
+    title: siteTitle,
     description: siteDescription,
     images: [
       {
@@ -66,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
+    title: siteTitle,
     description: siteDescription,
     images: [`${siteUrl}/og-image.png`],
     creator: "@itstheanurag",
@@ -88,6 +76,49 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Gaurav Kumar",
+    alternateName: "itstheanurag",
+    url: siteUrl,
+    image: `${siteUrl}/profile-pic.jpeg`,
+    jobTitle: "Software Developer",
+    description: siteDescription,
+    sameAs: [
+      "https://github.com/itstheanurag",
+      "https://linkedin.com/in/itstheanurag",
+      "https://x.com/itstheanurag",
+      "https://instagram.com/its.the.anurag",
+      "https://peerlist.io/itstheanurag",
+      "https://medium.com/@codecript",
+      "https://leetcode.com/itstheanurag",
+    ],
+    knowsAbout: [
+      "Software Development",
+      "Web Development",
+      "Backend Development",
+      "System Design",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Go",
+      "NestJS",
+      "Express.js",
+      "React",
+      "Next.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Open Source",
+      "REST APIs",
+    ],
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -103,6 +134,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
+          disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
             <Navbar />
@@ -111,7 +143,7 @@ export default function RootLayout({
                 {/* Left side double border + pattern */}
                 <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-left shrink-0" />
 
-                <main className="flex-1 max-w-5xl">{children}</main>
+                <div className="flex-1 max-w-5xl">{children}</div>
 
                 {/* Right side double border + pattern */}
                 <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-right shrink-0" />
@@ -123,31 +155,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Gaurav Kumar",
-              alternateName: "itstheanurag",
-              url: "https://itsanurag.in",
-              image: "https://itsanurag.in/profile-pic.jpeg",
-              jobTitle: "Software Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: "Self-employed",
-              },
-              sameAs: [
-                "https://github.com/itstheanurag",
-                "https://linkedin.com/in/itstheanurag",
-                "https://twitter.com/itstheanurag",
-              ],
-              knowsAbout: [
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Node.js",
-                "Full Stack Development",
-              ],
-            }),
+            __html: JSON.stringify(jsonLd),
           }}
         />
         <Analytics />

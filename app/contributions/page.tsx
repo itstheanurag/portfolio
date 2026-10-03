@@ -3,16 +3,26 @@ import OpenSourceContributions from "@/components/github/open-source";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Open Source | itstheanurag",
+  title: "Open Source Contributions",
   description:
-    "Public open source contributions across real-world projects. Features, fixes, and refactors shipped in collaboration with global maintainers.",
+    "Public open-source contributions, pull requests, and features shipped by Gaurav Kumar across distributed repositories and developer ecosystems.",
+  alternates: {
+    canonical: "https://itsanurag.in/contributions",
+  },
+  openGraph: {
+    title: "Open Source Contributions | Gaurav Kumar",
+    description:
+      "Public open-source contributions, pull requests, and features shipped by Gaurav Kumar across distributed repositories and developer ecosystems.",
+    url: "https://itsanurag.in/contributions",
+    type: "website",
+  },
 };
 
 export default async function ContributionsPage() {
   const contributions = await getGithubActivity();
 
   return (
-    <main className="min-h-screen pt-12 transition-colors duration-300">
+    <main id="main-content" className="min-h-screen pt-12">
       <div className="max-w-4xl mx-auto px-6">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold text-neutral-800 dark:text-neutral-200 tracking-tight">
@@ -25,11 +35,10 @@ export default async function ContributionsPage() {
           </p>
         </header>
 
-        <section className="">
+        <section className="pb-16">
           <OpenSourceContributions contributions={contributions} />
         </section>
       </div>
-
     </main>
   );
 }

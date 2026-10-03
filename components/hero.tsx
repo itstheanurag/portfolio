@@ -23,7 +23,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 const socials = [
   {
-    label: "Youtube",
+    label: "YouTube",
     href: "https://youtube.com/@itstheanurag",
     icon: SiYoutube,
     color: "text-red-600 dark:text-red-400",
@@ -53,7 +53,7 @@ const socials = [
     color: "text-[#00AA45]",
   },
   {
-    label: "instagram",
+    label: "Instagram",
     href: "https://instagram.com/its.the.anurag",
     icon: FaInstagram,
     color: "text-[#E4405F]",
@@ -63,16 +63,20 @@ const socials = [
 // Words to morph
 const words = [
   "Backend Developer",
-  "Techie & Yapper",
-  "Anime & Algorithms",
+  "JavaScript Enthusiast",
   "Golang is Great",
   "System Design",
   "Always on Arrays",
   "Debugging at 2AM",
   "Coffee & Commits",
+  "ctrl+c, ctrl+v",
   "One More Refactor",
   "Occasional Overthinker",
   "69th Redesign",
+  "works locally",
+  "Techie & Yapper",
+  "Anime & Algorithms",
+  "Code Pirate",
 ];
 
 export default function ProfileSection() {
@@ -95,8 +99,8 @@ export default function ProfileSection() {
           <div className="relative shrink-0">
             <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border-4 border-neutral-400 dark:border-neutral-800">
               <Image
-                src="/profile-pic.jpeg"
-                alt="Profile"
+                src="/icon.png"
+                alt="Gaurav Kumar"
                 width={160}
                 height={160}
                 className="object-cover w-full h-full rounded-md"
@@ -179,6 +183,7 @@ export default function ProfileSection() {
             <a
               href="/gaurav-resume.pdf"
               download="gaurav-resume.pdf"
+              aria-label="Download Gaurav Kumar's Resume / CV"
               className="inline-flex items-center px-4 py-2 rounded-md bg-neutral-200 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 hover:bg-neutral-400 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
             >
               <BiDownArrowCircle className="w-4 h-4 mr-2" />
@@ -187,6 +192,7 @@ export default function ProfileSection() {
 
             <Link
               href="mailto:gauravanurag36@gmail.com"
+              aria-label="Send email to Gaurav Kumar"
               className="inline-flex items-center px-4 py-2 rounded-md bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-800 hover:opacity-90 transition-opacity text-sm font-medium"
             >
               <CgMail className="w-4 h-4 mr-2" />

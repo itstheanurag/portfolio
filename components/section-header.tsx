@@ -30,7 +30,7 @@ export function SectionHeader({
     const intervalTime = 1000 / fps;
 
     const interval = setInterval(() => {
-      setDisplayText((prev) =>
+      setDisplayText(
         title
           .split("")
           .map((char, index) => {
@@ -66,6 +66,7 @@ export function SectionHeader({
   return (
     <div className={cn("flex items-center gap-3 mb-8", wrapperClassName)}>
       <motion.h2
+        aria-label={title}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={cn(

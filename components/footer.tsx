@@ -11,6 +11,7 @@ export default function Footer() {
             href="https://github.com/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Gaurav Kumar on GitHub"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <SiGithub className="w-4 h-4" />
@@ -19,6 +20,7 @@ export default function Footer() {
             href="https://linkedin.com/in/itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Gaurav Kumar on LinkedIn"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <SiLinkedin className="w-4 h-4" />
@@ -27,14 +29,16 @@ export default function Footer() {
             href="https://instagram.com/its.the.anurag"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Gaurav Kumar on Instagram"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <SiInstagram className="w-4 h-4" />
           </Link>
           <Link
-            href="https://www.youtube.com/@gauravkumar6124"
+            href="https://youtube.com/@itstheanurag"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Gaurav Kumar on YouTube"
             className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <SiYoutube className="w-4 h-4" />

@@ -18,6 +18,7 @@ export default function SocialsSection() {
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Visit Gaurav Kumar's ${social.name}`}
               className="group flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:bg-white dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
             >
               <div className="p-2 rounded-lg bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 group-hover:border-neutral-300 dark:group-hover:border-neutral-600 transition-colors">

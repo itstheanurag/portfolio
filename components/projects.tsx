@@ -21,8 +21,8 @@ function TechBadge({ techName }: { techName: string }) {
     <Badge className="flex items-center gap-1.5 text-[10px] sm:text-xs py-1 px-2 border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 font-medium rounded-sm">
       <Icon
         className={`
-          size-3 sm:size-3.5 
-          ${tech.color.light} 
+          size-3 sm:size-3.5
+          ${tech.color.light}
           ${tech.color.dark}
         `}
       />
@@ -36,7 +36,7 @@ function ProjectLogo({ name, image }: { name: string; image?: string }) {
     return (
       <Image
         src={image}
-        alt={name}
+        alt={`${name} logo`}
         width={48}
         height={48}
         className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-0.5"
@@ -86,6 +86,8 @@ export function ProjectCard({
               <Link
                 href={project.github}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.name} source code on GitHub`}
                 className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
               >
                 <SiGithub className="w-4 h-4" />
@@ -96,6 +98,8 @@ export function ProjectCard({
               <Link
                 href={project.npm}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.name} package on npm`}
                 className="text-red-500 hover:text-red-600 transition"
                 title="View on npm"
               >
@@ -107,10 +111,18 @@ export function ProjectCard({
               <>
                 {showPreview ? (
                   <LinkPreview url={project.link}>
-                    <FiExternalLink className="w-4 h-4" />
+                    <FiExternalLink
+                      className="w-4 h-4"
+                      aria-label={`Visit ${project.name} live project`}
+                    />
                   </LinkPreview>
                 ) : (
-                  <Link href={project.link} target="_blank">
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${project.name} live project`}
+                  >
                     <FiExternalLink className="w-4 h-4" />
                   </Link>
                 )}
@@ -127,7 +139,9 @@ export function ProjectCard({
           {/* Dropdown details */}
           <div
             className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-              showDetails ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              showDetails
+                ? "grid-rows-[1fr] opacity-100"
+                : "grid-rows-[0fr] opacity-0"
             }`}
           >
             <div className="overflow-hidden">
@@ -165,6 +179,7 @@ export function ProjectCard({
           }`}
           onClick={() => setShowDetails((x) => !x)}
           aria-expanded={showDetails}
+          aria-label={`${showDetails ? "Hide" : "Show"} details for ${project.name}`}
         >
           {showDetails ? "Hide details" : "Show details"}
         </button>
@@ -219,7 +234,7 @@ export default function ProjectsSection() {
 
       <div className="mt-8 text-center">
         <Link
-          href="works"
+          href="/works"
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
         >
           <span>See all works</span>

@@ -1,5 +1,3 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import ProfileSection from "@/components/hero";
 import BlogShimmer from "@/components/shimmers/blog-shimmer";
@@ -17,7 +15,7 @@ const MediumBlogs = dynamic(() => import("@/components/blogs"), {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen transition-colors duration-300">
+    <main id="main-content" className="min-h-screen">
       <ProfileSection />
       <HireMe />
       <ExperienceSection />

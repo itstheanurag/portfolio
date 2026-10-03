@@ -69,7 +69,7 @@ export default function ExperienceSection() {
               {exp.logo ? (
                 <Image
                   src={exp.logo}
-                  alt={exp.company}
+                  alt={`${exp.company} logo`}
                   width={40}
                   height={40}
                   className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
@@ -123,6 +123,7 @@ export default function ExperienceSection() {
                   {exp.description.length > 2 && (
                     <button
                       className="mt-2 text-xs font-semibold transition-colors text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+                      aria-label={`${expandedIndices[idx] ? "Show less" : "Show more"} experience details for ${exp.company}`}
                       onClick={() =>
                         setExpandedIndices((prev) => ({
                           ...prev,

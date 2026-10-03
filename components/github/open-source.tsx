@@ -65,7 +65,7 @@ export default function OpenSourceContributions({
   const statuses: FilterStatus[] = ["all", "merged", "open"];
 
   return (
-    <section className="space-y-12 py-12">
+    <div className="space-y-12 py-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 overflow-x-auto pb-2 sm:pb-0">
         <SectionHeader
           title="Open Source Contributions"
@@ -97,10 +97,12 @@ export default function OpenSourceContributions({
               <div key={repo} className="space-y-6">
                 <button
                   onClick={() => toggleGroup(repo)}
+                  aria-expanded={expandedGroups[repo]}
+                  aria-label={`Toggle contributions for repository ${repo}`}
                   className="w-full flex items-center justify-between group/header"
                 >
                   <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-8 h-px bg-neutral-200 dark:bg-neutral-800" />
+                    <span className="w-8 h-px bg-neutral-200 dark:border-neutral-800" />
                     {repo}
                     <span className="ml-2 text-[10px] lowercase font-normal opacity-50">
                       ({repoContributions.length})
@@ -130,6 +132,8 @@ export default function OpenSourceContributions({
                             key={contribution.id}
                             href={contribution.url}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${contribution.type === "PullRequest" ? "pull request" : "issue"}: ${contribution.title} on GitHub`}
                             className="block group p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300"
                           >
                             <div className="flex items-start gap-4">
@@ -199,6 +203,6 @@ export default function OpenSourceContributions({
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }

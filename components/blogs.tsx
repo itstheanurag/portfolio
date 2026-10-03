@@ -63,6 +63,8 @@ export default function MediumBlogs() {
               key={idx}
               href={post.link}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read blog post: ${post.title}`}
               className="group block p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/50 hover:bg-white dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
             >
               <div className="flex flex-col gap-2">
@@ -112,9 +114,10 @@ export default function MediumBlogs() {
         <Link
           href="https://medium.com/@codecript"
           target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
         >
-          <span>Read more on Medium</span>
+          <span>Read more articles on Medium</span>
           <BsArrowUpRight className="w-4 h-4" />
         </Link>
       </div>

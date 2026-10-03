@@ -2,6 +2,16 @@ import { GithubContribution } from "./types/works";
 
 const GITHUB_USERNAME = "itstheanurag";
 
+interface GitHubIssueSearchItem {
+  node_id: string;
+  pull_request?: Record<string, unknown>;
+  title: string;
+  repository_url: string;
+  html_url: string;
+  created_at: string;
+  state: string;
+}
+
 export async function getGithubActivity(): Promise<GithubContribution[]> {
   try {
     const response = await fetch(
@@ -11,7 +21,7 @@ export async function getGithubActivity(): Promise<GithubContribution[]> {
           Accept: "application/vnd.github.v3+json",
         },
         next: { revalidate: 7200 }, // Cache for 2 hours
-      }
+      },
     );
 
     if (!response.ok) {
@@ -20,7 +30,7 @@ export async function getGithubActivity(): Promise<GithubContribution[]> {
 
     const data = await response.json();
 
-    return data.items.map((item: any) => ({
+    return (data.items || []).map((item: GitHubIssueSearchItem) => ({
       id: item.node_id,
       type: item.pull_request ? "PullRequest" : "Issue",
       title: item.title,
@@ -31,8 +41,8 @@ export async function getGithubActivity(): Promise<GithubContribution[]> {
         item.state === "open"
           ? "open"
           : item.pull_request && item.state === "closed"
-          ? "merged"
-          : "closed",
+            ? "merged"
+            : "closed",
     }));
   } catch (error) {
     console.error("Error fetching GitHub activity:", error);

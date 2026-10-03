@@ -3,13 +3,20 @@
 import { Tooltip } from "react-tooltip";
 import useSWR from "swr";
 import "react-calendar-heatmap/dist/styles.css";
-import CalendarHeatmap from "react-calendar-heatmap";
+import CalendarHeatmap, {
+  ReactCalendarHeatmapValue,
+} from "react-calendar-heatmap";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { SectionHeader } from "../section-header";
 
 interface GitHubGraphProps {
   username: string;
+}
+
+interface ContributionItem extends ReactCalendarHeatmapValue<string> {
+  date: string;
+  count: number;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -59,7 +66,7 @@ function GitHubGraph({ username }: GitHubGraphProps) {
     );
   }
 
-  const values = data.contributions;
+  const values: ContributionItem[] = data.contributions || [];
   const totalContributions = data.total?.[selectedYear] || 0;
 
   // Get years from data available
@@ -111,12 +118,12 @@ function GitHubGraph({ username }: GitHubGraphProps) {
       </div>
 
       <div className="w-full overflow-hidden heatmap-container max-w-4xl mx-auto">
-        <CalendarHeatmap
+        <CalendarHeatmap<string>
           startDate={new Date(selectedYear, 0, 0)}
           endDate={new Date(selectedYear, 11, 31)}
           values={values}
-          classForValue={(value: any) => {
-            if (!value || value.count === 0) {
+          classForValue={(value?: ReactCalendarHeatmapValue<string>) => {
+            if (!value || !value.count || value.count === 0) {
               return "color-empty";
             }
             if (value.count < 4) return "color-scale-1";
@@ -125,22 +132,29 @@ function GitHubGraph({ username }: GitHubGraphProps) {
             if (value.count < 16) return "color-scale-4";
             return "color-scale-5";
           }}
-          tooltipDataAttrs={(value: any) => {
-            if (!value || !value.date) {
-              return {} as any;
-            }
-            const date = new Date(value.date).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            });
-            return {
-              "data-tooltip-id": "github-tooltip",
-              "data-tooltip-content": `${date}: ${value.count} contribution${
-                value.count !== 1 ? "s" : ""
-              }`,
-            } as any;
-          }}
+          tooltipDataAttrs={
+            ((value?: ReactCalendarHeatmapValue<string>) => {
+              if (!value || !value.date) {
+                return {
+                  "data-tooltip-id": "github-tooltip",
+                  "data-tooltip-content": "",
+                };
+              }
+              const date = new Date(value.date).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              });
+              return {
+                "data-tooltip-id": "github-tooltip",
+                "data-tooltip-content": `${date}: ${value.count ?? 0} contribution${
+                  value.count !== 1 ? "s" : ""
+                }`,
+              };
+            }) as (
+              value?: ReactCalendarHeatmapValue<string>,
+            ) => Record<string, string>
+          }
           showWeekdayLabels={false}
         />
         <Tooltip
