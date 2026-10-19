@@ -1,0 +1,51 @@
+# Gaurav Kumar
+
+> Software developer building scalable backend systems, web applications, and developer tools using TypeScript, Node.js, Next.js, and Go.
+
+Gaurav Kumar (online handle: `itstheanurag`) is a software developer with ~3 years of production engineering experience, specializing in backend architecture, API design, distributed systems, and developer tooling. He has extensive domain experience in healthcare technology, building HIPAA-conscious platforms, real-time messaging, clinician dashboards, and third-party integrations (ModMed EMR, Square Payments, Google Cloud Platform, Firebase).
+
+Website: https://itsanurag.in
+Location: India (Open to remote roles and freelance opportunities)
+Primary Focus: Backend Engineering, Distributed Systems, Web Applications, Developer Tooling
+
+## Navigation & Core Pages
+
+- [Portfolio Home](https://itsanurag.in/): Primary portfolio overview, experience timeline, active projects, skills, and contact links.
+- [Works & Projects](https://itsanurag.in/works): Detailed catalog of open-source tools, infrastructure libraries, and personal software projects.
+- [Open Source Contributions](https://itsanurag.in/contributions): History of open-source contributions, pull requests, and community initiatives.
+- [Full Context (llms-full.txt)](https://itsanurag.in/llms-full.txt): Comprehensive single-file text containing complete work experience, project deep-dives, tech stack, and background for large context window models.
+
+## Featured Open Source & Developer Tools
+
+- [Hanma](https://hanma-a2n.pages.dev/): A backend tooling platform and registry for Node.js and Bun, providing modular, copy-pasteable production backend snippets (logging, auth, middleware, CORS) and a companion CLI.
+- [Scaffoldor](https://scaffoldor.vercel.app/): An open-source discovery platform and CLI to search, clone, and bootstrap production starter templates from GitHub and GitLab without commit bloat.
+- [Keyway](https://keyway.onrender.com/): Peer-to-peer browser-based file transfer application built with WebRTC and client-side encryption. Transfers files directly between devices without intermediate server storage.
+- [CodeCript](https://codecript.pages.dev/): An open-source technical education platform covering TypeScript, Go, data structures, algorithms, and system design.
+- [Bits & Pieces](https://github.com/itstheanurag/bitsandpieces): Modern React/Next.js UI component library featuring clean micro-interactions and animations with Framer Motion.
+
+## Healthcare & Enterprise Systems
+
+- [Cadence](https://play.google.com/store/apps/details?id=com.ntu.cadence): Research-driven cardiovascular health application built in collaboration with Nanyang Technological University (NTU). Features real-time clinician-patient messaging, biometric tracking (sleep, steps, vitals), action scores, and BigQuery research analytics pipelines.
+- [Schweiger Allergy / SDG](https://play.google.com/store/apps/details?id=com.mahalo.Schweiger): High-scale patient engagement application with ModMed EMR integration, Square payment processing, GCP Pub/Sub asynchronous event-driven pipelines, and Socket.IO chat.
+- [MedLinks](https://play.google.com/store/apps/details?id=com.mahalo.medlinksclinician): Clinical dashboard and patient adherence platform with automated vitals monitoring, personalized health programs, and notifications.
+
+## NPM Packages
+
+- [hanma](https://www.npmjs.com/package/hanma): CLI tool for scaffolding backend snippets and templates directly into Node.js/Bun codebases (`npm install -g hanma`).
+- [scaffoldor](https://www.npmjs.com/package/scaffoldor): Universal starter repository downloader and project scaffolder (`npm install -g scaffoldor`).
+
+## Technical Competencies
+
+- Languages: TypeScript, JavaScript, Go, SQL, HTML, CSS
+- Backend & Frameworks: Node.js, NestJS, Express, Hono, Bun, REST APIs, WebSockets, Socket.IO
+- Databases & ORMs: PostgreSQL, MongoDB, Redis, Sequelize, Drizzle, Prisma
+- Cloud & Infrastructure: Google Cloud Platform (GCP), Pub/Sub, BigQuery, Firebase, Cloudflare, Docker, Vercel
+- Frontend & UI: Next.js, React, Tailwind CSS, Framer Motion, Vite
+
+## Optional
+
+- [GitHub Profile](https://github.com/itstheanurag): Personal GitHub profile with open-source repositories and coding activity.
+- [LinkedIn Profile](https://linkedin.com/in/itstheanurag): Professional career history and work experience.
+- [Twitter / X](https://twitter.com/itstheanurag): Engineering updates, developer tool releases, and tech discussions.
+- [Medium Publication](https://medium.com/@codecript): Technical engineering articles and tutorials.
+- [Resume](https://itsanurag.in/gaurav-resume.pdf): Downloadable curriculum vitae in PDF format.

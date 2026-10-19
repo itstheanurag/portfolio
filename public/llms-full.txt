@@ -1,0 +1,164 @@
+# Gaurav Kumar - Full Developer Profile & Portfolio Context
+
+> Software developer building scalable backend systems, web applications, and developer tools using TypeScript, Node.js, Next.js, and Go.
+
+- Canonical URL: https://itsanurag.in
+- Full Name: Gaurav Kumar
+- Online Identifier / Handle: itstheanurag
+- Role: Software Developer / Backend Engineer
+- Focus Areas: Backend Architecture, Real-Time Systems, Microservices & Event-Driven Architecture, Developer Tooling, Web Applications
+- Location: India (Available for remote full-time positions and freelance projects)
+- Email: gauravanurag36@gmail.com
+- Resume: https://itsanurag.in/gaurav-resume.pdf
+
+---
+
+## 1. Professional Summary
+
+Gaurav Kumar is a backend-focused software engineer with approximately 3 years of production engineering experience, primarily in high-reliability healthcare applications and developer tooling. He specializes in designing robust RESTful and WebSocket APIs, asynchronous event pipelines, third-party enterprise integrations (EMR, payments, cloud services), and developer command-line interfaces.
+
+He emphasizes clean architecture, practical problem-solving, and system ownership. Rather than relying on superficial abstractions, he takes deep ownership of end-to-end reliability, database query performance, and developer ergonomics.
+
+---
+
+## 2. Technical Skills & Tools
+
+### Programming Languages
+- TypeScript
+- JavaScript (ESNext)
+- Go (Golang)
+- SQL (PostgreSQL dialect)
+- HTML5 & CSS3
+
+### Backend Frameworks & Runtimes
+- Node.js
+- NestJS (Modular enterprise architecture, Dependency Injection)
+- Express.js
+- Hono (Lightweight, edge-ready API framework)
+- Bun
+
+### Databases, Caching & ORMs
+- PostgreSQL (Complex aggregations, indexing, relational design)
+- MongoDB
+- Redis (In-memory caching, pub/sub, rate limiting)
+- Sequelize
+- Drizzle ORM
+- Prisma ORM
+
+### Cloud, DevOps & Infrastructure
+- Google Cloud Platform (GCP)
+- GCP Pub/Sub (Event-driven asynchronous messaging)
+- Google BigQuery (Data warehousing & analytics queries)
+- Firebase (Cloud Messaging, Authentication)
+- Docker (Containerization)
+- Cloudflare Pages / Workers
+- Vercel
+
+### Protocols & Real-Time
+- WebSockets
+- Socket.IO
+- WebRTC (Peer-to-peer data channels)
+- RESTful API Design
+
+### Frontend & UI
+- Next.js (App Router, Server Components, Turbopack)
+- React
+- Tailwind CSS
+- Framer Motion
+
+---
+
+## 3. Work Experience
+
+### Associate Software Engineer
+**Company:** CognitiveClouds / Mahalo
+**Period:** November 2022 – August 2025
+**Location:** Remote (India)
+**Key Contributions:**
+- Led backend engineering across multiple client and internal software platforms using NestJS, TypeScript, and PostgreSQL.
+- Collaborated directly with enterprise clients to translate business requirements into technical architectures and production-ready APIs.
+- Built and maintained services for 5+ digital health and wellness platforms utilized by hospitals, academic research institutions, and healthcare providers.
+- Engineered core business modules including appointment scheduling engines, secure video consultation SDK integrations, speech-to-text transcription pipelines, LMS workflows, and patient vitals tracking.
+- Implemented real-time integrations for health wearables, payment gateways (Square API), and third-party EMRs (ModMed).
+- Architected multi-channel notification systems (push notifications via Firebase FCM, automated SMS, and transactional email).
+- Authored complex PostgreSQL analytical queries and aggregations powering administrative dashboards and research data exports.
+- Maintained production uptime, monitored application performance, and resolved critical backend bugs.
+
+### Teaching Assistant
+**Company:** FunctionUp
+**Period:** March 2022 – October 2022
+**Location:** Remote (India)
+**Key Contributions:**
+- Conducted technical sessions guiding aspiring engineers through JavaScript, Node.js fundamentals, and data structures.
+- Reviewed student codebases, providing feedback on code quality, modularity, and algorithmic complexity.
+- Guided students through hands-on backend project implementations.
+
+---
+
+## 4. Key Projects & Platforms
+
+### Cadence (Healthcare Research Platform)
+- **Overview:** A cardiovascular health monitoring platform developed in collaboration with Nanyang Technological University (NTU).
+- **Core Features:** Real-time patient-coach chat, biometric tracking (sleep, steps, vitals), daily and weekly action scores, medication adherence logging, and researcher analytics dashboards.
+- **Tech Stack:** NestJS, PostgreSQL, Sequelize, TypeScript, Firebase, Google BigQuery, Google Cloud Platform (GCP).
+- **Store URL:** https://play.google.com/store/apps/details?id=com.ntu.cadence
+
+### Schweiger Dermatology & Allergy Platform (SDG)
+- **Overview:** A patient engagement and clinical operations platform streamlining doctor-patient workflows.
+- **Core Features:** ModMed EMR synchronization, Square payment processing for subscriptions and treatments, event-driven architecture using GCP Pub/Sub, real-time messaging, and automated reminders.
+- **Tech Stack:** NestJS, PostgreSQL, Socket.IO, GCP Pub/Sub, TypeScript, Square API, ModMed Integration, Firebase.
+- **Store URL:** https://play.google.com/store/apps/details?id=com.mahalo.Schweiger
+
+### MedLinks
+- **Overview:** Patient-care platform for delivering personalized wellness programs and remote vitals monitoring.
+- **Core Features:** Custom clinician-assigned health tracks, vitals telemetry (blood pressure, glucose, weight), clinician dashboard, and automated alerts.
+- **Tech Stack:** NestJS, PostgreSQL, TypeScript, Firebase, GCP.
+- **Store URL:** https://play.google.com/store/apps/details?id=com.mahalo.medlinksclinician
+
+### Hanma (Developer Tooling Platform & CLI)
+- **Overview:** An open-source backend utility registry inspired by shadcn/ui, tailored specifically for Node.js and Bun backend developers.
+- **Core Features:** Command-line interface to install verified, production-ready backend code snippets (authentication, logger, CORS, rate-limiting, error handling) directly into local projects.
+- **Tech Stack:** TypeScript, Node.js, Vite, Tailwind CSS, npm.
+- **Repository:** https://github.com/itstheanurag/hanma
+- **NPM Package:** https://www.npmjs.com/package/hanma
+- **Web App:** https://hanma-a2n.pages.dev/
+
+### Scaffoldor (Project Scaffolding CLI)
+- **Overview:** Open-source directory and CLI tool for discovering and bootstrapping starter repositories from GitHub and GitLab without extraneous git history.
+- **Tech Stack:** TypeScript, Node.js, Vite, npm.
+- **Repository:** https://github.com/itstheanurag/scaffoldor
+- **NPM Package:** https://www.npmjs.com/package/scaffoldor
+- **Web App:** https://scaffoldor.vercel.app/
+
+### Keyway (Peer-to-Peer File Transfer)
+- **Overview:** Browser-based, serverless peer-to-peer file transfer utility.
+- **Core Features:** End-to-end encryption with client-generated cryptographic keys, direct WebRTC data channels, zero server-side file persistence or storage.
+- **Tech Stack:** Next.js, WebRTC, Tailwind CSS, TypeScript.
+- **Repository:** https://github.com/itstheanurag/keyway
+- **Web App:** https://keyway.onrender.com/
+
+### CodeCript (Developer Knowledge Hub)
+- **Overview:** Open-source educational platform covering modern software engineering topics.
+- **Core Features:** Interactive documentation on TypeScript, Go, data structures, algorithms, and system design.
+- **Tech Stack:** Vite, TypeScript, Cloudflare Pages.
+- **Repository:** https://github.com/itstheanurag/codecript
+- **Web App:** https://codecript.pages.dev/
+
+### Bits & Pieces
+- **Overview:** Drop-in UI component library highlighting smooth micro-interactions.
+- **Tech Stack:** Next.js, Tailwind CSS, Framer Motion, React.
+- **Repository:** https://github.com/itstheanurag/bitsandpieces
+
+---
+
+## 5. Coding Profiles & Social Links
+
+- **Website:** https://itsanurag.in
+- **GitHub:** https://github.com/itstheanurag
+- **LinkedIn:** https://linkedin.com/in/itstheanurag
+- **Twitter / X:** https://twitter.com/itstheanurag
+- **Medium:** https://medium.com/@codecript
+- **LeetCode:** https://leetcode.com/itstheanurag
+- **GeeksforGeeks:** https://auth.geeksforgeeks.org/user/itstheanurag
+- **HackerRank:** https://www.hackerrank.com/itstheanurag
+- **Instagram:** https://instagram.com/its.the.anurag

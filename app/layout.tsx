@@ -43,20 +43,11 @@ export const metadata: Metadata = {
     siteName: "Gaurav Kumar",
     title: siteTitle,
     description: siteDescription,
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "Gaurav Kumar - Software Developer Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: [`${siteUrl}/og-image.png`],
     creator: "@itstheanurag",
   },
   robots: {
