@@ -79,7 +79,7 @@ export default function OpenSourceContributions({
           <details
             key={repo}
             open={index === 0}
-            className="group border-b border-line"
+            className="group border-b border-line last:border-b-0"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
               <span className="flex min-w-0 items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.1em]">

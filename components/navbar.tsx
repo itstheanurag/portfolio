@@ -29,8 +29,14 @@ export default function Navbar() {
       if (event.key === "Escape") setOpen(false);
     };
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [open]);
 
   return (
@@ -94,7 +100,10 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-line bg-base md:hidden">
+        <div
+          id="mobile-menu"
+          className="absolute inset-x-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-line bg-base shadow-2xl shadow-black/30 md:hidden"
+        >
           <div className="mx-auto flex w-full max-w-[1160px] flex-col px-4 py-4 sm:px-6">
             {navItems.map((item, index) => (
               <Link
@@ -109,7 +118,7 @@ export default function Navbar() {
             ))}
             <a
               href="mailto:gauravanurag36@gmail.com"
-              className="label-mono mt-5 inline-flex w-fit items-center gap-2 bg-accent px-4 py-2.5 text-accent-fg"
+              className="mt-5 inline-flex w-fit items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg"
             >
               Get in touch
               <span aria-hidden>↗</span>

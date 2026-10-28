@@ -53,6 +53,7 @@ export const ALL_WORKS: WorkItem[] = [
     github: "https://github.com/itstheanurag/scaffoldor",
     link: "https://scaffoldor.vercel.app/",
     npm: "https://www.npmjs.com/package/scaffoldor",
+    image: "/scaffoldor.png",
     progressItems: [
       "A public schema so anyone can share templates",
       "Core CLI architecture designed and implemented",

@@ -51,17 +51,17 @@ export default function Contact() {
           </div>
 
           <dl className="border-t border-line">
-            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5">
+            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
               <dt className="label-mono">Availability</dt>
               <dd className="font-mono text-[10px] text-ink">
                 Full-time / freelance
               </dd>
             </div>
-            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5">
+            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
               <dt className="label-mono">Timezone</dt>
               <dd className="font-mono text-[10px] text-ink">IST · UTC+5:30</dd>
             </div>
-            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5">
+            <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
               <dt className="label-mono">Reply</dt>
               <dd className="font-mono text-[10px] text-ink">Within a day</dd>
             </div>

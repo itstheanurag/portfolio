@@ -24,15 +24,12 @@ export default function Hero() {
               className="size-full object-cover"
             />
           </span>
-          <div>
+          <div className="min-w-0 self-start pt-1">
             <p className="font-serif text-[19px] leading-none tracking-[-0.01em]">
               Gaurav Kumar
             </p>
-            <p className="label-mono mt-1.5 flex items-baseline">
-              <Typewriter
-                words={ROLES}
-                className="min-w-[8.5rem] text-muted sm:min-w-[9rem]"
-              />
+            <p className="label-mono mt-1.5 min-h-[14px]">
+              <Typewriter words={ROLES} className="text-muted" />
             </p>
           </div>
 

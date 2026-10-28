@@ -15,7 +15,7 @@ export default function Experience() {
         {EXPERIENCES.map((experience) => (
           <article
             key={experience.company}
-            className="grid gap-4 border-b border-line py-7 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-6"
+            className="grid gap-4 border-b border-line py-7 last:border-b-0 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-6"
           >
             <div>
               <p className="font-mono text-[10px] leading-relaxed tracking-[0.04em] text-muted">

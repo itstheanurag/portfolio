@@ -47,7 +47,7 @@ export default function OpenSourceContributions({
               href={contribution.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-1.5 border-b border-line py-4 transition-colors hover:bg-surface sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+              className="group grid gap-1.5 border-b border-line py-4 transition-colors last:border-b-0 hover:bg-surface sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">

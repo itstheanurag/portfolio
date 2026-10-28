@@ -126,7 +126,7 @@ export default function WorksPage() {
               {NPM_PACKAGES.map((pkg) => (
                 <div
                   key={pkg.name}
-                  className="grid gap-3 border-b border-line py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6"
+                  className="grid gap-3 border-b border-line py-4 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6"
                 >
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">

@@ -103,7 +103,7 @@ export default function VisitorRow() {
   if (count === null) return null;
 
   return (
-    <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5">
+    <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
       <dt className="label-mono">Visits</dt>
       <dd className="font-mono text-[11px] tabular-nums text-ink">
         {count === undefined ? (

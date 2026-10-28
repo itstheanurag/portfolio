@@ -10,18 +10,13 @@ const links = [
 export default function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto w-full max-w-[1160px] px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-[1fr_auto] sm:items-end">
-          <div>
-            <p className="font-serif text-2xl leading-none tracking-[-0.01em]">
-              Gaurav Kumar
-            </p>
-            <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-muted">
-              Backend engineer. Building quiet systems that hold up.
-            </p>
-          </div>
+      <div className="mx-auto w-full max-w-[1160px] px-4 py-7 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-serif text-xl leading-none tracking-[-0.01em]">
+            Gaurav Kumar
+          </p>
 
-          <nav aria-label="Social links" className="flex flex-wrap gap-x-6 gap-y-2">
+          <nav aria-label="Social links" className="flex flex-wrap gap-x-5 gap-y-2">
             {links.map((link) => (
               <a
                 key={link.label}
@@ -46,16 +41,9 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
           <p className="label-mono">© {new Date().getFullYear()} Gaurav Kumar</p>
           <VisitorCount className="label-mono text-muted" showLabel />
-          <p className="label-mono">Built with Next.js · Vercel</p>
-          <a
-            href="#top"
-            className="label-mono text-faint transition-colors hover:text-ink"
-          >
-            Top ↑
-          </a>
         </div>
       </div>
     </footer>

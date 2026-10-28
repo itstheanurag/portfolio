@@ -123,13 +123,15 @@ details > summary {
   cursor: pointer;
 }
 
-.label-mono {
-  font-family: var(--font-jetbrains), ui-monospace, monospace;
-  font-size: 0.625rem;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
+@layer components {
+  .label-mono {
+    font-family: var(--font-jetbrains), ui-monospace, monospace;
+    font-size: 0.625rem;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
 }
 
 /* ------------------------------------------------------------------

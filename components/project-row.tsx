@@ -31,7 +31,7 @@ export default function ProjectRow({
   const primaryLink = links?.[0]?.href;
 
   return (
-    <article className="group -mx-3 grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-3 border-b border-line px-3 py-6 transition-colors hover:bg-surface sm:grid-cols-[52px_minmax(0,1fr)_auto] sm:gap-x-5">
+    <article className="group -mx-3 grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-3 border-b border-line px-3 py-6 transition-colors last:border-b-0 hover:bg-surface sm:grid-cols-[52px_minmax(0,1fr)_auto] sm:gap-x-5">
       <div className="mt-0.5">
         {image ? (
           <span className="block size-10 overflow-hidden border border-line bg-white sm:size-12">

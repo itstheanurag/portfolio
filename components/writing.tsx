@@ -88,7 +88,7 @@ export default function Writing() {
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group grid gap-1.5 border-b border-line py-4 transition-colors hover:bg-surface sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+                className="group grid gap-1.5 border-b border-line py-4 transition-colors last:border-b-0 hover:bg-surface sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
               >
                 <div className="min-w-0">
                   <h3 className="font-serif text-[18px] leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-accent">
