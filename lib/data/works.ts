@@ -1,6 +1,67 @@
 import { WorkItem } from "../types/works";
 import { PERSONAL_PROJECTS } from "./projects";
+
 export const ALL_WORKS: WorkItem[] = [
+  {
+    name: "Republ",
+    description:
+      "Republ is a marketplace for independent talent, creators, and product launches. People publish services and rate cards, receive direct client briefs with 0% platform commission, and ship weekly product drops.",
+    category: "Personal Project",
+    status: "Completed",
+    techStack: ["Nextjs", "TypeScript", "TailwindCss", "React"],
+    link: "https://rebupl.fun",
+    progressItems: [
+      "Service listings and rate cards for independent talent",
+      "Direct client briefs with 0% platform commission",
+      "Weekly product launch board",
+      "Free tools for launching and promoting products",
+    ],
+    image: "/rebupl.png",
+  },
+  {
+    name: "CodeCript",
+    description:
+      "CodeCript is an open-source learning hub for software engineering, covering JavaScript, TypeScript, Go, data structures, algorithms, and system design in one organized place.",
+    category: "Open Source",
+    status: "In Progress",
+    techStack: [
+      "Vitejs",
+      "TailwindCss",
+      "Cloudflare",
+      "TypeScript",
+      "Npm",
+      "Git",
+    ],
+    github: "https://github.com/itstheanurag/codecript",
+    link: "https://codecript.pages.dev/",
+    progressItems: [
+      "Core documentation structure for languages, DSA, and system design",
+      "JavaScript fundamentals and deep-dive guides",
+      "Technical blog section for software engineering concepts",
+      "Open-source contribution workflow for community additions",
+      "Deployment on Cloudflare Pages with fast global delivery",
+    ],
+    image: "/codecript.png",
+  },
+  {
+    name: "Scaffoldor",
+    description:
+      "Scaffoldor is a directory of open-source project templates collected from GitHub. Developers can browse registered templates and download them instantly through the Scaffoldor CLI, eliminating the need to start projects from scratch. It acts as a fast discovery and scaffolding tool for launching new applications using community-maintained starter repositories.",
+    category: "Open Source",
+    status: "In Progress",
+    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
+    github: "https://github.com/itstheanurag/scaffoldor",
+    link: "https://scaffoldor.vercel.app/",
+    npm: "https://www.npmjs.com/package/scaffoldor",
+    image: "/scaffoldor.png",
+    progressItems: [
+      "A public schema so anyone can share templates",
+      "Core CLI architecture designed and implemented",
+      "Built for more than just node based system",
+      "Supporting gitlab and github",
+      "Supporting any package manager",
+    ],
+  },
   {
     name: "Hanma",
     description:
@@ -18,24 +79,6 @@ export const ALL_WORKS: WorkItem[] = [
       "Drafting documentation for public release",
     ],
     image: "/hanma-logo.png",
-  },
-  {
-    name: "Scaffoldor",
-    description:
-      "Scaffoldor is a directory of open-source project templates collected from GitHub. Developers can browse registered templates and download them instantly through the Scaffoldor CLI, eliminating the need to start projects from scratch. It acts as a fast discovery and scaffolding tool for launching new applications using community-maintained starter repositories.",
-    category: "Open Source",
-    status: "In Progress",
-    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
-    github: "https://github.com/itstheanurag/scaffoldor",
-    link: "https://scaffoldor.vercel.app/",
-    npm: "https://www.npmjs.com/package/scaffoldor",
-    progressItems: [
-      "A public schema so anyone can share templates",
-      "Core CLI architecture designed and implemented",
-      "Built for more than just node based system",
-      "Supporting gitlab and github",
-      "Supporting any package manager",
-    ],
   },
   {
     name: "Keyway",
@@ -64,37 +107,12 @@ export const ALL_WORKS: WorkItem[] = [
     image: "/keyway.png",
   },
   {
-    name: "CodeCript",
-    description:
-      "CodeCript is an open-source learning hub for software engineering, covering JavaScript, TypeScript, Go, data structures, algorithms, and system design in one organized place.",
-    category: "Open Source",
-    status: "In Progress",
-    techStack: [
-      "Vitejs",
-      "TailwindCss",
-      "Cloudflare",
-      "TypeScript",
-      "Npm",
-      "Git",
-    ],
-    github: "https://github.com/itstheanurag/codecript",
-    link: "https://codecript.pages.dev/",
-    progressItems: [
-      "Core documentation structure for languages, DSA, and system design",
-      "JavaScript fundamentals and deep-dive guides",
-      "Technical blog section for software engineering concepts",
-      "Open-source contribution workflow for community additions",
-      "Deployment on Cloudflare Pages with fast global delivery",
-    ],
-    image: "/codecript.png",
-  },
-  {
     name: "Bits&Pieces",
     description:
       "A component library focusing on clean aesthetics and smooth micro-interactions. Each component is designed to be drop-in ready for modern web applications.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "React"],
+    techStack: ["Nextjs", "TailwindCss", "React"],
     github: "https://github.com/itstheanurag/bitsandpieces",
     progressItems: [
       "Implemented 'Navbar Morph' and 'Dock' components",

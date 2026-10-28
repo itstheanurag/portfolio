@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# itsanurag.in
 
-## Getting Started
+Personal portfolio for Gaurav Kumar — backend engineer. Built with Next.js,
+TypeScript, Tailwind CSS, and a small amount of motion.
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Page views
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site shows total page views from Vercel Web Analytics. There is no database,
+no custom visitor storage, and no client-side visit tracking.
 
-## Learn More
+### Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Enable Web Analytics in the Vercel project: **Project → Analytics → Enable**.
+2. Create an access token at https://vercel.com/account/tokens.
+3. Add these to `.env.local` and to the Vercel project environment variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   VERCEL_TOKEN=...
+   VERCEL_PROJECT_ID=prj_...
+   # only for team projects
+   VERCEL_TEAM_ID=team_...
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The token is server-side only. Never prefix it with `NEXT_PUBLIC_`.
 
-## Deploy on Vercel
+### How it works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `GET /api/pageviews` queries the Vercel Web Analytics API.
+- The API result is cached for five minutes to avoid querying Vercel on every
+  page load.
+- The UI hides the number if the API is not configured or unavailable.
+- Vercel counts page views, not session-based visits. Ad blockers and the plan's
+  reporting window can affect the number.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Pages
+
+- `/` — company work, experience, personal work, open source, toolkit, writing, contact
+- `/works` — company and personal project index
+- `/contributions` — GitHub activity and public pull requests
+- `/promote` — sponsorship rates and audience numbers
+
+## Design notes
+
+- **Direction:** “production log” — a dark, warm document of systems shipped.
+- **Palette:** warm near-black, bone text, one copper accent. Status green is
+  reserved for availability.
+- **Type:** Newsreader for display, Archivo for body/UI, JetBrains Mono for
+  labels and data.
+- **Layout:** a central document column with a functional section index on the
+  left and a live status rail on the right. Real screenshots carry the work.
+- Dark theme is the default; light theme is available from the navigation.

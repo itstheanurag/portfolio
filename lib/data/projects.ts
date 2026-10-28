@@ -87,7 +87,7 @@ export const PERSONAL_PROJECTS: WorkItem[] = [
       "A minimal, high-performance portfolio website built with Next.js and Tailwind CSS.",
     link: "https://itsanurag.in",
     github: "https://github.com/itstheanurag/portfolio",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "TypeScript"],
+    techStack: ["Nextjs", "TailwindCss", "TypeScript"],
     image: "/icon.png",
     category: "Personal Project",
     status: "Completed",

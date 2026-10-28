@@ -1,220 +1,94 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
-import {
-  SiTypescript,
-  SiBun,
-  SiPostgresql,
-  SiNestjs,
-  SiExpress,
-  SiGithub,
-  SiLinkedin,
-  SiX,
-  SiPeerlist,
-  SiYoutube,
-} from "react-icons/si";
-import { BiDownArrowCircle } from "react-icons/bi";
-import { CgMail } from "react-icons/cg";
-import { FaInstagram } from "react-icons/fa6";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import Typewriter from "./typewriter";
 
-const socials = [
-  {
-    label: "YouTube",
-    href: "https://youtube.com/@itstheanurag",
-    icon: SiYoutube,
-    color: "text-red-600 dark:text-red-400",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/itstheanurag",
-    icon: SiGithub,
-    color: "text-neutral-900 dark:text-neutral-100",
-  },
-  {
-    label: "X",
-    href: "https://x.com/itstheanurag",
-    icon: SiX,
-    color: "text-black dark:text-white",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/itstheanurag",
-    icon: SiLinkedin,
-    color: "text-[#0A66C2]",
-  },
-  {
-    label: "Peerlist",
-    href: "https://peerlist.io/itstheanurag",
-    icon: SiPeerlist,
-    color: "text-[#00AA45]",
-  },
-  {
-    label: "Instagram",
-    href: "https://instagram.com/its.the.anurag",
-    icon: FaInstagram,
-    color: "text-[#E4405F]",
-  },
+const ROLES = [
+  "Backend developer",
+  "Software engineer",
+  "Content creator",
+  "Open-source builder",
 ];
 
-// Words to morph
-const words = [
-  "Backend Developer",
-  "JavaScript Enthusiast",
-  "Golang is Great",
-  "System Design",
-  "Always on Arrays",
-  "Debugging at 2AM",
-  "Coffee & Commits",
-  "ctrl+c, ctrl+v",
-  "One More Refactor",
-  "Occasional Overthinker",
-  "69th Redesign",
-  "works locally",
-  "Techie & Yapper",
-  "Anime & Algorithms",
-  "Code Pirate",
-];
-
-export default function ProfileSection() {
-  const [index, setIndex] = useState(0);
-
-  // Change word every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % words.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function Hero() {
   return (
-    <section id="hero" className="max-w-4xl mx-auto px-6 pt-12 pb-8">
-      <div className="flex flex-col space-y-10">
-        {/* TOP: Image + Title always side-by-side */}
-        <div className="flex flex-row items-start gap-4 sm:gap-6 md:gap-8">
-          {/* Profile Image */}
-          <div className="relative shrink-0">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border-4 border-neutral-400 dark:border-neutral-800">
-              <Image
-                src="/icon.png"
-                alt="Gaurav Kumar"
-                width={160}
-                height={160}
-                className="object-cover w-full h-full rounded-md"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Heading + Morphing Span */}
-          <div className="flex-1 min-w-0 space-y-3">
-            <h1 className="text-xl sm:text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-200">
-              Hi, I&apos;m Gaurav,
-              <span className="block relative h-[1em] text-neutral-400 mt-1">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={words[index]}
-                    initial={{
-                      opacity: 0,
-                      y: 6,
-                      filter: "blur(4px)",
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                      filter: "blur(0px)",
-                    }}
-                    exit={{
-                      opacity: 0,
-                      y: -6,
-                      filter: "blur(4px)",
-                    }}
-                    transition={{
-                      duration: 0.45,
-                      ease: "easeOut",
-                    }}
-                    className="absolute left-0 top-0 whitespace-nowrap"
-                  >
-                    {words[index]}.
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              I build scalable backend systems and APIs using{" "}
-              <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiTypescript className="mr-1 w-3 h-3" color="#3178C6" />
-                TypeScript
-              </Badge>
-              ,{" "}
-              <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiNestjs className="mr-1 w-3 h-3" color="#E0234E" />
-                NestJS
-              </Badge>
-              ,{" "}
-              <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiExpress className="mr-1 w-3 h-3" color="#000000" />
-                Express
-              </Badge>
-              ,{" "}
-              <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiPostgresql className="mr-1 w-3 h-3" color="#336791" />
-                Postgres
-              </Badge>
-              , and{" "}
-              <Badge variant="neutral" className="align-middle mx-1 rounded-md">
-                <SiBun className="mr-1 w-3 h-3" color="#F9D71C" />
-                Bun
-              </Badge>
-              . Focused on clean architecture, performance, and reliable backend
-              infrastructure.
+    <section className="relative">
+      <div className="px-6 pb-14 pt-10 sm:px-8 md:pb-20 md:pt-14 lg:px-10">
+        <div className="flex items-center gap-3.5 border-b border-line pb-6">
+          <span className="block size-11 shrink-0 overflow-hidden border border-line-strong bg-raised">
+            <Image
+              src="/icon.png"
+              alt="Portrait illustration of Gaurav Kumar"
+              width={88}
+              height={88}
+              priority
+              className="size-full object-cover"
+            />
+          </span>
+          <div className="min-w-0 self-start pt-1">
+            <p className="font-serif text-[19px] leading-none tracking-[-0.01em]">
+              Gaurav Kumar
+            </p>
+            <p className="label-mono mt-1.5 min-h-[14px]">
+              <Typewriter words={ROLES} className="text-muted" />
             </p>
           </div>
+
+          <p className="ml-auto hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-status sm:flex xl:hidden">
+            <span className="size-1.5 rounded-full bg-status" />
+            Open to work
+          </p>
         </div>
 
-        {/* Actions */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          {/* Primary actions */}
-          <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-            <a
-              href="/gaurav-resume.pdf"
-              download="gaurav-resume.pdf"
-              aria-label="Download Gaurav Kumar's Resume / CV"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-neutral-200 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 hover:bg-neutral-400 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
-            >
-              <BiDownArrowCircle className="w-4 h-4 mr-2" />
-              Resume / CV
-            </a>
+        <h1
+          className="rise-in mt-10 max-w-[18ch] text-balance font-serif text-[clamp(2.65rem,6.8vw,4.9rem)] font-normal leading-[0.98] tracking-[-0.035em] text-ink"
+          style={{ animationDelay: "40ms" }}
+        >
+          I build the parts you{" "}
+          <em className="italic text-accent">never notice</em>.
+        </h1>
 
-            <Link
-              href="mailto:gauravanurag36@gmail.com"
-              aria-label="Send email to Gaurav Kumar"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-800 hover:opacity-90 transition-opacity text-sm font-medium"
-            >
-              <CgMail className="w-4 h-4 mr-2" />
-              Get in touch
-            </Link>
-          </div>
+        <p
+          className="rise-in mt-6 max-w-[58ch] text-[15.5px] leading-[1.75] text-muted"
+          style={{ animationDelay: "110ms" }}
+        >
+          For three years I&apos;ve shipped APIs, data models, and
+          infrastructure for healthcare products used by hospitals,
+          universities, and clinics. I care about systems that are correct,
+          easy to operate, and quiet in production.
+        </p>
 
-          {/* Socials */}
-          <div className="flex items-center justify-center gap-1">
-            {socials.map(({ label, href, icon: Icon, color }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className={`p-2 rounded-md transition-colors ${color} hover:text-neutral-600 dark:hover:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800`}
-              >
-                <Icon className="size-6" />
-              </a>
-            ))}
-          </div>
+        <div
+          className="rise-in mt-8 flex flex-wrap items-center gap-x-7 gap-y-4"
+          style={{ animationDelay: "180ms" }}
+        >
+          <a
+            href="#work"
+            className="group inline-flex items-center gap-3 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg transition-colors hover:bg-accent-strong"
+          >
+            Selected work
+            <ArrowDownRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+          </a>
+
+          <a
+            href="/gaurav-resume.pdf"
+            download="gaurav-resume.pdf"
+            className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink transition-colors hover:border-accent hover:text-accent"
+          >
+            Download CV
+            <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+
+        <div
+          className="rise-in mt-10 flex flex-col gap-3 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between"
+          style={{ animationDelay: "250ms" }}
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-faint">
+            NestJS / PostgreSQL / TypeScript / Go
+          </p>
+          <p className="label-mono text-muted">
+            Open to backend roles &amp; select freelance work
+          </p>
         </div>
       </div>
     </section>

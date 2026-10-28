@@ -1,27 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { JetBrains_Mono, Fira_Code } from "next/font/google";
+import PointerFocusReset from "@/components/pointer-focus-reset";
+import { Archivo, JetBrains_Mono, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const firaCode = Fira_Code({
-  variable: "--font-fira",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
 const siteUrl = "https://itsanurag.in";
-const siteTitle = "Gaurav Kumar | Software Developer";
+const siteTitle = "Gaurav Kumar | Backend Engineer";
 const siteDescription =
-  "Gaurav Kumar is a software developer building scalable backend systems, web applications, and developer tools using TypeScript, Node.js, Next.js, and Go.";
+  "Gaurav Kumar is a backend engineer building the APIs, data models, and infrastructure behind healthcare products. TypeScript, NestJS, PostgreSQL, and Go.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -67,6 +76,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2f0e9" },
+    { media: "(prefers-color-scheme: dark)", color: "#101310" },
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
@@ -76,7 +92,7 @@ const jsonLd = {
     alternateName: "itstheanurag",
     url: siteUrl,
     image: `${siteUrl}/profile-pic.jpeg`,
-    jobTitle: "Software Developer",
+    jobTitle: "Backend Engineer",
     description: siteDescription,
     sameAs: [
       "https://github.com/itstheanurag",
@@ -119,7 +135,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${jetbrainsMono.variable} ${firaCode.variable} antialiased min-h-screen`}
+        className={`${archivo.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased min-h-screen`}
       >
         <ThemeProvider
           attribute="class"
@@ -127,19 +143,16 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-accent focus:bg-base focus:px-4 focus:py-2 focus:font-mono focus:text-[10px] focus:uppercase focus:tracking-[0.16em] focus:text-ink"
+          >
+            Skip to content
+          </a>
+          <PointerFocusReset />
+          <div className="flex min-h-screen flex-col">
             <Navbar />
-            <div className="flex-1">
-              <div className="mx-auto max-w-5xl flex justify-center">
-                {/* Left side double border + pattern */}
-                <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-left shrink-0" />
-
-                <div className="flex-1 max-w-5xl">{children}</div>
-
-                {/* Right side double border + pattern */}
-                <div className="hidden lg:block w-12 border-x border-neutral-200 dark:border-neutral-800 bg-diagonal-right shrink-0" />
-              </div>
-            </div>
+            <div className="flex-1">{children}</div>
             <Footer />
           </div>
         </ThemeProvider>

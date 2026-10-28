@@ -1,145 +1,113 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { SectionHeader } from "./section-header";
+import { EXPERIENCES } from "@/lib/data/experience";
+import Section from "./section";
 
-interface ExperienceItem {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  logo?: string; // Path to logo
-  description?: string[];
-  skills?: string[];
-}
-
-const EXPERIENCES: ExperienceItem[] = [
-  {
-    company: "CognitiveClouds / Mahalo",
-    role: "Associate Software Engineer",
-    period: "Nov 2022 – Aug 2025",
-    location: "India (Remote)",
-    logo: "/mahalo.webp",
-    description: [
-      "Led backend development for multiple client products using NestJS, TypeScript, and PostgreSQL.",
-      "Worked directly with clients to convert product requirements into technical specs and production-ready backend systems.",
-      "Built and maintained backend services for 5+ healthcare and wellness platforms used by hospitals, universities, and independent health businesses.",
-      "Designed core modules including appointment booking, video consultations via SDK integrations, transcription pipelines, LMS flows, and health tracking.",
-      "Implemented integrations for wearables, payment gateways, and third-party services to support sleep, food, and activity tracking.",
-      "Built scalable notification systems (SMS, email, push) and wrote advanced PostgreSQL aggregation queries for analytics and reporting.",
-      "Designed APIs for admin dashboards, clinician-participant workflows, and multi-tenant healthcare platforms.",
-      "Collaborated closely with frontend teams for reliable API integration and with QA teams for end-to-end feature validation.",
-      "Contributed to internal healthcare products built on multi-tenant architecture.",
-      "Built proof-of-concepts for automation bots and experimental features to improve internal workflows.",
-      "Maintained and extended live client systems by resolving production issues and improving reliability and performance.",
-    ],
-    skills: ["NestJS", "TypeScript", "PostgreSQL"],
-  },
-  {
-    company: "FunctionUp",
-    role: "Teaching Assistant",
-    period: "Mar 2022 – Oct 2022",
-    location: "India (Remote)",
-    logo: "/functionup.jpeg",
-    description: [
-      "Learned and strengthened core coding fundamentals while working with mentors and peers.",
-      "Built practical backend projects as part of guided learning tracks.",
-      "Took TA session and helped explain Node.js, JavaScript, and DSA concepts.",
-      "Reviewed student projects and provided implementation feedback and improvements.",
-    ],
-    skills: ["JavaScript", "Node.js", "DSA"],
-  },
-];
-
-export default function ExperienceSection() {
-  const [expandedIndices, setExpandedIndices] = useState<
-    Record<number, boolean>
-  >({});
-
+export default function Experience() {
   return (
-    <section id="experience" className="max-w-4xl mx-auto px-6 py-8">
-      <SectionHeader title="Experience" />
-
-      <div className="space-y-12">
-        {EXPERIENCES.map((exp, idx) => (
-          <div key={idx} className="flex gap-4 sm:gap-6 group">
-            {/* Company Logo */}
-            <div className="flex-shrink-0 mt-1">
-              {exp.logo ? (
-                <Image
-                  src={exp.logo}
-                  alt={`${exp.company} logo`}
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border border-neutral-200 dark:border-neutral-700 object-cover bg-white p-1"
-                />
-              ) : (
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
-                  <span className="text-xs font-bold text-neutral-500">
-                    {exp.company[0]}
-                  </span>
-                </div>
-              )}
+    <Section
+      id="experience"
+      index="02"
+      title="Experience"
+      tone="surface"
+      note="Production work, mostly in healthcare. Small teams, real users, and systems that had to keep running."
+    >
+      <div>
+        {EXPERIENCES.map((experience) => (
+          <article
+            key={experience.company}
+            className="grid gap-4 border-b border-line py-7 last:border-b-0 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-6"
+          >
+            <div>
+              <p className="font-mono text-[10px] leading-relaxed tracking-[0.04em] text-muted">
+                {experience.period}
+              </p>
+              <p className="mt-1 font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint">
+                {experience.location}
+              </p>
             </div>
 
-            {/* Content */}
-            <div className="flex-grow space-y-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-                <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                  {exp.company}
-                </h3>
-                <span className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 font-mono">
-                  {exp.period}
-                </span>
+            <div className="min-w-0">
+              <div className="flex items-start gap-3">
+                {experience.logo ? (
+                  <span className="mt-0.5 block size-9 shrink-0 overflow-hidden border border-line bg-white">
+                    <Image
+                      src={experience.logo}
+                      alt=""
+                      width={72}
+                      height={72}
+                      className="size-full object-cover"
+                    />
+                  </span>
+                ) : (
+                  <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-line font-serif text-base">
+                    {experience.company.charAt(0)}
+                  </span>
+                )}
+
+                <div>
+                  <h3 className="font-serif text-[20px] leading-tight tracking-[-0.01em] text-ink">
+                    {experience.company}
+                  </h3>
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+                    {experience.role}
+                  </p>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-                <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
-                  {exp.role}
-                </p>
-                <span className="text-xs text-neutral-500 dark:text-neutral-500">
-                  {exp.location}
-                </span>
-              </div>
+              <ul className="mt-4 space-y-2">
+                {experience.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2.5 text-[13px] leading-[1.7] text-muted"
+                  >
+                    <span aria-hidden className="text-accent">
+                      —
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-              {exp.description && (
-                <>
-                  <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-400 pt-2 space-y-1">
-                    {(expandedIndices[idx]
-                      ? exp.description
-                      : exp.description.slice(0, 2)
-                    ).map((desc, i) => (
+              {experience.details.length > 0 && (
+                <details className="group/details mt-3">
+                  <summary className="inline-flex list-none items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+                    Full responsibilities
+                    <span
+                      aria-hidden
+                      className="text-[12px] transition-transform duration-200 group-open/details:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <ul className="mt-2.5 space-y-1.5 border-l border-line pl-3.5">
+                    {experience.details.map((item) => (
                       <li
-                        key={i}
-                        className="transition-all duration-300 ease-out opacity-90 group-hover:opacity-100 group-hover:translate-x-1 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
-                        style={{ transitionDelay: `${i * 40}ms` }}
+                        key={item}
+                        className="text-[12px] leading-relaxed text-muted"
                       >
-                        {desc}
+                        {item}
                       </li>
                     ))}
                   </ul>
+                </details>
+              )}
 
-                  {exp.description.length > 2 && (
-                    <button
-                      className="mt-2 text-xs font-semibold transition-colors text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-                      aria-label={`${expandedIndices[idx] ? "Show less" : "Show more"} experience details for ${exp.company}`}
-                      onClick={() =>
-                        setExpandedIndices((prev) => ({
-                          ...prev,
-                          [idx]: !prev[idx],
-                        }))
-                      }
+              {experience.skills && (
+                <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
+                  {experience.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint"
                     >
-                      {expandedIndices[idx] ? "Show less" : "Show more"}
-                    </button>
-                  )}
-                </>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
