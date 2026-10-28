@@ -33,7 +33,6 @@ export default function Hero() {
                 words={ROLES}
                 className="min-w-[8.5rem] text-muted sm:min-w-[9rem]"
               />
-              <span className="ml-1 text-faint">· India</span>
             </p>
           </div>
 
