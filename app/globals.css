@@ -23,7 +23,6 @@
 
   --selection-bg: #8a4f16;
   --selection-text: #f2f0e9;
-  --hatch: rgba(22, 24, 20, 0.09);
 
   --heatmap-empty: #dedbd0;
   --heatmap-scale-1: #e6d5bc;
@@ -50,7 +49,6 @@
 
   --selection-bg: #d8a15c;
   --selection-text: #101310;
-  --hatch: rgba(234, 230, 220, 0.055);
 
   --heatmap-empty: #242a24;
   --heatmap-scale-1: #3a2e1e;
@@ -137,16 +135,6 @@ details > summary {
 /* ------------------------------------------------------------------
    Texture — used sparingly on the outer rails
 ------------------------------------------------------------------ */
-
-.bg-hatch {
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--hatch) 0px,
-    var(--hatch) 1px,
-    transparent 1px,
-    transparent 6px
-  );
-}
 
 /* Diagonal dash band between sections. */
 .section-divider {

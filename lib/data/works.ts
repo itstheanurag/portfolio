@@ -112,7 +112,7 @@ export const ALL_WORKS: WorkItem[] = [
       "A component library focusing on clean aesthetics and smooth micro-interactions. Each component is designed to be drop-in ready for modern web applications.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Nextjs", "TailwindCss", "FramerMotion", "React"],
+    techStack: ["Nextjs", "TailwindCss", "React"],
     github: "https://github.com/itstheanurag/bitsandpieces",
     progressItems: [
       "Implemented 'Navbar Morph' and 'Dock' components",

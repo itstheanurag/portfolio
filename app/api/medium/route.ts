@@ -2,11 +2,6 @@ import Parser from "rss-parser";
 
 const parser = new Parser();
 
-// // Simple in-memory cache
-// let cachedPosts: any[] = [];
-// let cacheTime = 0;
-// const CACHE_DURATION = 1000 * 60 * 10; // 10 minutes
-
 export async function GET() {
   try {
     // cache for two hours
