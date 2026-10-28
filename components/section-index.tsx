@@ -73,14 +73,6 @@ export default function SectionIndex() {
           </ol>
         </nav>
 
-        <div className="mt-8 h-16 w-px bg-line" />
-
-        <a
-          href="#top"
-          className="label-mono mt-4 inline-flex text-faint transition-colors hover:text-ink"
-        >
-          Top ↑
-        </a>
       </div>
     </aside>
   );
