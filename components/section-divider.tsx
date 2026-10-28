@@ -20,7 +20,7 @@ export default function SectionDivider() {
               x2="0"
               y2="14"
               stroke="currentColor"
-              strokeWidth="1"
+              strokeWidth="1.2"
               strokeDasharray="3 4"
             />
           </pattern>
