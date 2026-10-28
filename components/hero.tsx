@@ -43,10 +43,10 @@ export default function Hero() {
         </div>
 
         <h1
-          className="rise-in mt-10 max-w-[15ch] text-balance font-serif text-[clamp(2.65rem,6.8vw,4.9rem)] font-normal leading-[0.98] tracking-[-0.035em] text-ink"
+          className="rise-in mt-10 max-w-[18ch] text-balance font-serif text-[clamp(2.65rem,6.8vw,4.9rem)] font-normal leading-[0.98] tracking-[-0.035em] text-ink"
           style={{ animationDelay: "40ms" }}
         >
-          I build the parts of the internet you{" "}
+          I build the parts you{" "}
           <em className="italic text-accent">never notice</em>.
         </h1>
 

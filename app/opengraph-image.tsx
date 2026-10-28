@@ -84,7 +84,7 @@ export default async function Image() {
               flexWrap: "wrap",
             }}
           >
-            <span>I build the parts of the internet you&nbsp;</span>
+            <span>I build the parts you&nbsp;</span>
             <span style={{ color: "#d8a15c" }}>never notice.</span>
           </div>
         </div>
