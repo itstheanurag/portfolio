@@ -11,9 +11,9 @@ export default function Contact() {
 
         <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_190px] lg:gap-12">
           <div>
-            <h2 className="max-w-[14ch] text-balance font-serif text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.98] tracking-[-0.03em] text-ink">
-              Have a system that needs{" "}
-              <em className="italic text-accent">building</em>?
+            <h2 className="max-w-[12ch] text-balance font-serif text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.98] tracking-[-0.03em] text-ink">
+              Have something to{" "}
+              <em className="italic text-accent">build</em>?
             </h2>
 
             <p className="mt-5 max-w-[52ch] text-[14px] leading-[1.75] text-muted">
@@ -30,13 +30,22 @@ export default function Contact() {
               <ArrowUpRight className="mt-1 size-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
 
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="/gaurav-resume.pdf"
                 download="gaurav-resume.pdf"
                 className="inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
               >
                 Download CV ↓
+              </a>
+              <a
+                href="https://x.com/itstheanurag"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+              >
+                DM on X
+                <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
           </div>
