@@ -2,29 +2,105 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* ------------------------------------------------------------------
+   Production log — dark, warm, one accent
+------------------------------------------------------------------ */
+
 :root {
-  --background: oklch(0.97 0 0); /* neutral-100 */
-  --foreground: oklch(0.2 0 0); /* neutral-850 text level */
+  --base: #f2f0e9;
+  --surface: #e9e6dd;
+  --raised: #faf8f2;
+  --ink: #161814;
+  --muted: #575b53;
+  --faint: #868b80;
+  --line: #dad7cc;
+  --line-strong: #c4c1b5;
+  --accent: #8a4f16;
+  --accent-strong: #6b3d10;
+  --accent-soft: #eadfcf;
+  --accent-fg: #f2f0e9;
+  --status: #2f7d5b;
 
-  --heatmap-empty: oklch(0.92 0 0);
+  --selection-bg: #8a4f16;
+  --selection-text: #f2f0e9;
+  --hatch: rgba(22, 24, 20, 0.09);
 
-  --heatmap-scale-1: oklch(0.84 0.08 60);
-  --heatmap-scale-2: oklch(0.76 0.12 60);
-  --heatmap-scale-3: oklch(0.68 0.16 60);
-  --heatmap-scale-4: oklch(0.6 0.2 60);
-  --heatmap-scale-5: oklch(0.52 0.24 60);
-
-  --selection-bg: oklch(0.9 0 0); /* neutral-200ish */
-  --selection-text: oklch(0.1 0 0); /* neutral-900ish */
+  --heatmap-empty: #dedbd0;
+  --heatmap-scale-1: #e6d5bc;
+  --heatmap-scale-2: #d2b184;
+  --heatmap-scale-3: #b98b50;
+  --heatmap-scale-4: #9a662c;
+  --heatmap-scale-5: #7a4a15;
 }
 
 .dark {
-  --background: oklch(0.2 0 0); /* custom neutral-850 */
-  --foreground: oklch(0.97 0 0); /* neutral-100 text */
-  /* Heatmap colors removed as they are now global */
-  --selection-bg: oklch(0.4 0 0); /* neutral-700ish */
-  --selection-text: oklch(0.97 0 0); /* neutral-100 */
-  --heatmap-empty: oklch(0.3 0 0); /* neutral-700-ish */
+  --base: #101310;
+  --surface: #171b17;
+  --raised: #1d221d;
+  --ink: #eae6dc;
+  --muted: #9aa096;
+  --faint: #6e746a;
+  --line: #2a302a;
+  --line-strong: #3a423a;
+  --accent: #d8a15c;
+  --accent-strong: #efc385;
+  --accent-soft: #2a2418;
+  --accent-fg: #161310;
+  --status: #7fb79b;
+
+  --selection-bg: #d8a15c;
+  --selection-text: #101310;
+  --hatch: rgba(234, 230, 220, 0.055);
+
+  --heatmap-empty: #242a24;
+  --heatmap-scale-1: #3a2e1e;
+  --heatmap-scale-2: #5c4527;
+  --heatmap-scale-3: #8a6535;
+  --heatmap-scale-4: #b98745;
+  --heatmap-scale-5: #d8a15c;
+}
+
+@theme inline {
+  --color-base: var(--base);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-fg: var(--accent-fg);
+  --color-status: var(--status);
+
+  --font-sans: var(--font-archivo);
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------ */
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: var(--base);
+}
+
+body {
+  background-color: var(--base);
+  color: var(--ink);
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
 }
 
 ::selection {
@@ -32,29 +108,97 @@
   color: var(--selection-text);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  background-color: oklch(0.97 0 0); /* neutral-100 */
+details > summary {
+  cursor: pointer;
 }
 
-.dark body {
-  background-color: var(--background);
-  background-attachment: fixed;
+.label-mono {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.625rem;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
-/* View Transitions API - Theme Toggle Animation */
+/* ------------------------------------------------------------------
+   Texture — used sparingly on the outer rails
+------------------------------------------------------------------ */
+
+.bg-hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--hatch) 0px,
+    var(--hatch) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+/* Diagonal dash band between sections. */
+.section-divider {
+  height: 2.25rem;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--base);
+}
+
+.section-divider svg {
+  opacity: 0.7;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    height: 2.75rem;
+  }
+}
+
+/* One orchestrated entrance on the hero. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ------------------------------------------------------------------
+   View transitions (theme toggle)
+------------------------------------------------------------------ */
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -70,40 +214,66 @@ body {
   z-index: 9999;
 }
 
-/* Force GPU acceleration for smoother animations */
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Optimize view transition group */
 ::view-transition-group(root) {
   animation-duration: 0s;
 }
 
-.bg-diagonal-left {
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--diagonal-color) 0px,
-    var(--diagonal-color) 1px,
-    transparent 1px,
-    transparent 6px
-  );
+/* ------------------------------------------------------------------
+   GitHub heatmap
+------------------------------------------------------------------ */
+
+.heatmap-container .react-calendar-heatmap {
+  display: block;
+  width: 100%;
+  min-width: 582px;
+  max-width: 760px;
+  height: auto;
 }
 
-.bg-diagonal-right {
-  background-image: repeating-linear-gradient(
-    -135deg,
-    var(--diagonal-color) 0px,
-    var(--diagonal-color) 1px,
-    transparent 1px,
-    transparent 6px
-  );
+.heatmap-container .react-calendar-heatmap rect {
+  rx: 1.5px;
+  ry: 1.5px;
+  transition: opacity 0.2s ease;
 }
 
-:root {
-  --diagonal-color: oklch(0.2 0 0 / 0.08);
+.heatmap-container .react-calendar-heatmap rect:hover {
+  opacity: 0.7;
 }
 
-.dark {
-  --diagonal-color: oklch(0.97 0 0 / 0.06);
+.heatmap-container .react-calendar-heatmap .color-empty {
+  fill: var(--heatmap-empty);
+}
+
+.heatmap-container .react-calendar-heatmap .color-scale-1 {
+  fill: var(--heatmap-scale-1);
+}
+
+.heatmap-container .react-calendar-heatmap .color-scale-2 {
+  fill: var(--heatmap-scale-2);
+}
+
+.heatmap-container .react-calendar-heatmap .color-scale-3 {
+  fill: var(--heatmap-scale-3);
+}
+
+.heatmap-container .react-calendar-heatmap .color-scale-4 {
+  fill: var(--heatmap-scale-4);
+}
+
+.heatmap-container .react-calendar-heatmap .color-scale-5 {
+  fill: var(--heatmap-scale-5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

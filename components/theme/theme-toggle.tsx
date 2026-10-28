@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { BiMoon, BiSun } from "react-icons/bi";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -13,8 +13,7 @@ export function ThemeToggle() {
   }, []);
 
   const switchTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   const startViewTransition = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -25,7 +24,6 @@ export function ThemeToggle() {
 
     const x = event.clientX;
     const y = event.clientY;
-
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y),
@@ -36,8 +34,6 @@ export function ThemeToggle() {
     });
 
     transition.ready.then(() => {
-      const duration = 1000;
-
       requestAnimationFrame(() => {
         document.documentElement.animate(
           {
@@ -47,8 +43,8 @@ export function ThemeToggle() {
             ],
           },
           {
-            duration: duration,
-            easing: "ease-in-out",
+            duration: 700,
+            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
             pseudoElement: "::view-transition-new(root)",
           },
         );
@@ -56,23 +52,22 @@ export function ThemeToggle() {
     });
   };
 
-  if (!mounted) {
-    return <div className="w-9 h-9" />;
-  }
+  if (!mounted) return <div className="size-9" aria-hidden />;
 
   return (
     <button
+      type="button"
       onClick={startViewTransition}
-      className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors relative overflow-hidden"
-      aria-label="Toggle theme"
+      className="inline-flex size-9 items-center justify-center text-muted transition-colors hover:text-ink"
+      aria-label={
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      }
     >
-      <div key={theme}>
-        {theme === "dark" ? (
-          <BiSun className="h-5 w-5 text-neutral-100" />
-        ) : (
-          <BiMoon className="h-5 w-5 text-neutral-900" />
-        )}
-      </div>
+      {theme === "dark" ? (
+        <Sun className="size-[17px]" strokeWidth={1.6} />
+      ) : (
+        <Moon className="size-[17px]" strokeWidth={1.6} />
+      )}
     </button>
   );
 }

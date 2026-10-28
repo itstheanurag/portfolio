@@ -1,23 +1,47 @@
 import { WorkItem } from "../types/works";
 import { PERSONAL_PROJECTS } from "./projects";
+
 export const ALL_WORKS: WorkItem[] = [
   {
-    name: "Hanma",
+    name: "Republ",
     description:
-      "Hanma is a backend tooling platform for the Node.js and Bun ecosystem, inspired by shadcn/ui but focused on server-side development. It provides a registry of production-ready backend snippets such as logging, monitoring, middleware, and CORS configurations that can be installed directly via the Hanma CLI. Developers can bootstrap projects from Hanma templates or integrate individual snippets into existing backend applications without rewriting common infrastructure.",
+      "Republ is a marketplace for independent talent, creators, and product launches. People publish services and rate cards, receive direct client briefs with 0% platform commission, and ship weekly product drops.",
+    category: "Personal Project",
+    status: "Completed",
+    techStack: ["Nextjs", "TypeScript", "TailwindCss", "React"],
+    link: "https://rebupl.fun",
+    progressItems: [
+      "Service listings and rate cards for independent talent",
+      "Direct client briefs with 0% platform commission",
+      "Weekly product launch board",
+      "Free tools for launching and promoting products",
+    ],
+    image: "/rebupl.png",
+  },
+  {
+    name: "CodeCript",
+    description:
+      "CodeCript is an open-source learning hub for software engineering, covering JavaScript, TypeScript, Go, data structures, algorithms, and system design in one organized place.",
     category: "Open Source",
     status: "In Progress",
-    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
-    github: "https://github.com/itstheanurag/hanma",
-    link: "https://hanma-a2n.pages.dev/",
-    npm: "https://www.npmjs.com/package/hanma",
-    progressItems: [
-      "Core CLI architecture designed and implemented",
-      "Added support for Express and NestJS snippets",
-      "Implementing registry system for dynamic updates",
-      "Drafting documentation for public release",
+    techStack: [
+      "Vitejs",
+      "TailwindCss",
+      "Cloudflare",
+      "TypeScript",
+      "Npm",
+      "Git",
     ],
-    image: "/hanma-logo.png",
+    github: "https://github.com/itstheanurag/codecript",
+    link: "https://codecript.pages.dev/",
+    progressItems: [
+      "Core documentation structure for languages, DSA, and system design",
+      "JavaScript fundamentals and deep-dive guides",
+      "Technical blog section for software engineering concepts",
+      "Open-source contribution workflow for community additions",
+      "Deployment on Cloudflare Pages with fast global delivery",
+    ],
+    image: "/codecript.png",
   },
   {
     name: "Scaffoldor",
@@ -36,6 +60,24 @@ export const ALL_WORKS: WorkItem[] = [
       "Supporting gitlab and github",
       "Supporting any package manager",
     ],
+  },
+  {
+    name: "Hanma",
+    description:
+      "Hanma is a backend tooling platform for the Node.js and Bun ecosystem, inspired by shadcn/ui but focused on server-side development. It provides a registry of production-ready backend snippets such as logging, monitoring, middleware, and CORS configurations that can be installed directly via the Hanma CLI. Developers can bootstrap projects from Hanma templates or integrate individual snippets into existing backend applications without rewriting common infrastructure.",
+    category: "Open Source",
+    status: "In Progress",
+    techStack: ["Vitejs", "TailwindCss", "TypeScript", "Nodejs", "Npm", "Git"],
+    github: "https://github.com/itstheanurag/hanma",
+    link: "https://hanma-a2n.pages.dev/",
+    npm: "https://www.npmjs.com/package/hanma",
+    progressItems: [
+      "Core CLI architecture designed and implemented",
+      "Added support for Express and NestJS snippets",
+      "Implementing registry system for dynamic updates",
+      "Drafting documentation for public release",
+    ],
+    image: "/hanma-logo.png",
   },
   {
     name: "Keyway",
@@ -62,31 +104,6 @@ export const ALL_WORKS: WorkItem[] = [
       "Simple link-based sharing with optional protections",
     ],
     image: "/keyway.png",
-  },
-  {
-    name: "CodeCript",
-    description:
-      "CodeCript is an open-source learning hub for software engineering, covering JavaScript, TypeScript, Go, data structures, algorithms, and system design in one organized place.",
-    category: "Open Source",
-    status: "In Progress",
-    techStack: [
-      "Vitejs",
-      "TailwindCss",
-      "Cloudflare",
-      "TypeScript",
-      "Npm",
-      "Git",
-    ],
-    github: "https://github.com/itstheanurag/codecript",
-    link: "https://codecript.pages.dev/",
-    progressItems: [
-      "Core documentation structure for languages, DSA, and system design",
-      "JavaScript fundamentals and deep-dive guides",
-      "Technical blog section for software engineering concepts",
-      "Open-source contribution workflow for community additions",
-      "Deployment on Cloudflare Pages with fast global delivery",
-    ],
-    image: "/codecript.png",
   },
   {
     name: "Bits&Pieces",

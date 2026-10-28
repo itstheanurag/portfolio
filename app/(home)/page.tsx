@@ -1,30 +1,26 @@
-import dynamic from "next/dynamic";
-import ProfileSection from "@/components/hero";
-import BlogShimmer from "@/components/shimmers/blog-shimmer";
-import SocialsSection from "@/components/socials";
-import ExperienceSection from "@/components/experience";
-import GithubProfiles from "@/components/github/github";
-import ProjectsSection from "@/components/projects";
-import PackagesSection from "@/components/packages";
-import StackSection from "@/components/tech-stack";
-import HireMe from "@/components/hire-me";
+import Hero from "@/components/hero";
+import SelectedWork from "@/components/selected-work";
+import Experience from "@/components/experience";
+import PersonalWork from "@/components/personal-work";
+import OpenSourceContributions from "@/components/open-source-contributions";
+import Toolkit from "@/components/toolkit";
+import Writing from "@/components/writing";
+import Contact from "@/components/contact";
+import { getGithubActivity } from "@/lib/github";
 
-const MediumBlogs = dynamic(() => import("@/components/blogs"), {
-  loading: () => <BlogShimmer />,
-});
+export default async function HomePage() {
+  const contributions = await getGithubActivity();
 
-export default function HomePage() {
   return (
-    <main id="main-content" className="min-h-screen">
-      <ProfileSection />
-      <HireMe />
-      <ExperienceSection />
-      <ProjectsSection />
-      <PackagesSection />
-      <StackSection />
-      <GithubProfiles username="itstheanurag" />
-      <MediumBlogs />
-      <SocialsSection />
+    <main id="main-content">
+      <Hero />
+      <SelectedWork />
+      <Experience />
+      <PersonalWork />
+      <OpenSourceContributions contributions={contributions} />
+      <Toolkit />
+      <Writing />
+      <Contact />
     </main>
   );
 }
