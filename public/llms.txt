@@ -13,6 +13,7 @@ Primary Focus: Backend Engineering, Distributed Systems, Web Applications, Devel
 - [Portfolio Home](https://itsanurag.in/): Primary portfolio overview, experience timeline, active projects, skills, and contact links.
 - [Works & Projects](https://itsanurag.in/works): Detailed catalog of open-source tools, infrastructure libraries, and personal software projects.
 - [Open Source Contributions](https://itsanurag.in/contributions): History of open-source contributions, pull requests, and community initiatives.
+- [Promote](https://itsanurag.in/promote): Sponsorship rates and audience numbers for X posts, quotes, reposts, and profile features.
 - [Full Context (llms-full.txt)](https://itsanurag.in/llms-full.txt): Comprehensive single-file text containing complete work experience, project deep-dives, tech stack, and background for large context window models.
 
 ## Featured Open Source & Developer Tools

@@ -17,6 +17,26 @@ interface ContributionItem extends ReactCalendarHeatmapValue<string> {
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const MONTH_POSITIONS = [
+  0, 8.49, 16.16, 24.66, 32.88, 41.37, 49.59, 58.08, 66.58, 74.79, 83.29,
+  91.51,
+];
+
 export default function GithubActivity({ username }: { username: string }) {
   const [selectedYear, setSelectedYear] = useState<number>(
     new Date().getFullYear(),
@@ -153,7 +173,19 @@ export default function GithubActivity({ username }: { username: string }) {
       </div>
 
       <div className="heatmap-container mt-6 overflow-x-auto">
-        <div className="w-full max-w-[760px]">
+        <div className="w-full min-w-[582px] max-w-[760px]">
+          <div className="relative mb-3 h-3" aria-hidden>
+            {MONTHS.map((month, index) => (
+              <span
+                key={month}
+                className="absolute top-0 font-mono text-[9px] tracking-[0.08em] text-faint"
+                style={{ left: `${MONTH_POSITIONS[index]}%` }}
+              >
+                {month}
+              </span>
+            ))}
+          </div>
+
           <CalendarHeatmap<string>
             startDate={new Date(selectedYear, 0, 0)}
             endDate={new Date(selectedYear, 11, 31)}
@@ -192,6 +224,7 @@ export default function GithubActivity({ username }: { username: string }) {
               ) => Record<string, string>
             }
             showWeekdayLabels={false}
+            showMonthLabels={false}
           />
 
           <Tooltip

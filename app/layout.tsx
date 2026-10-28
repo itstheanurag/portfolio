@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import PointerFocusReset from "@/components/pointer-focus-reset";
 import { Archivo, JetBrains_Mono, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -148,6 +149,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
+          <PointerFocusReset />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <div className="flex-1">{children}</div>

@@ -1,4 +1,4 @@
-import { VisitorCount } from "@/components/visitor-count";
+import { PageViewCount } from "@/components/pageviews";
 
 const links = [
   { href: "https://github.com/itstheanurag", label: "GitHub" },
@@ -43,7 +43,7 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
           <p className="label-mono">© {new Date().getFullYear()} Gaurav Kumar</p>
-          <VisitorCount className="label-mono text-muted" showLabel />
+          <PageViewCount className="label-mono text-muted" showLabel />
         </div>
       </div>
     </footer>

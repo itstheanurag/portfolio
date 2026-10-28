@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import VisitorRow from "@/components/visitor-count";
+import PageViewRow from "@/components/pageviews";
 
 const elsewhere = [
   { href: "https://github.com/itstheanurag", label: "GitHub" },
@@ -59,7 +59,7 @@ export default function StatusRail() {
               <LocalTime />
             </dd>
           </div>
-          <VisitorRow />
+          <PageViewRow />
         </dl>
 
         <p className="mt-5 text-[12px] leading-relaxed text-muted">

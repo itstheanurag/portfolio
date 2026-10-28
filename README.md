@@ -12,55 +12,41 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Visitor counter
+## Page views
 
-The site shows a total visit count without a database. The preferred store is a
-GitHub Gist, which survives redeployments, preview builds, and platform changes.
-If the Gist is not configured, the API falls back to a public counter service
-(Abacus) so the count still works with zero setup.
+The site shows total page views from Vercel Web Analytics. There is no database,
+no custom visitor storage, and no client-side visit tracking.
 
-### Preferred setup: GitHub Gist
+### Setup
 
-1. Create a **secret** gist with a file called `visitors.json`:
-
-   ```json
-   {
-     "count": 0
-   }
-   ```
-
-2. Create a GitHub token that can read and write gists:
-   - Fine-grained token: **Gists → Read and write**
-   - Classic token: `gist` scope
-
-3. Add the values to `.env.local` (and to Vercel for production/preview):
+1. Enable Web Analytics in the Vercel project: **Project → Analytics → Enable**.
+2. Create an access token at https://vercel.com/account/tokens.
+3. Add these to `.env.local` and to the Vercel project environment variables:
 
    ```bash
-   VISITORS_GIST_ID=your_gist_id
-   VISITORS_GIST_TOKEN=github_pat_...
-   # optional, defaults to visitors.json
-   VISITORS_GIST_FILE=visitors.json
+   VERCEL_TOKEN=...
+   VERCEL_PROJECT_ID=prj_...
+   # only for team projects
+   VERCEL_TEAM_ID=team_...
    ```
 
-If the Gist variables are missing, the counter falls back to Abacus with the
-namespace `itsanurag-portfolio` and key `visits`. You can change those with
-`VISITORS_COUNTER_NAMESPACE` and `VISITORS_COUNTER_KEY`.
+The token is server-side only. Never prefix it with `NEXT_PUBLIC_`.
 
 ### How it works
 
-- `POST /api/visitors` increments the count once per browser session.
-- `GET /api/visitors` reads the current value.
-- The Gist is used when configured; otherwise the Abacus fallback is used.
-- No IP addresses or personal data are stored by this site.
-- Gist updates are serialized per server instance. Two requests landing on
-  different instances in the same instant can occasionally miss one increment;
-  for a portfolio counter this is an acceptable trade-off.
+- `GET /api/pageviews` queries the Vercel Web Analytics API.
+- The API result is cached for five minutes to avoid querying Vercel on every
+  page load.
+- The UI hides the number if the API is not configured or unavailable.
+- Vercel counts page views, not session-based visits. Ad blockers and the plan's
+  reporting window can affect the number.
 
 ## Pages
 
 - `/` — company work, experience, personal work, open source, toolkit, writing, contact
 - `/works` — company and personal project index
 - `/contributions` — GitHub activity and public pull requests
+- `/promote` — sponsorship rates and audience numbers
 
 ## Design notes
 
