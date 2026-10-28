@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import Typewriter from "./typewriter";
+
+const ROLES = [
+  "Backend developer",
+  "Software engineer",
+  "Content creator",
+  "Open-source builder",
+];
 
 export default function Hero() {
   return (
@@ -20,7 +28,13 @@ export default function Hero() {
             <p className="font-serif text-[19px] leading-none tracking-[-0.01em]">
               Gaurav Kumar
             </p>
-            <p className="label-mono mt-1.5">Backend engineer · India</p>
+            <p className="label-mono mt-1.5 flex items-baseline">
+              <Typewriter
+                words={ROLES}
+                className="min-w-[8.5rem] text-muted sm:min-w-[9rem]"
+              />
+              <span className="ml-1 text-faint">· India</span>
+            </p>
           </div>
 
           <p className="ml-auto hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-status sm:flex xl:hidden">

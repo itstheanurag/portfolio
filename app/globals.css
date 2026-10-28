@@ -195,6 +195,21 @@ details > summary {
   animation: rise-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  animation: cursor-blink 1s steps(1, end) infinite;
+}
+
 /* ------------------------------------------------------------------
    View transitions (theme toggle)
 ------------------------------------------------------------------ */
@@ -267,6 +282,11 @@ details > summary {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .typewriter-cursor {
+    animation: none;
+    opacity: 1;
   }
 
   *,
