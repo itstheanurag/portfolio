@@ -37,7 +37,7 @@ export default function SectionIndex() {
   return (
     <aside className="hidden lg:block">
       <div className="sticky top-24 py-10 pr-3">
-        <p className="label-mono">Index</p>
+        <p className="eyebrow">Index</p>
 
         <nav aria-label="Section index" className="mt-5">
           <ol>
@@ -50,8 +50,8 @@ export default function SectionIndex() {
                     href={`#${section.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "group flex items-center gap-2.5 whitespace-nowrap py-1.5 font-mono text-[9.5px] uppercase tracking-[0.08em] transition-colors",
-                      isActive ? "text-accent" : "text-faint hover:text-muted",
+                      "group flex items-center gap-2.5 whitespace-nowrap py-2 text-[12px] font-medium transition-colors",
+                      isActive ? "text-accent" : "text-muted hover:text-ink",
                     )}
                   >
                     <span
@@ -62,7 +62,7 @@ export default function SectionIndex() {
                           : "w-2.5 bg-line-strong group-hover:w-4",
                       )}
                     />
-                    <span className="text-[9px] opacity-60">
+                    <span className="label-mono text-[10px] opacity-60">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     {section.label}

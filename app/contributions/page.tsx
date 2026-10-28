@@ -25,9 +25,9 @@ export default async function ContributionsPage() {
 
   return (
     <main id="main-content">
-      <div className="mx-auto w-full max-w-[980px] lg:border-x lg:border-line">
+      <div className="mx-auto w-full max-w-[788px] lg:border-x lg:border-line">
         <header className="px-6 py-14 sm:px-8 md:py-20 lg:px-10">
-          <p className="label-mono">Open source</p>
+          <p className="eyebrow">Open source</p>
           <h1 className="mt-5 max-w-[14ch] text-balance font-serif text-[clamp(2.7rem,6.5vw,4.9rem)] leading-[0.97] tracking-[-0.035em] text-ink">
             Work in public.
           </h1>

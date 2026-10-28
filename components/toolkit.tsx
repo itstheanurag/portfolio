@@ -46,7 +46,7 @@ export default function Toolkit() {
             key={group.label}
             className="grid grid-cols-[88px_minmax(0,1fr)] gap-4 border-b border-line py-3.5 last:border-b-0 sm:grid-cols-[138px_minmax(0,1fr)] sm:gap-6"
           >
-            <h3 className="label-mono pt-0.5">{group.label}</h3>
+            <h3 className="eyebrow pt-0.5">{group.label}</h3>
             <ul className="flex flex-wrap gap-x-4 gap-y-1">
               {group.items.map((item) => (
                 <li key={item} className="text-[13px] leading-relaxed text-ink">

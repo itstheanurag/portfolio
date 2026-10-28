@@ -41,7 +41,7 @@ export default function OpenSourceContributions({
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-4">
-        <p className="label-mono">
+        <p className="eyebrow text-faint">
           {filteredContributions.length} public contribution
           {filteredContributions.length === 1 ? "" : "s"}
         </p>
@@ -58,7 +58,7 @@ export default function OpenSourceContributions({
               onClick={() => setFilter(status)}
               aria-pressed={filter === status}
               className={cn(
-                "rounded-sm border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors",
+                "min-h-8 rounded-[3px] border px-3 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors",
                 filter === status
                   ? "border-ink bg-ink text-[var(--base)]"
                   : "border-line text-muted hover:border-line-strong hover:text-ink",
@@ -82,7 +82,7 @@ export default function OpenSourceContributions({
             className="group border-b border-line last:border-b-0"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
-              <span className="flex min-w-0 items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.1em]">
+              <span className="flex min-w-0 items-center gap-2.5 font-mono text-[12px]">
                 <span className="truncate text-muted">{repo}</span>
                 <span className="text-faint">({items.length})</span>
               </span>
@@ -121,7 +121,7 @@ export default function OpenSourceContributions({
                     <span className="block truncate text-[14px] leading-snug text-ink transition-colors group-hover/item:text-accent">
                       {contribution.title}
                     </span>
-                    <span className="mt-1 flex items-center gap-2.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-faint">
+                    <span className="label-mono mt-1 flex items-center gap-2.5 text-[10px] uppercase text-faint">
                       <span
                         className={cn(
                           contribution.status === "merged" && "text-accent",
@@ -138,7 +138,7 @@ export default function OpenSourceContributions({
                     </span>
                   </span>
 
-                  <span className="mt-0.5 whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.08em] text-faint">
+                  <span className="label-mono mt-0.5 whitespace-nowrap text-[10px] text-faint">
                     {new Date(contribution.date).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",

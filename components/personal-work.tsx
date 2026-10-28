@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ALL_WORKS } from "@/lib/data/works";
 import { NPM_PACKAGES } from "@/lib/data/packages";
+import HoverList from "./hover-list";
 import Section from "./section";
 import ProjectRow from "./project-row";
 import InstallCommand from "./install-command";
@@ -37,14 +38,14 @@ export default function PersonalWork() {
       action={
         <Link
           href="/works"
-          className="group inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint transition-colors hover:text-ink"
+          className="action-link group"
         >
           All projects
-          <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
       }
     >
-      <div>
+      <HoverList>
         {ALL_WORKS.slice(0, 4).map((work) => {
           const links = [
             work.github ? { href: work.github, label: "Source" } : null,
@@ -68,10 +69,10 @@ export default function PersonalWork() {
             />
           );
         })}
-      </div>
+      </HoverList>
 
       <div className="mt-9">
-        <p className="label-mono">On npm</p>
+        <p className="eyebrow">On npm</p>
         <div className="mt-3 border-t border-line">
           {NPM_PACKAGES.map((pkg) => (
             <div
@@ -84,7 +85,7 @@ export default function PersonalWork() {
                     {pkg.name}
                   </h3>
                   {pkg.version && (
-                    <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-faint">
+                    <span className="label-mono text-[10px] text-faint">
                       v{pkg.version}
                     </span>
                   )}
@@ -102,7 +103,7 @@ export default function PersonalWork() {
                   href={pkg.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint transition-colors hover:text-ink"
+                  className="text-[12px] font-medium text-faint transition-colors hover:text-ink"
                 >
                   npm ↗
                 </a>

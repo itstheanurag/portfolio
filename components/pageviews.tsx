@@ -56,7 +56,7 @@ export function PageViewCount({
 
   return (
     <span className={className}>
-      {showLabel && <span className="text-faint">Page views </span>}
+      {showLabel && <span className="text-muted">Page views </span>}
       {pageviews === undefined ? (
         <span
           className="inline-block h-3 w-10 animate-pulse bg-line align-middle"
@@ -78,8 +78,8 @@ export default function PageViewRow() {
 
   return (
     <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
-      <dt className="label-mono">Page views</dt>
-      <dd className="font-mono text-[11px] tabular-nums text-ink">
+      <dt className="eyebrow">Page views</dt>
+      <dd className="label-mono text-ink">
         {pageviews === undefined ? (
           <span
             className="inline-block h-3 w-9 animate-pulse bg-line align-middle"

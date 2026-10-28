@@ -111,7 +111,7 @@ export default function GithubActivity({ username }: { username: string }) {
   return (
     <div>
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-3">
-        <p className="font-mono text-[11px] tracking-[0.03em] text-muted">
+        <p className="font-mono text-[12px] tracking-[0.01em] text-muted">
           <span className="text-ink">
             {new Intl.NumberFormat("en-US").format(totalContributions)}
           </span>{" "}
@@ -125,9 +125,9 @@ export default function GithubActivity({ username }: { username: string }) {
             aria-haspopup="listbox"
             aria-expanded={isYearOpen}
             aria-label={`Select contribution year, currently ${selectedYear}`}
-            className="flex cursor-pointer items-center gap-2 border border-line bg-raised px-2.5 py-1.5 font-mono text-[10px] text-ink transition-colors hover:border-line-strong"
+            className="flex min-h-8 cursor-pointer items-center gap-2 rounded-[3px] border border-line bg-raised px-3 text-[12px] text-ink shadow-sm transition-colors hover:border-line-strong"
           >
-            <span className="label-mono">Year</span>
+            <span className="eyebrow text-[10px]">Year</span>
             <span className="tabular-nums">{selectedYear}</span>
             <ChevronDown
               className={cn(
@@ -141,7 +141,7 @@ export default function GithubActivity({ username }: { username: string }) {
             <ul
               role="listbox"
               aria-label="Contribution year"
-              className="absolute right-0 top-full z-30 mt-1 min-w-[108px] border border-line bg-raised py-1 shadow-2xl shadow-black/40"
+              className="absolute right-0 top-full z-30 mt-1 min-w-[116px] rounded-[3px] border border-line bg-raised py-1 shadow-2xl shadow-black/40"
             >
               {years.map((year) => {
                 const isSelected = year === selectedYear;
@@ -155,7 +155,7 @@ export default function GithubActivity({ username }: { username: string }) {
                         setIsYearOpen(false);
                       }}
                       className={cn(
-                        "flex w-full items-center justify-between gap-3 px-3 py-1.5 text-left font-mono text-[10px] tabular-nums transition-colors",
+                        "flex w-full items-center justify-between gap-3 px-3 py-1.5 text-left text-[11.5px] tabular-nums transition-colors",
                         isSelected
                           ? "bg-accent-soft text-accent"
                           : "text-muted hover:bg-surface hover:text-ink",
@@ -178,7 +178,7 @@ export default function GithubActivity({ username }: { username: string }) {
             {MONTHS.map((month, index) => (
               <span
                 key={month}
-                className="absolute top-0 font-mono text-[9px] tracking-[0.08em] text-faint"
+                className="absolute top-0 font-mono text-[10px] tracking-[0.06em] text-faint"
                 style={{ left: `${MONTH_POSITIONS[index]}%` }}
               >
                 {month}
@@ -235,13 +235,13 @@ export default function GithubActivity({ username }: { username: string }) {
               padding: "6px 10px",
               borderRadius: "3px",
               fontSize: "11px",
-              fontFamily: "var(--font-ibm-mono)",
+              fontFamily: "var(--font-jetbrains)",
             }}
           />
         </div>
       </div>
 
-      <div className="mt-5 flex items-center justify-end gap-2 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+      <div className="mt-5 flex items-center justify-end gap-2 font-mono text-[10px] uppercase tracking-[0.08em] text-faint">
         <span>Less</span>
         <div className="flex gap-1">
           {[

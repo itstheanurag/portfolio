@@ -7,9 +7,9 @@ export default function Contact() {
       <SectionDivider />
       <section id="contact" className="scroll-mt-24">
       <div className="px-6 py-14 sm:px-8 md:py-20 lg:px-10">
-        <p className="label-mono">07 / Contact</p>
+        <p className="eyebrow">07 / Contact</p>
 
-        <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_190px] lg:gap-12">
+        <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_212px] lg:gap-12">
           <div>
             <h2 className="max-w-[12ch] text-balance font-serif text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.98] tracking-[-0.03em] text-ink">
               Have something to{" "}
@@ -34,7 +34,7 @@ export default function Contact() {
               <a
                 href="/gaurav-resume.pdf"
                 download="gaurav-resume.pdf"
-                className="inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+                className="btn btn-outline btn-sm"
               >
                 Download CV ↓
               </a>
@@ -42,28 +42,28 @@ export default function Contact() {
                 href="https://x.com/itstheanurag"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+                className="btn btn-outline btn-sm group"
               >
                 DM on X
-                <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
           </div>
 
           <dl className="border-t border-line">
             <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
-              <dt className="label-mono">Availability</dt>
-              <dd className="font-mono text-[10px] text-ink">
+              <dt className="eyebrow">Availability</dt>
+              <dd className="label-mono text-ink">
                 Full-time / freelance
               </dd>
             </div>
             <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
-              <dt className="label-mono">Timezone</dt>
-              <dd className="font-mono text-[10px] text-ink">IST · UTC+5:30</dd>
+              <dt className="eyebrow">Timezone</dt>
+              <dd className="label-mono text-ink">IST · UTC+5:30</dd>
             </div>
             <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
-              <dt className="label-mono">Reply</dt>
-              <dd className="font-mono text-[10px] text-ink">Within a day</dd>
+              <dt className="eyebrow">Reply</dt>
+              <dd className="label-mono text-ink">Within a day</dd>
             </div>
           </dl>
         </div>

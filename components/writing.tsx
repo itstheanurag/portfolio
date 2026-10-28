@@ -2,6 +2,7 @@
 
 import useSWR from "swr";
 import { ArrowUpRight } from "lucide-react";
+import HoverList from "./hover-list";
 import Section from "./section";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -40,10 +41,10 @@ export default function Writing() {
           href="https://medium.com/@codecript"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint transition-colors hover:text-ink"
+          className="action-link group"
         >
           Medium
-          <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
       }
     >
@@ -76,7 +77,7 @@ export default function Writing() {
           .
         </p>
       ) : (
-        <div className="border-t border-line">
+        <HoverList>
           {posts.map((post) => {
             const snippet = post.contentSnippet
               ? post.contentSnippet.replace(/<[^>]+>/g, "").slice(0, 170)
@@ -88,20 +89,21 @@ export default function Writing() {
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group grid gap-1.5 border-b border-line py-4 transition-colors last:border-b-0 hover:bg-surface sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+                data-hover-row
+                className="group relative z-10 -mx-4 grid gap-1.5 border-b border-line px-4 py-4 first:border-t last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
               >
                 <div className="min-w-0">
                   <h3 className="font-serif text-[18px] leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-accent">
                     {post.title}
                   </h3>
                   {snippet && (
-                    <p className="mt-1 line-clamp-2 max-w-[70ch] text-[12px] leading-relaxed text-muted">
+                    <p className="mt-1 line-clamp-2 max-w-[70ch] text-[12.5px] leading-relaxed text-muted">
                       {snippet}
                     </p>
                   )}
                 </div>
 
-                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+                <span className="label-mono text-faint">
                   {new Date(post.pubDate).toLocaleDateString("en-US", {
                     month: "short",
                     year: "numeric",
@@ -110,7 +112,7 @@ export default function Writing() {
               </a>
             );
           })}
-        </div>
+        </HoverList>
       )}
     </Section>
   );

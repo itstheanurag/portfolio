@@ -21,7 +21,7 @@ export default function InstallCommand({ command }: { command: string }) {
       type="button"
       onClick={copy}
       aria-label={`Copy install command: ${command}`}
-      className="group inline-flex max-w-full items-center gap-2 overflow-hidden border border-line bg-raised px-2.5 py-1.5 text-left font-mono text-[10px] text-muted transition-colors hover:border-line-strong hover:text-ink"
+      className="group inline-flex max-w-full items-center gap-2 overflow-hidden rounded-[3px] border border-line bg-raised px-3 py-1.5 text-left font-mono text-[11px] text-muted shadow-sm transition-colors hover:border-line-strong hover:text-ink"
     >
       <span className="text-faint">$</span>
       <span className="truncate">{command}</span>

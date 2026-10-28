@@ -50,7 +50,7 @@ export default function Navbar() {
         className="mx-auto flex h-16 w-full max-w-[1160px] items-center justify-between px-4 sm:px-6 lg:px-8"
       >
         <Link href="/" className="group flex items-center gap-3">
-          <span className="block size-[30px] overflow-hidden border border-line-strong bg-raised">
+          <span className="thumb block size-[30px]">
             <Image
               src="/icon.png"
               alt=""
@@ -60,27 +60,32 @@ export default function Navbar() {
               priority
             />
           </span>
-          <span className="font-serif text-[19px] leading-none tracking-[-0.01em] text-ink">
-            Gaurav Kumar
-          </span>
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <div className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="label-mono px-3 py-2 text-muted transition-colors hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden items-center md:flex">
+            {navItems.map((item) => {
+              const isActive =
+                !item.href.startsWith("/#") &&
+                (pathname === item.href ||
+                  pathname.startsWith(`${item.href}/`));
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className="nav-link"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           <a
             href="mailto:gauravanurag36@gmail.com"
-            className="label-mono ml-2 hidden border border-line-strong px-3 py-2 text-ink transition-colors hover:border-accent hover:text-accent sm:inline-flex"
+            className="btn btn-outline btn-sm ml-2 hidden sm:inline-flex"
           >
             Email
           </a>
@@ -119,7 +124,7 @@ export default function Navbar() {
             ))}
             <a
               href="mailto:gauravanurag36@gmail.com"
-              className="mt-5 inline-flex w-fit items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg"
+              className="btn btn-primary mt-5 w-fit"
             >
               Get in touch
               <span aria-hidden>↗</span>

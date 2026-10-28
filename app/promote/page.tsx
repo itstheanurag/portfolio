@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Section from "@/components/section";
 import {
   PROMO_MONTHLY_AVERAGE,
@@ -47,11 +47,11 @@ const STEPS = [
 export default function PromotePage() {
   return (
     <main id="main-content">
-      <div className="mx-auto w-full max-w-[860px] lg:border-x lg:border-line">
+      <div className="mx-auto w-full max-w-[788px] lg:border-x lg:border-line">
         <header className="px-6 py-14 sm:px-8 md:py-20 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-10 lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_208px] lg:gap-8 lg:items-center">
             <div>
-              <p className="label-mono">Promote</p>
+              <p className="eyebrow">Promote</p>
               <h1 className="mt-5 max-w-[15ch] text-balance font-serif text-[clamp(2.6rem,5.8vw,4.2rem)] leading-[0.97] tracking-[-0.035em] text-ink">
                 Put your project in front of{" "}
                 <em className="italic text-accent">my audience</em>.
@@ -64,34 +64,34 @@ export default function PromotePage() {
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href="mailto:gauravanurag36@gmail.com?subject=Promotion%20enquiry"
-                  className="inline-flex items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg transition-colors hover:bg-accent-strong"
+                  href="#rates"
+                  className="btn btn-primary group"
                 >
                   Check availability
-                  <ArrowUpRight className="size-3.5" />
+                  <ArrowDownRight className="size-3.5 transition-transform duration-200 group-hover:translate-y-0.5" />
                 </a>
                 <a
                   href="https://x.com/itstheanurag"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+                  className="btn btn-outline group"
                 >
                   DM on X
-                  <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </div>
             </div>
 
-            <aside className="border border-line bg-surface/50 p-5">
+            <aside className="rounded-[3px] border border-line bg-surface/50 p-5">
               <div className="flex items-baseline justify-between gap-4">
-                <p className="label-mono">Monthly reach</p>
+                <p className="eyebrow">Monthly reach</p>
                 <span className="size-1.5 rounded-full bg-status" />
               </div>
 
               <p className="mt-4 font-serif text-[42px] leading-none tracking-[-0.03em] text-ink">
                 {PROMO_MONTHLY_IMPRESSIONS}
               </p>
-              <p className="label-mono mt-1">Impressions</p>
+              <p className="eyebrow mt-1.5">Impressions</p>
 
               <div className="mt-5 flex items-baseline justify-between border-t border-line pt-3">
                 <p className="label-mono">{PROMO_MONTH_LABEL}</p>
@@ -106,6 +106,7 @@ export default function PromotePage() {
         </header>
 
         <Section
+          id="rates"
           index="01"
           title="Rates"
           note="One placement, clear scope. Custom threads and integrations are quoted separately."
@@ -114,10 +115,10 @@ export default function PromotePage() {
             {PROMO_RATES.filter((rate) => !rate.popular).map((rate, index) => (
               <article
                 key={rate.name}
-                className="group flex flex-col justify-between border border-line bg-surface/50 p-5 transition-colors duration-200 hover:border-line-strong sm:p-6"
+                className="group flex flex-col justify-between rounded-[3px] border border-line bg-surface/50 p-5 transition-colors duration-200 hover:border-line-strong sm:p-6"
               >
                 <div>
-                  <p className="label-mono">0{index + 1} — Placement</p>
+                  <p className="eyebrow">0{index + 1} — Placement</p>
 
                   <h3 className="mt-3 font-serif text-[24px] leading-tight tracking-[-0.015em] text-ink">
                     {rate.name}
@@ -145,19 +146,20 @@ export default function PromotePage() {
                 <div className="mt-6 flex items-end justify-between gap-4 border-t border-line pt-4">
                   <div>
                     {rate.prefix && (
-                      <p className="label-mono">{rate.prefix}</p>
+                      <p className="eyebrow">{rate.prefix}</p>
                     )}
-                    <p className="font-serif text-[30px] leading-none tracking-[-0.02em] text-ink">
+                    <p className="mt-1 font-serif text-[30px] leading-none tracking-[-0.02em] text-ink">
                       {rate.price}
                     </p>
-                    <p className="label-mono mt-1">{rate.unit}</p>
+                    <p className="label-mono mt-1 text-faint">{rate.unit}</p>
                   </div>
 
                   <a
-                    href={`mailto:gauravanurag36@gmail.com?subject=${encodeURIComponent(
-                      `Promotion enquiry — ${rate.name}`,
-                    )}`}
-                    className="group/link inline-flex items-center gap-1 border-b border-line-strong pb-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-muted transition-colors hover:border-accent hover:text-accent"
+                    href="https://x.com/itstheanurag"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Enquire about ${rate.name} on X`}
+                    className="group/link inline-flex items-center gap-1 border-b border-line-strong pb-1 text-[12.5px] font-medium text-muted transition-colors hover:border-accent hover:text-accent"
                   >
                     Enquire
                     <span
@@ -175,15 +177,15 @@ export default function PromotePage() {
           {PROMO_RATES.filter((rate) => rate.popular).map((rate) => (
             <article
               key={rate.name}
-              className="mt-4 border border-accent/40 bg-accent-soft p-5 sm:p-7"
+              className="mt-4 rounded-[3px] border border-accent/40 bg-accent-soft p-5 sm:p-7"
             >
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <p className="label-mono text-accent-strong">
+                    <p className="eyebrow text-accent-strong">
                       {String(PROMO_RATES.length).padStart(2, "0")} — Launch bundle
                     </p>
-                    <span className="border border-accent/40 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.1em] text-accent-strong">
+                    <span className="eyebrow border border-accent/40 px-2 py-0.5 text-[10px] text-accent-strong">
                       Best value
                     </span>
                   </div>
@@ -200,7 +202,7 @@ export default function PromotePage() {
                     {rate.includes.map((item) => (
                       <li
                         key={item}
-                        className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted"
+                        className="label-mono text-[10px] uppercase text-muted"
                       >
                         {item}
                       </li>
@@ -209,15 +211,15 @@ export default function PromotePage() {
                 </div>
 
                 <div className="lg:text-right">
-                  <p className="label-mono">Package</p>
-                  <p className="mt-1 font-serif text-[38px] leading-none tracking-[-0.03em] text-ink">
+                  <p className="eyebrow">Package</p>
+                  <p className="mt-1.5 font-serif text-[38px] leading-none tracking-[-0.03em] text-ink">
                     {rate.price}
                   </p>
                   <a
                     href={`mailto:gauravanurag36@gmail.com?subject=${encodeURIComponent(
                       `Promotion enquiry — ${rate.name}`,
                     )}`}
-                    className="mt-4 inline-flex items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-accent-fg transition-colors hover:bg-accent-strong"
+                    className="btn btn-primary mt-4"
                   >
                     Claim a launch slot
                     <ArrowUpRight className="size-3.5" />
@@ -238,13 +240,13 @@ export default function PromotePage() {
           title="Audience"
           note="October 2026, from my X account. Sponsored reach varies; no impressions or conversions are guaranteed."
         >
-          <dl className="grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[3px] border border-line bg-line sm:grid-cols-4">
             {PROMO_STATS.map((stat) => (
               <div key={stat.label} className="bg-base p-5 sm:p-6">
                 <dd className="font-serif text-[30px] leading-none tracking-[-0.02em] text-ink">
                   {stat.value}
                 </dd>
-                <dt className="label-mono mt-2">{stat.label}</dt>
+                <dt className="eyebrow mt-2">{stat.label}</dt>
               </div>
             ))}
           </dl>
@@ -262,7 +264,7 @@ export default function PromotePage() {
           <div className="grid gap-8 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step, index) => (
               <div key={step.title}>
-                <p className="font-mono text-[9px] tracking-[0.18em] text-accent">
+                <p className="label-mono tracking-[0.12em] text-accent">
                   0{index + 1}
                 </p>
                 <h3 className="mt-2 font-serif text-[20px] leading-tight tracking-[-0.01em] text-ink">
@@ -294,7 +296,7 @@ export default function PromotePage() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="mailto:gauravanurag36@gmail.com?subject=Promotion%20enquiry"
-                className="inline-flex items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg transition-colors hover:bg-accent-strong"
+                className="btn btn-primary"
               >
                 Email me
                 <ArrowUpRight className="size-3.5" />
@@ -303,14 +305,14 @@ export default function PromotePage() {
                 href="https://x.com/itstheanurag"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+                className="btn btn-outline group"
               >
                 DM on X
-                <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
 
-            <p className="label-mono mt-6">
+            <p className="label-mono mt-6 text-faint">
               Sponsored placements are disclosed as #ad.
             </p>
           </div>

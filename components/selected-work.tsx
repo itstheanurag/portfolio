@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { WORK_PROJECTS } from "@/lib/data/projects";
+import HoverList from "./hover-list";
 import Section from "./section";
 import ProjectRow from "./project-row";
 
@@ -23,14 +24,14 @@ export default function SelectedWork() {
       action={
         <Link
           href="/works"
-          className="group inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint transition-colors hover:text-ink"
+          className="action-link group"
         >
           All work
-          <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
       }
     >
-      <div>
+      <HoverList>
         {WORK_PROJECTS.map((project) => {
           const info = META[project.name];
 
@@ -51,7 +52,7 @@ export default function SelectedWork() {
             />
           );
         })}
-      </div>
+      </HoverList>
     </Section>
   );
 }

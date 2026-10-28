@@ -27,7 +27,7 @@ export default function Footer() {
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className="label-mono group inline-flex items-center gap-1 text-muted transition-colors hover:text-ink"
+                className="group inline-flex items-center gap-1 text-[12.5px] font-medium text-muted transition-colors hover:text-ink"
               >
                 {link.label}
                 <span
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
-          <p className="label-mono">© {new Date().getFullYear()} Gaurav Kumar</p>
+          <p className="label-mono text-faint">© {new Date().getFullYear()} Gaurav Kumar</p>
           <PageViewCount className="label-mono text-muted" showLabel />
         </div>
       </div>

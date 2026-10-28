@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { EXPERIENCES } from "@/lib/data/experience";
 import Section from "./section";
 
@@ -15,13 +16,13 @@ export default function Experience() {
         {EXPERIENCES.map((experience) => (
           <article
             key={experience.company}
-            className="grid gap-4 border-b border-line py-7 last:border-b-0 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-6"
+            className="grid gap-4 border-b border-line py-7 last:border-b-0 sm:grid-cols-[144px_minmax(0,1fr)] sm:gap-6"
           >
             <div>
-              <p className="font-mono text-[10px] leading-relaxed tracking-[0.04em] text-muted">
+              <p className="label-mono text-[10.5px] leading-relaxed">
                 {experience.period}
               </p>
-              <p className="mt-1 font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint">
+              <p className="label-mono mt-1 uppercase text-faint">
                 {experience.location}
               </p>
             </div>
@@ -29,7 +30,7 @@ export default function Experience() {
             <div className="min-w-0">
               <div className="flex items-start gap-3">
                 {experience.logo ? (
-                  <span className="mt-0.5 block size-9 shrink-0 overflow-hidden border border-line bg-white">
+                  <span className="thumb mt-0.5 block size-9 shrink-0 bg-white">
                     <Image
                       src={experience.logo}
                       alt=""
@@ -39,7 +40,7 @@ export default function Experience() {
                     />
                   </span>
                 ) : (
-                  <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-line font-serif text-base">
+                  <span className="thumb mt-0.5 flex size-9 shrink-0 items-center justify-center bg-raised font-serif text-base">
                     {experience.company.charAt(0)}
                   </span>
                 )}
@@ -48,44 +49,51 @@ export default function Experience() {
                   <h3 className="font-serif text-[20px] leading-tight tracking-[-0.01em] text-ink">
                     {experience.company}
                   </h3>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+                  <p className="eyebrow mt-1.5 text-muted">
                     {experience.role}
                   </p>
                 </div>
               </div>
 
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-4 space-y-2.5">
                 {experience.highlights.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-2.5 text-[13px] leading-[1.7] text-muted"
+                    className="grid grid-cols-[12px_minmax(0,1fr)] gap-2.5 text-[13px] leading-[1.7] text-muted"
                   >
-                    <span aria-hidden className="text-accent">
-                      —
-                    </span>
+                    <span
+                      aria-hidden
+                      className="mt-[0.72em] h-px w-3 bg-accent"
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
               {experience.details.length > 0 && (
-                <details className="group/details mt-3">
-                  <summary className="inline-flex list-none items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+                <details className="group/details mt-4">
+                  <summary className="inline-flex list-none items-center gap-2 text-[12.5px] font-medium text-muted transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
                     Full responsibilities
-                    <span
-                      aria-hidden
-                      className="text-[12px] transition-transform duration-200 group-open/details:rotate-45"
-                    >
-                      +
+                    <span className="label-mono text-[10px] text-faint">
+                      {String(experience.details.length).padStart(2, "0")}
                     </span>
+                    <ChevronDown
+                      aria-hidden
+                      className="size-3 text-faint transition-transform duration-200 group-open/details:rotate-180"
+                    />
                   </summary>
-                  <ul className="mt-2.5 space-y-1.5 border-l border-line pl-3.5">
-                    {experience.details.map((item) => (
+                  <ul className="mt-3 overflow-hidden rounded-[3px] border border-line bg-base/60">
+                    {experience.details.map((item, index) => (
                       <li
                         key={item}
-                        className="text-[12px] leading-relaxed text-muted"
+                        className="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-3 border-b border-line px-4 py-2.5 last:border-b-0"
                       >
-                        {item}
+                        <span className="label-mono pt-px text-[10px] text-accent">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[12.5px] leading-[1.65] text-muted">
+                          {item}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -93,11 +101,11 @@ export default function Experience() {
               )}
 
               {experience.skills && (
-                <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
+                <ul className="mt-4 flex flex-wrap gap-1.5">
                   {experience.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint"
+                      className="chip"
                     >
                       {skill}
                     </li>

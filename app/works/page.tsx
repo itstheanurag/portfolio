@@ -6,6 +6,7 @@ import { ALL_WORKS } from "@/lib/data/works";
 import { NPM_PACKAGES } from "@/lib/data/packages";
 import Section from "@/components/section";
 import ProjectRow from "@/components/project-row";
+import HoverList from "@/components/hover-list";
 import InstallCommand from "@/components/install-command";
 
 export const metadata: Metadata = {
@@ -44,9 +45,9 @@ const KIND: Record<string, string> = {
 export default function WorksPage() {
   return (
     <main id="main-content">
-      <div className="mx-auto w-full max-w-[980px] lg:border-x lg:border-line">
+      <div className="mx-auto w-full max-w-[788px] lg:border-x lg:border-line">
         <header className="px-6 py-14 sm:px-8 md:py-20 lg:px-10">
-          <p className="label-mono">Work index</p>
+          <p className="eyebrow">Work index</p>
           <h1 className="mt-5 max-w-[16ch] text-balance font-serif text-[clamp(2.7rem,6.5vw,4.9rem)] leading-[0.97] tracking-[-0.035em] text-ink">
             Things I&apos;ve made.
           </h1>
@@ -55,7 +56,7 @@ export default function WorksPage() {
             hospitals; some of it runs on my laptop. All of it taught me
             something.
           </p>
-          <p className="mt-6 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint">
+          <p className="label-mono mt-6 uppercase text-faint">
             3 company systems / 5+ personal projects / 2 npm packages / open-source PRs
           </p>
         </header>
@@ -65,7 +66,7 @@ export default function WorksPage() {
           title="Company work"
           note="Client products shipped between 2022 and 2025. Backend engineering, integrations, and the unglamorous parts that keep products alive."
         >
-          <div>
+          <HoverList>
             {WORK_PROJECTS.map((project) => {
               const info = PRODUCTION_META[project.name];
 
@@ -75,6 +76,7 @@ export default function WorksPage() {
                   name={project.name}
                   meta={info?.meta ?? "Healthcare"}
                   description={project.description ?? ""}
+                  descriptionLimit={180}
                   image={info?.image}
                   tech={project.techStack}
                   details={project.coreFeatures}
@@ -86,7 +88,7 @@ export default function WorksPage() {
                 />
               );
             })}
-          </div>
+          </HoverList>
         </Section>
 
         <Section
@@ -94,7 +96,7 @@ export default function WorksPage() {
           title="Personal work"
           note="Products, tools, and experiments I build for myself. Some are live products; most are open source."
         >
-          <div>
+          <HoverList>
             {ALL_WORKS.map((work) => {
               const links = [
                 work.github ? { href: work.github, label: "Source" } : null,
@@ -110,6 +112,7 @@ export default function WorksPage() {
                   name={work.name}
                   meta={KIND[work.name] ?? "Personal"}
                   description={work.description}
+                  descriptionLimit={180}
                   image={work.image}
                   tech={work.techStack}
                   details={work.progressItems}
@@ -118,10 +121,10 @@ export default function WorksPage() {
                 />
               );
             })}
-          </div>
+          </HoverList>
 
           <div className="mt-9">
-            <p className="label-mono">On npm</p>
+            <p className="eyebrow">On npm</p>
             <div className="mt-3 border-t border-line">
               {NPM_PACKAGES.map((pkg) => (
                 <div
@@ -134,7 +137,7 @@ export default function WorksPage() {
                         {pkg.name}
                       </h3>
                       {pkg.version && (
-                        <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-faint">
+                        <span className="label-mono text-[10px] text-faint">
                           v{pkg.version}
                         </span>
                       )}
@@ -151,7 +154,7 @@ export default function WorksPage() {
                       href={pkg.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint transition-colors hover:text-ink"
+                      className="text-[12px] font-medium text-faint transition-colors hover:text-ink"
                     >
                       npm ↗
                     </a>
@@ -165,7 +168,7 @@ export default function WorksPage() {
         <section className="border-t border-line">
           <div className="flex flex-col gap-5 px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
             <div>
-              <p className="label-mono">03 / Open source</p>
+              <p className="eyebrow">03 / Open source</p>
               <p className="mt-2 max-w-[58ch] text-[13px] leading-relaxed text-muted">
                 A few pull requests in projects I don&apos;t own — fixes,
                 features, and the occasional refactor.
@@ -173,7 +176,7 @@ export default function WorksPage() {
             </div>
             <Link
               href="/contributions"
-              className="group inline-flex w-fit items-center gap-2 border border-line-strong px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-accent hover:text-accent"
+              className="btn btn-outline btn-sm group w-fit"
             >
               View contributions
               <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -184,14 +187,14 @@ export default function WorksPage() {
         <section className="border-t border-line">
           <div className="flex flex-col gap-6 px-6 py-12 sm:px-8 sm:flex-row sm:items-center sm:justify-between lg:px-10">
             <div>
-              <p className="label-mono">Next</p>
+              <p className="eyebrow">Next</p>
               <p className="mt-2 font-serif text-2xl leading-tight tracking-[-0.02em] text-ink">
                 Have something worth building?
               </p>
             </div>
             <a
               href="mailto:gauravanurag36@gmail.com"
-              className="inline-flex w-fit items-center gap-2 bg-accent px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-accent-fg transition-colors hover:bg-accent-strong"
+              className="btn btn-primary w-fit"
             >
               Get in touch
               <ArrowUpRight className="size-3.5" />
