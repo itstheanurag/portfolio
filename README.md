@@ -53,7 +53,7 @@ The token is server-side only. Never prefix it with `NEXT_PUBLIC_`.
 - **Direction:** “production log” — a dark, warm document of systems shipped.
 - **Palette:** warm near-black, bone text, one copper accent. Status green is
   reserved for availability.
-- **Type:** Newsreader for display, Archivo for body/UI, JetBrains Mono for
+- **Type:** Instrument Serif for display, Instrument Sans for body/UI, JetBrains Mono for
   labels and data.
 - **Layout:** a central document column with a functional section index on the
   left and a live status rail on the right. Real screenshots carry the work.

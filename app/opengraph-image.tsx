@@ -9,10 +9,10 @@ export const size = {
 };
 export const contentType = "image/png";
 
-async function loadNewsreader() {
+async function loadInstrumentSerif() {
   try {
     const css = await fetch(
-      "https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap",
+      "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
       { next: { revalidate: 60 * 60 * 24 * 30 } },
     ).then((response) => response.text());
 
@@ -37,8 +37,8 @@ async function loadAvatar() {
 }
 
 export default async function Image() {
-  const [newsreader, avatar] = await Promise.all([
-    loadNewsreader(),
+  const [instrumentSerif, avatar] = await Promise.all([
+    loadInstrumentSerif(),
     loadAvatar(),
   ]);
 
@@ -103,7 +103,7 @@ export default async function Image() {
             <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
               <span
                 style={{
-                  fontFamily: newsreader ? "Newsreader" : "serif",
+                  fontFamily: instrumentSerif ? "Instrument Serif" : "serif",
                   fontSize: "30px",
                   lineHeight: 1,
                   letterSpacing: "-0.01em",
@@ -187,7 +187,7 @@ export default async function Image() {
 
           <div
             style={{
-              fontFamily: newsreader ? "Newsreader" : "serif",
+              fontFamily: instrumentSerif ? "Instrument Serif" : "serif",
               fontSize: "74px",
               lineHeight: 1.02,
               letterSpacing: "-0.035em",
@@ -223,11 +223,11 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: newsreader
+      fonts: instrumentSerif
         ? [
             {
-              name: "Newsreader",
-              data: newsreader,
+              name: "Instrument Serif",
+              data: instrumentSerif,
               style: "normal",
               weight: 400,
             },

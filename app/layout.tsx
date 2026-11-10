@@ -4,18 +4,23 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import PointerFocusReset from "@/components/pointer-focus-reset";
-import { Archivo, JetBrains_Mono, Newsreader } from "next/font/google";
+import {
+  Instrument_Sans,
+  Instrument_Serif,
+  JetBrains_Mono,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
+  weight: "400",
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -135,7 +140,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${archivo.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased min-h-screen`}
+        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased min-h-screen`}
       >
         <ThemeProvider
           attribute="class"
