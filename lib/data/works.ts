@@ -3,20 +3,38 @@ import { PERSONAL_PROJECTS } from "./projects";
 
 export const ALL_WORKS: WorkItem[] = [
   {
-    name: "Republ",
+    name: "Rebupl",
     description:
-      "Republ is a marketplace for independent talent, creators, and product launches. People publish services and rate cards, receive direct client briefs with 0% platform commission, and ship weekly product drops.",
+      "Rebupl is a weekly product launch board and creator directory. Products launch on Monday drops with a permanent page each, creators claim verified folios and take briefs direct, and a set of free launch tools helps makers ship and get discovered.",
     category: "Personal Project",
     status: "Completed",
     techStack: ["Nextjs", "TypeScript", "TailwindCss", "React"],
     link: "https://rebupl.fun",
     progressItems: [
-      "Service listings and rate cards for independent talent",
-      "Direct client briefs with 0% platform commission",
-      "Weekly product launch board",
-      "Free tools for launching and promoting products",
+      "Weekly product launch board with Monday drops",
+      "Permanent product pages with dofollow links",
+      "Verified creator folios and direct briefs",
+      "Editorial coverage and cross-posts for premium launches",
+      "Free launch tools — name, tagline, slug, meta, and domain checks",
     ],
     image: "/rebupl.png",
+  },
+  {
+    name: "Utils",
+    description:
+      "Utils (utils.sbs) is a local-first collection of 584 browser-based tools across 29 shelves — image, video, audio, PDF, text, developer, SEO, and more. Everything runs on-device with no sign-in, no uploads, and no installs.",
+    category: "Personal Project",
+    status: "Completed",
+    techStack: ["Nextjs", "TypeScript", "TailwindCss", "React"],
+    link: "https://utils.sbs",
+    progressItems: [
+      "584 tools organised across 29 job-based shelves",
+      "Image, video, audio, and PDF processing in the browser",
+      "Developer, text, data, and SEO utilities",
+      "No accounts, no uploads — files never leave the device",
+      "Full-text search and category filtering across the catalogue",
+    ],
+    image: "/utils.png",
   },
   {
     name: "CodeCript",
