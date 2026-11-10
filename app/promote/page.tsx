@@ -48,7 +48,7 @@ export default function PromotePage() {
   return (
     <main id="main-content">
       <div className="mx-auto w-full max-w-[788px] lg:border-x lg:border-line">
-        <header className="px-6 py-14 sm:px-8 md:py-20 lg:px-10">
+        <header className="px-6 pb-10 pt-8 sm:px-8 md:pb-12 md:pt-10 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_208px] lg:gap-8 lg:items-center">
             <div>
               <p className="eyebrow">Promote</p>

@@ -7,7 +7,7 @@ export default function Experience() {
   return (
     <Section
       id="experience"
-      index="02"
+      index="01"
       title="Experience"
       tone="surface"
       note="Production work, mostly in healthcare. Small teams, real users, and systems that had to keep running."

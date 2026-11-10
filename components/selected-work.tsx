@@ -18,7 +18,7 @@ export default function SelectedWork() {
   return (
     <Section
       id="work"
-      index="01"
+      index="02"
       title="Company work"
       note="Client products, 2022–2025. Healthcare systems that shipped and stayed shipped."
       action={

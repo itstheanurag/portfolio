@@ -14,8 +14,8 @@ export default async function HomePage() {
   return (
     <main id="main-content">
       <Hero />
-      <SelectedWork />
       <Experience />
+      <SelectedWork />
       <PersonalWork />
       <OpenSourceContributions contributions={contributions} />
       <Toolkit />

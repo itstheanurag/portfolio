@@ -1,5 +1,3 @@
-import { PageViewCount } from "@/components/pageviews";
-
 const links = [
   { href: "https://github.com/itstheanurag", label: "GitHub" },
   { href: "https://linkedin.com/in/itstheanurag", label: "LinkedIn" },
@@ -12,8 +10,8 @@ export default function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto w-full max-w-[1160px] px-4 py-7 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-serif text-xl leading-none tracking-[-0.01em]">
-            Gaurav Kumar
+          <p className="label-mono text-faint">
+            © {new Date().getFullYear()} Gaurav Kumar
           </p>
 
           <nav aria-label="Social links" className="flex flex-wrap gap-x-5 gap-y-2">
@@ -39,11 +37,6 @@ export default function Footer() {
               </a>
             ))}
           </nav>
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
-          <p className="label-mono text-faint">© {new Date().getFullYear()} Gaurav Kumar</p>
-          <PageViewCount className="label-mono text-muted" showLabel />
         </div>
       </div>
     </footer>

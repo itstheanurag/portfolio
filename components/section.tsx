@@ -31,7 +31,7 @@ export default function Section({
           className,
         )}
       >
-      <div className="px-6 py-12 sm:px-8 md:py-16 lg:px-10">
+      <div className="px-6 pt-5 sm:px-8 md:pt-6 lg:px-10">
         <header className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
           <div className="flex items-baseline gap-4">
             <span className="label-mono tracking-[0.12em] text-accent">

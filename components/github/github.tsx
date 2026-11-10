@@ -110,7 +110,7 @@ export default function GithubActivity({ username }: { username: string }) {
 
   return (
     <div>
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-3">
+      <div className="-mx-6 flex flex-wrap items-end justify-between gap-4 border-b border-line px-6 pb-3 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
         <p className="font-mono text-[12px] tracking-[0.01em] text-muted">
           <span className="text-ink">
             {new Intl.NumberFormat("en-US").format(totalContributions)}

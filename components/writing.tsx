@@ -90,7 +90,7 @@ export default function Writing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-hover-row
-                className="group relative z-10 -mx-4 grid gap-1.5 border-b border-line px-4 py-4 first:border-t last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+                className="group relative z-10 -mx-6 grid gap-1.5 border-b border-line px-6 py-4 first:border-t last:border-b-0 sm:-mx-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6 sm:px-8 lg:-mx-10 lg:px-10"
               >
                 <div className="min-w-0">
                   <h3 className="font-serif text-[18px] leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-accent">

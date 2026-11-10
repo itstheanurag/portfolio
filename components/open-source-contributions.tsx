@@ -51,7 +51,7 @@ export default function OpenSourceContributions({
               target="_blank"
               rel="noopener noreferrer"
               data-hover-row
-              className="group relative z-10 -mx-4 grid gap-1.5 border-b border-line px-4 py-4 first:border-t last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+              className="group relative z-10 -mx-6 grid gap-1.5 border-b border-line px-6 py-4 first:border-t last:border-b-0 sm:-mx-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6 sm:px-8 lg:-mx-10 lg:px-10"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
@@ -91,7 +91,7 @@ export default function OpenSourceContributions({
         </HoverList>
       )}
 
-      <div className="mt-10 border-t border-line pt-6">
+      <div className="-mx-6 border-t border-line px-6 pt-6 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <p className="eyebrow">GitHub activity</p>
           <Link

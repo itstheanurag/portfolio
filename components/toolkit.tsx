@@ -40,11 +40,11 @@ export default function Toolkit() {
       title="Toolkit"
       note="The tools I reach for, grouped by the job they do. Technology is a means, not a personality."
     >
-      <div className="border-t border-line">
+      <div className="-mx-6 border-t border-line px-6 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
         {GROUPS.map((group) => (
           <div
             key={group.label}
-            className="grid grid-cols-[88px_minmax(0,1fr)] gap-4 border-b border-line py-3.5 last:border-b-0 sm:grid-cols-[138px_minmax(0,1fr)] sm:gap-6"
+            className="-mx-6 grid grid-cols-[88px_minmax(0,1fr)] gap-4 border-b border-line px-6 py-3.5 last:border-b-0 sm:-mx-8 sm:grid-cols-[138px_minmax(0,1fr)] sm:gap-6 sm:px-8 lg:-mx-10 lg:px-10"
           >
             <h3 className="eyebrow pt-0.5">{group.label}</h3>
             <ul className="flex flex-wrap gap-x-4 gap-y-1">

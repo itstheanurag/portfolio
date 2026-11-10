@@ -14,8 +14,8 @@ const STACK = ["NestJS", "PostgreSQL", "TypeScript", "Go"];
 export default function Hero() {
   return (
     <section className="relative">
-      <div className="px-6 pb-14 pt-10 sm:px-8 md:pb-20 md:pt-14 lg:px-10">
-        <div className="flex items-center gap-3.5 border-b border-line pb-6">
+      <div className="px-6 pb-5 pt-6 sm:px-8 md:pb-6 md:pt-8 lg:px-10">
+        <div className="-mx-6 flex items-center gap-3.5 border-b border-line px-6 pb-6 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
           <span className="thumb block size-11 shrink-0">
             <Image
               src="/icon.png"
@@ -82,7 +82,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="rise-in mt-10 flex flex-col gap-3 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between"
+          className="rise-in -mx-6 mt-10 flex flex-col gap-3 border-t border-line px-6 pt-4 sm:-mx-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:-mx-10 lg:px-10"
           style={{ animationDelay: "250ms" }}
         >
           <ul className="flex flex-wrap gap-1.5">

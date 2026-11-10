@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
-  { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },
+  { id: "work", label: "Work" },
   { id: "personal", label: "Personal" },
   { id: "open-source", label: "Open source" },
   { id: "toolkit", label: "Toolkit" },
@@ -14,7 +14,7 @@ const SECTIONS = [
 ];
 
 export default function SectionIndex() {
-  const [active, setActive] = useState("work");
+  const [active, setActive] = useState("experience");
 
   useEffect(() => {
     const observer = new IntersectionObserver(

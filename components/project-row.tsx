@@ -35,7 +35,7 @@ export default function ProjectRow({
   return (
     <article
       data-hover-row
-      className="project-row group relative z-10 -mx-4 grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-3 border-b border-line px-4 py-6 last:border-b-0 sm:grid-cols-[52px_minmax(0,1fr)_auto] sm:gap-x-5"
+      className="project-row group relative z-10 -mx-6 grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-3 border-b border-line px-6 py-6 last:border-b-0 sm:-mx-8 sm:grid-cols-[52px_minmax(0,1fr)_auto] sm:gap-x-5 sm:px-8 lg:-mx-10 lg:px-10"
     >
       <div className="mt-0.5">
         {image ? (

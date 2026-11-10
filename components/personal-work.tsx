@@ -8,8 +8,10 @@ import ProjectRow from "./project-row";
 import InstallCommand from "./install-command";
 
 const SHORT: Record<string, string> = {
-  Republ:
-    "A marketplace for independent talent and product launches — rate cards, direct briefs, and 0% commission.",
+  Rebupl:
+    "A weekly launch board and creator directory — Monday drops, permanent pages, and verified folios.",
+  Utils:
+    "584 local-first browser tools across 29 shelves — no sign-in, no uploads, no installs.",
   Hanma:
     "A registry and CLI for production-ready backend snippets — shadcn/ui, but for the server side.",
   Scaffoldor:
@@ -21,7 +23,8 @@ const SHORT: Record<string, string> = {
 };
 
 const KIND: Record<string, string> = {
-  Republ: "Marketplace",
+  Rebupl: "Launch platform",
+  Utils: "Utility suite",
   Hanma: "Developer tool",
   Scaffoldor: "Developer tool",
   Keyway: "Web app",
@@ -71,13 +74,13 @@ export default function PersonalWork() {
         })}
       </HoverList>
 
-      <div className="mt-9">
+      <div className="-mx-6 mt-9 border-t border-line px-6 pt-6 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
         <p className="eyebrow">On npm</p>
-        <div className="mt-3 border-t border-line">
+        <div className="-mx-6 mt-3 border-t border-line px-6 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
           {NPM_PACKAGES.map((pkg) => (
             <div
               key={pkg.name}
-              className="grid gap-3 border-b border-line py-4 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6"
+              className="-mx-6 grid gap-3 border-b border-line px-6 py-4 last:border-b-0 sm:-mx-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:px-8 lg:-mx-10 lg:px-10"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
